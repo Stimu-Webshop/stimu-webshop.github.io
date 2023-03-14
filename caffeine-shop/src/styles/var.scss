@@ -1,0 +1,26 @@
+// SEPI TEKEE TÄSTÄ TIEDOSTOSTA VÄRIT JA MUUT KONFIGURAATIOT
+
+$primary: #f5f5f5;
+$secondary: #f5f5f5;
+$accent: #f5f5f5;
+$text-header: #f5f5f5;
+$text: #f5f5f5;
+
+@mixin flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin borders {
+    border: 2px solid $accent;
+    border-radius: 5px;
+}
+@mixin text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: $text;
+}
+@mixin reset-margins {
+  margin: 0;
+  padding: 0;
+}
