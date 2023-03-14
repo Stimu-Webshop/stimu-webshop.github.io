@@ -1,0 +1,19 @@
+// SEPI
+@import "var.scss";
+
+
+.carousel-item {
+  
+    img {
+        width: 100%;
+        height: 500px;
+        
+    }
+}
+h5 {
+  @include header-text;
+  p {
+    @include text;
+    }
+
+}
