@@ -1,0 +1,6 @@
+@import "../styles/var.scss";
+
+#footer {
+    @include reset-margins;
+    height: 3px;
+}

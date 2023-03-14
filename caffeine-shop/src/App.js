@@ -15,14 +15,12 @@ function App() {
     <>
       <Navbar />
       <Header />
-      <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} /> 
         </Routes>
-      </div>
       <Footer />
     </>
   );
