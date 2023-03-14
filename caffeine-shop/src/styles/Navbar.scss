@@ -3,3 +3,16 @@
 #nav {
     margin-bottom: 0 !important;
 }
+.navbar {
+    
+    background-image: linear-gradient($primary, $secondary) !important;
+    .nav-item {
+        @include header-text;
+    }
+}
+.navbar-brand {
+    img {
+        width: 120px;
+        height: auto;
+    }
+}

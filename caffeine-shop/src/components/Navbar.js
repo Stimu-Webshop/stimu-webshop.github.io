@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.scss";
 
+import logo from "../img/logo_stimu.png"
+
 export default function Navbar() {
     return (
         <nav id="nav" className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                    STIMU_LOGO
+                   <img src={logo} alt="logo" />
                 </Link>
                 <button
                     className="navbar-toggler"
