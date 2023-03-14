@@ -1,8 +1,10 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
+// Components
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
+// Pages
 import Home from './pages/Home';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
