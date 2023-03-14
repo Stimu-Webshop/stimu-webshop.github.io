@@ -11,7 +11,7 @@ import NotFound from './pages/NotFound';
 function App() {
   return (
     <>
-      <NavBar />
+      <Navbar />
       <Header />
       <div className="container">
         <Routes>
