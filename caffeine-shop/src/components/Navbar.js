@@ -1,4 +1,5 @@
 import React from "react";
+import Search from "./Search";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.scss";
 
@@ -39,6 +40,9 @@ export default function Navbar() {
                                 Contact Us
                             </Link>
                         </li>
+                        <form className="search-bar-container">
+                            <Search />
+                        </form>
                     </ul>
                 </div>
             </div>
