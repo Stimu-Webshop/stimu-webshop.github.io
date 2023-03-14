@@ -1,0 +1,19 @@
+@import "var.scss";
+
+
+.search-bar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar-input{
+    border: 1px solid $primary;
+    border-radius: 5px;
+    padding: 5px;
+    width: 300px;
+    height: 40px;
+    font-size: 1.2rem;
+    color: $text;
+    background-color: $secondary;
+}
