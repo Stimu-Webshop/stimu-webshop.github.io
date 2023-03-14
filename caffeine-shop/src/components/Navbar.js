@@ -7,7 +7,7 @@ export default function Navbar() {
         <nav id="nav" className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                    SPA Example
+                    STIMU_LOGO
                 </Link>
                 <button
                     className="navbar-toggler"
