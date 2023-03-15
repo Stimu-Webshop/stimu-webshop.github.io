@@ -10,7 +10,7 @@ export default function Navbar() {
         <nav id="nav" className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                   <img src={logo} alt="logo" />
+                    <img src={logo} alt="logo" />
                 </Link>
                 <button
                     className="navbar-toggler"
