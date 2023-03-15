@@ -2,5 +2,6 @@
 
 .footer {
     @include reset-margins;
-    height: 3px;
+    height: auto;
+    background-color: red;
 }
