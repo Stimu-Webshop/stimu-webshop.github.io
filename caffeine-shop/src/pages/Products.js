@@ -4,7 +4,10 @@ import axios from 'axios'
 export default function Products() {
   const [searchResults, setSearchResults] = useState([])
   
-  function handleSearch () {
+
+
+
+  useEffect(() => {
     const PHP = "http://localhost:3000/products/getproduct.php"
     axios.get(PHP)
     .then(response => {
@@ -12,19 +15,18 @@ export default function Products() {
       console.log(results)
       setSearchResults(results)
      })
-  }
-  useEffect(() => {
-    handleSearch()
   }, [])
 
     return (
       <div>
         <h1>Products</h1>
-        <div className="products">
-          {searchResults.map((product, index) => (
-            <li>
-              <p className='products' key={index.toString()}>{product.name}</p>
-            </li>
+        <div className="product-container">
+          {searchResults.map((product) => (
+            <ul key={product.id}>
+                <li>{product.name}</li>
+                <li>{product.description}</li>
+            </ul>
+
           ))}
 
       </div>
