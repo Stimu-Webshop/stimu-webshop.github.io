@@ -9,12 +9,12 @@
         height: 95vh;
 
     }
+    h5 {
+        @include header-text;
+    }
+    
+    p {
+        @include text;
+    }
 }
 
-h5 {
-    @include header-text;
-}
-
-p {
-    @include text;
-}
