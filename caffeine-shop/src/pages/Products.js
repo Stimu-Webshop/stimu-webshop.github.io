@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function About() {
+export default function Products() {
   return (
     <div>
         lorem ipsum
