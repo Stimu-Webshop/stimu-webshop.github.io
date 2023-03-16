@@ -2,6 +2,9 @@ import React from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+
 
 import logo from "../img/logo_stimu.png"
 
@@ -33,7 +36,9 @@ export default function Navbar() {
                         <form className="search-bar-container">
                             <Search />
                         </form>
+                        
                     </ul>
+                    <FontAwesomeIcon icon={faMugHot}className="shoppingCart"/>
                 </div>
             </div>
         </nav>
