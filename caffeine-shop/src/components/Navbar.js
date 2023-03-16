@@ -3,7 +3,7 @@ import Search from "./Search";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping} from "@fortawesome/free-solid-svg-icons";
 
 
 import logo from "../img/logo_stimu.png"
@@ -38,7 +38,7 @@ export default function Navbar() {
                         </form>
                         
                     </ul>
-                    <FontAwesomeIcon icon={faMugHot}className="shoppingCart"/>
+                    <FontAwesomeIcon icon={faCartShopping}className="shoppingCart"/>
                 </div>
             </div>
         </nav>
