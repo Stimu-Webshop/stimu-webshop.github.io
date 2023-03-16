@@ -2,17 +2,22 @@
 
 #nav {
     margin-bottom: 0 !important;
+
 }
 .navbar {
-    
-    background-image: linear-gradient($primary, $secondary) !important;
+    background-color: rgb(142, 142, 142) !important;
     .nav-item {
         @include header-text;
     }
 }
 .navbar-brand {
     img {
-        width: 120px;
+        width: 150px;
         height: auto;
     }
+}
+.container-fluid {
+    @include flexbox;
+    justify-content: space-between;
+    flex-direction: row;
 }

@@ -10,7 +10,7 @@ export default function Products() {
 
 
   useEffect(() => {
-    const PHP = "http://localhost:3001/products/getproduct.php"
+    const PHP = "https://www.students.oamk.fi/~n2jose00/PHP/products/getproduct.php"
     axios.get(PHP)
     .then(response => {
       const results = response.data
