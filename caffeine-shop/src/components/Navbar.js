@@ -38,7 +38,7 @@ export default function Navbar() {
                         </form>
                         
                     </ul>
-                    <FontAwesomeIcon icon={faCartShopping}className="shoppingCart"/>
+                    {/* <FontAwesomeIcon icon={faCartShopping}className="shoppingCart"/> */}
                 </div>
             </div>
         </nav>
