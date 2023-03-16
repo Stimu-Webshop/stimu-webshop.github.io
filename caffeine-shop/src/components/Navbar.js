@@ -30,11 +30,6 @@ export default function Navbar() {
                                 Tuotteet
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/contactus">
-                                Contact Us
-                            </Link>
-                        </li>
                         <form className="search-bar-container">
                             <Search />
                         </form>
