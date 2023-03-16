@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import '../styles/Products.scss'
+
 export default function Products() {
   const [searchResults, setSearchResults] = useState([])
   
@@ -8,7 +10,7 @@ export default function Products() {
 
 
   useEffect(() => {
-    const PHP = "http://localhost:3000/products/getproduct.php"
+    const PHP = "http://localhost:3001/products/getproduct.php"
     axios.get(PHP)
     .then(response => {
       const results = response.data
@@ -18,8 +20,8 @@ export default function Products() {
   }, [])
 
     return (
-      <div>
-        <h1>Products</h1>
+      <div className='product-container'>
+        <h1>Tuotteet</h1>
         <div className="product-container">
           {searchResults.map((product) => (
             <ul key={product.id}>

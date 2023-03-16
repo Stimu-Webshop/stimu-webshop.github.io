@@ -1,0 +1,7 @@
+@import "var.scss";
+
+.product-container {
+    @include text;
+    @include header-text;
+    background-color: $primary;
+}

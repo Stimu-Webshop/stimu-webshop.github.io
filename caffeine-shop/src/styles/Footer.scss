@@ -1,7 +1,19 @@
-@import "../styles/var.scss";
+@import "var.scss";
 
-.footer {
-    @include reset-margins;
-    height: auto;
-    background-color: red;
+footer {
+    @include flexbox;
+    flex-direction: row;
+    background-color: rgb(84, 6, 93);
+    height: 250px;
+
+    h1 {
+        @include header-text;
+    }
+
+    p {
+        @include text;
+        @include borders;
+        padding: 10px;
+    }
+
 }
