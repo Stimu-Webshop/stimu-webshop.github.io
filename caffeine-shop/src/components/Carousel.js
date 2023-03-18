@@ -22,22 +22,27 @@ export default function Carousel() {
         <div class="carousel-item active">
           <img src={coffeeImg} alt="image" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Paahto on meidän intohimomme</h5>
+            <p>Rakastamme kahvia yhtä paljon kuin sinäkin. Valikoimamme sisältää vain parhaita kahvilajeja, jotka on paahdettu huolella rakkaudella. 
+              Ota kuppi käteesi ja nauti täydellisestä makuelämyksestä.</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src={edImg} alt="image" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>Piristä itseäsi, kun kahvi ei riitä</h5>
+            <p>Jos kahvi ei ole sinun juttusi tai haluat jotain nopeampaa, meiltä löytyy laaja valikoima mitä parhaimman laatuisia energiajuoomia.
+              Valitse vain suosikkisi ja anna energian virrata.
+            </p>
           </div>
         </div>
         <div class="carousel-item">
           <img src={stimImg} alt="image" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>Korkeat tavoitteet vaativat korkeaa energiatasoa</h5>
+            <p>Haluatko saavuttaa tavoitteesi nopeammin? Valitse meidän laadukkaat kofeiinitabletit ja pre-workout tuotteet, jotka antavat sinulle energiaa
+              ja siivittävät sinut tavotteisiisi valonnopeudella.
+            </p>
           </div>
         </div>
       </div>
