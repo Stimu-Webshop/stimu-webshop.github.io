@@ -20,19 +20,24 @@ export default function Products() {
   }, [])
 
     return (
-      <div className='product-container'>
+      
+      <div>
         <h1>Tuotteet</h1>
-        <div className="product-container">
+        <div className='product-container'>
+        
+        
           {searchResults.map((product) => (
+            <div className="product">
+            <img src={product.img} alt="" srcset="" />
             <ul key={product.id}>
-                <li>{product.name}</li>
-                <li>{product.description}</li>
-                <img src={product.img} alt="" srcset="" />
+                <h5>{product.name}</h5>
+                <li>{product.description.substring(0, 100)}{product.description.length > 100 ? "..." : ""}</li>
+                <li>{product.price} eur</li>
+        
             </ul>
-
+            </div>
     ))}
-
-      </div>
+    </div>
     </div>
     )
   
