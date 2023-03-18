@@ -1,3 +1,5 @@
+//17.3.2023 Sari värkänny ostoskorin
+
 import React from 'react'
 import '../styles/Shoppingcart.scss'
 

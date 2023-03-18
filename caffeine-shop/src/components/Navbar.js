@@ -1,3 +1,5 @@
+//17.3.2023 Sari lisäsi ostokorin ja siihen liittyvät jutut
+
 import React from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";

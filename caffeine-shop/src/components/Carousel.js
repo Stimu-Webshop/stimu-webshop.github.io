@@ -1,4 +1,5 @@
 // SEPI
+// 17.3.2023 Sari lisäili vähän mainostekstiä
 
 import React, { useState } from 'react';
 import coffeeImg from "../img/coffee1.png";
