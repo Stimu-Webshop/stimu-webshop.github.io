@@ -9,7 +9,9 @@ export default function ShoppingCart() {
     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div className="offcanvas-body">
-    Tähän tulee sisältö
+    <p>Tuotteet:</p>
+    <div className="cartItem">Printtaillaan kamat omiin diveihin</div>
+    <button>Kassalle</button>
     
   </div>
   </>

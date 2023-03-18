@@ -2,10 +2,16 @@
 
 body {
     @include text;
-    font-size: 1.2em;
+    font-size: 1.0em;
 }
 
 h5 {
     @include header-text;
     color: black;
+}
+
+button {
+    background-color: black;
+    color: white;
+    margin-top: 10px;
 }
