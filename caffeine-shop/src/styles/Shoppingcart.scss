@@ -15,3 +15,41 @@ button {
     color: white;
     margin-top: 10px;
 }
+
+p {
+    margin-top: 10px;
+}
+
+.cartItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .left {
+    flex: 1;
+  }
+  
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    padding: 8px;
+  }
+  
+  img {
+    max-width: 100%;
+    width: 150px;
+    height: 150px;
+  }
+  

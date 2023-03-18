@@ -9,8 +9,22 @@ export default function ShoppingCart() {
     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div className="offcanvas-body">
-    <p>Tuotteet:</p>
-    <div className="cartItem">Printtaillaan kamat omiin diveihin</div>
+
+  <div className="cartItem">
+  <div className="left">
+    <ul>
+      <li>Tuote</li>
+      <li>Määrä: x</li>
+      <li>Summa: y</li>
+    </ul>
+  </div>
+  <div className="right">
+    <img src="https://via.placeholder.com/300x300" />
+  </div>
+</div>
+<p>Yhteensä: 94 589 eur</p>
+    
+    
     <button>Kassalle</button>
     
   </div>
