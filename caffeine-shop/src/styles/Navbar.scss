@@ -5,7 +5,7 @@
 
 }
 .navbar {
-    background-color: rgb(142, 142, 142) !important;
+    background-color: rgb(41, 40, 40) !important;
     .nav-item {
         @include header-text;
     }
@@ -26,4 +26,8 @@
     font-size: 2em;
     color: $text;
     margin-left: auto;
+    :hover {
+        color: #868686;
+        cursor: pointer;
+    }
 }
