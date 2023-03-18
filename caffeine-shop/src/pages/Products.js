@@ -10,7 +10,7 @@ export default function Products() {
 
 
   useEffect(() => {
-    const PHP = "https://www.students.oamk.fi/~n2jose00/PHP/products/getproduct.php"
+    const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php"
     axios.get(PHP)
     .then(response => {
       const results = response.data
@@ -27,12 +27,14 @@ export default function Products() {
             <ul key={product.id}>
                 <li>{product.name}</li>
                 <li>{product.description}</li>
+                <img src={product.img} alt="" srcset="" />
             </ul>
 
-          ))}
+    ))}
 
       </div>
     </div>
     )
-  }
   
+  
+          }
