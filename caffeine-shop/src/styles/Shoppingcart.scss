@@ -29,6 +29,8 @@ p {
   
   .left {
     flex: 1;
+    display: flex;
+    justify-content: flex-start;
   }
   
   .right {
@@ -44,11 +46,10 @@ p {
   }
   
   li {
-    padding: 8px;
+    padding: 2px;
   }
   
   img {
-    max-width: 100%;
     width: 150px;
     height: 150px;
   }
