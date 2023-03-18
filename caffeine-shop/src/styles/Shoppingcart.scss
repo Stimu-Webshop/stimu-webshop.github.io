@@ -1,0 +1,11 @@
+@import 'var.scss';
+
+body {
+    @include text;
+    font-size: 1.2em;
+}
+
+h5 {
+    @include header-text;
+    color: black;
+}
