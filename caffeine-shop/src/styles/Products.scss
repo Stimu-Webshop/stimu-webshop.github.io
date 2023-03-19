@@ -1,13 +1,13 @@
 @import "var.scss";
 
 body{
-    background-color: rgb(186, 186, 186);
+    background-color: $greige;
 }
 
 .product-container { 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly; /* distribute the divs evenly */
+    justify-content: space-evenly;
   }
   
   .product {
@@ -15,11 +15,11 @@ body{
     font-size: 1.0em;
     color: black;
     display: flex;
-    flex-direction: column; /* set the flex-direction to column */
+    flex-direction: column; 
     width: 300px;
     height: 500px;
     margin: 10px;
-    background-color: azure;
+    background-color: $offwhite;
     align-items: flex-start;
   }
   
@@ -41,28 +41,3 @@ body{
     text-align: center;
   }
   
-
-
-/* @import "var.scss";
-
-.product-container {
-    @include text;
-    @include header-text;
-    background-color: rgb(186, 186, 186);
-}
-
-.product {
-    @include text;
-    color: black;
-    display: inline-block;
-    width: 300px;
-    min-height: 500px;
-    margin: 10px;
-    background-color: azure;
-    
-}
-
-img {
-    width: 300px;
-    height: 300px;
-} */
