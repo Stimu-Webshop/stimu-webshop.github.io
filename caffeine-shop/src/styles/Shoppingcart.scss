@@ -37,6 +37,10 @@ p {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    img {
+      width: 150px;
+      height: 150px;
+    }
   }
   
   ul {
@@ -49,8 +53,5 @@ p {
     padding: 2px;
   }
   
-  img {
-    width: 150px;
-    height: 150px;
-  }
+ 
   
