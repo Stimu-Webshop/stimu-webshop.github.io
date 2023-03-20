@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import ProductPage from './ProductPage'
-import '../styles/Products.scss'
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import ProductPage from './ProductPage';
+import '../styles/Products.scss';
 
 function Test() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [searchResults, setSearchResults] = useState([])
+  const [searchResults, setSearchResults] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php"
+    const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php";
     axios.get(PHP)
       .then(response => {
-        setError(null)
-        setIsLoaded(true)
-        setSearchResults(response.data)
+        setError(null);
+        setIsLoaded(true);
+        setSearchResults(response.data);
       })
       .catch(error => {
         alert(error);
@@ -27,12 +26,18 @@ function Test() {
     setSelectedItem(product);
   }
 
-  if (selectedItem != null) {
-    return <ProductPage product={selectedItem} />;
+  function handleClose() {
+    setSelectedItem(null);
+  }
+
+  if (selectedItem) {
+    return (
+      <ProductPage product={selectedItem} onClose={handleClose} />
+    );
   } else if (error) {
-    return <p>{error.message}</p>
+    return <p>{error.message}</p>;
   } else if (!isLoaded) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   } else {
     return (
       <div>
@@ -51,7 +56,7 @@ function Test() {
           ))}
         </div>
       </div>
-    )
+    );
   }
 }
 
