@@ -5,7 +5,7 @@
 
 }
 .navbar {
-    background-color: rgb(41, 40, 40) !important;
+    background-color: $dark !important;
     .nav-item {
         @include header-text;
     }
@@ -22,12 +22,20 @@
     flex-direction: row;
 }
 
+.nav-link {
+    @include header-text;
+    color: $greige;
+    :hover {
+        color: $accent;
+    }
+}
+
 .shoppingCart {
     font-size: 2em;
-    color: $text;
+    color: $greige;
     margin-left: auto;
     :hover {
-        color: #868686;
+        color: $accent;
         cursor: pointer;
     }
 }
