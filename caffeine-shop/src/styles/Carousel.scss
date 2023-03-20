@@ -6,7 +6,7 @@
 
     img {
         width: 100%;
-        height: 95vh;
+        height: 90vh;
 
     }
     h5 {
@@ -17,5 +17,11 @@
         @include text;
         font-size: 1.1em;
     }
+}
+
+.ad-text-container {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.532);
+    
 }
 
