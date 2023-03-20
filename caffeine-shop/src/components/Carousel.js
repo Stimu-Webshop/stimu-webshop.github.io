@@ -2,11 +2,14 @@
 // 17.3.2023 Sari lisäili vähän mainostekstiä
 
 import React, { useState } from 'react';
+
+
 import coffeeImg from "../img/coffee1.png";
 import edImg from "../img/energy2.png";
 import stimImg from "../img/stimulants.png"
 
 import "../styles/Carousel.scss";
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,7 +23,8 @@ export default function Carousel() {
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <Link to="/coffee">
+        <div class="carousel-item active" >
           <img src={coffeeImg} alt="image" />
           <div class="carousel-caption d-none d-md-block">
           <div class="ad-text-container">
@@ -30,6 +34,8 @@ export default function Carousel() {
               </div>
           </div>
         </div>
+        </Link>
+        <Link to="/energydrinks">
         <div class="carousel-item">
           <img src={edImg} alt="image" />
           <div class="carousel-caption d-none d-md-block">
@@ -41,6 +47,8 @@ export default function Carousel() {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/pwo">
         <div class="carousel-item">
           <img src={stimImg} alt="image" />
           <div class="carousel-caption d-none d-md-block">
@@ -52,6 +60,7 @@ export default function Carousel() {
             </div>
           </div>
         </div>
+        </Link> 
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
