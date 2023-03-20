@@ -12,7 +12,7 @@ export default function EnergyDrinks() {
 
 
     useEffect(() => {
-        const PHP = "http://localhost:3001/products/categories.php?category=3";
+        const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/categories.php?category=3";
         axios.get(PHP)
           .then(response => {
             setError(null);
