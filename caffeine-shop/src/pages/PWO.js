@@ -6,7 +6,7 @@ export default function PWO() {
 
     return (
       <>
-        < CategoryPage pageid="3" header="Piriä" />
+        < CategoryPage pageid="3" header="Pre-workout" />
       </>
     )
     }
