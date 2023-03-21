@@ -3,7 +3,7 @@
 footer {
     @include flexbox;
     flex-direction: row;
-    background-color: $deepPurple;
+    background-color: $dark;
     height: 250px;
 
     h1 {

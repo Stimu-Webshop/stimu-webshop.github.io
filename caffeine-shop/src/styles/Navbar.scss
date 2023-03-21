@@ -12,7 +12,7 @@
 }
 .navbar-brand {
     img {
-        width: 150px;
+        width: 180px;
         height: auto;
     }
 }
@@ -32,10 +32,29 @@
 
 .shoppingCart {
     font-size: 2em;
-    color: $greige;
+    color: white;
     margin-left: auto;
     :hover {
-        color: $accent;
+        color: $greige;
         cursor: pointer;
+    }
+}
+.btn-secondary {
+    @include header-text;
+    background-color: $dark;
+    border-color: white;
+    margin: 15px;
+}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+    background-color: $light !important;
+    border-color: white;
+}
+.dropdown-menu {
+    background-color: $dark;
+        :hover {
+            background-color: $light;
+        }
+    .dropdown-item {
+        @include header-text;
     }
 }
