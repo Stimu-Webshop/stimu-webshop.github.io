@@ -40,11 +40,17 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="/products">
+              <div class="dropdown">
+                <button class="btn btn-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Tuotteet
-                </Link>
-              </li>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <Link class="dropdown-item" to="/products">Kaikki tuotteet</Link>
+                  <Link class="dropdown-item" to="/coffee">Kahvit</Link>
+                  <Link class="dropdown-item" to="/energydrinks">Energiajuomat</Link>
+                  <Link class="dropdown-item" to="/pwo">Pre-workout</Link>
+                </div>
+              </div>
               <form className="search-bar-container">
                 <Search />
               </form>
@@ -66,9 +72,9 @@ export default function Navbar() {
         tabIndex="-1"
         id="offcanvas"
         aria-labelledby="offcanvasLabel">
-        
+
         <ShoppingCart />
-       
+
       </div>
     </>
   );

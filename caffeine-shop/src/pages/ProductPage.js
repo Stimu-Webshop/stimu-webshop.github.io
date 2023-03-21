@@ -1,12 +1,18 @@
-import React from 'react';
-import '../styles/ProductPage.scss';
 
-export default function ProductPage({product}) {
-    return (
-      <div>
-        <p>Näkyykö tämä?</p>
-         <h1>{product.name}</h1>
-        <p>{product.description}</p>
-      </div>
-    );
-  }
+import React from 'react';
+
+function ProductPage(props) {
+  const { product, onClose } = props;
+
+  return (
+    <div className="product-page">
+      <h2>{product.name}</h2>
+      <img src={product.img} alt={product.name} />
+      <p>{product.description}</p>
+      <p>{product.price} eur</p>
+      <button onClick={onClose}>Close</button>
+    </div>
+  );
+}
+
+export default ProductPage;

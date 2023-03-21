@@ -11,6 +11,9 @@ import ContactUs from './pages/ContactUs';
 import NotFound from './pages/NotFound';
 import Products from './pages/Products';
 import ProductPage from './pages/ProductPage';
+import Coffee from './pages/Coffee';
+import EnergyDrinks from './pages/EnergyDrinks';
+import PWO from './pages/PWO';
 
 function App() {
   return (
@@ -22,7 +25,10 @@ function App() {
           <Route path="products" element={<Products />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="productpage" element={<ProductPage />} /> 
+          <Route path="productpage" element={<ProductPage />} />  
+          <Route path="coffee" element={<Coffee />} />
+          <Route path="energydrinks" element={<EnergyDrinks />} />
+          <Route path="pwo" element={<PWO />} />
         </Routes>
       <Footer />
     </>
