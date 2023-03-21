@@ -39,13 +39,13 @@
         cursor: pointer;
     }
 }
-.btn-secondary {
+.btn-dropdown {
     @include header-text;
     background-color: $dark;
     border-color: white;
     margin: 15px;
 }
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+.btn-dropdown:hover, .btn-dropdown:focus, .btn-dropdown:active, .btn-dropdown.active, .open>.dropdown-toggle.btn-dropdown {
     background-color: $light !important;
     border-color: white;
 }
