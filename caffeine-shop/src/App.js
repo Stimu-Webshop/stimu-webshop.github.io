@@ -26,7 +26,7 @@ function App() {
           <Route path="products" element={<Products />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="productpage" element={<ProductPage />} />  
+          <Route path="productpage/:id" element={<ProductPage />} />  
           <Route path="coffee" element={<Coffee />} />
           <Route path="energydrinks" element={<EnergyDrinks />} />
           <Route path="pwo" element={<PWO />} />
