@@ -10,7 +10,7 @@ const ProductPage = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php?id=${id}`;
+    const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/selected.php?id=${id}`;
     axios.get(PHP)
       .then(response => {
         setError(null);
