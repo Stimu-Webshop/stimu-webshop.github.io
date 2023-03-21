@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+// 21:19 21.3.23 TODOs:
+// Tässä ei oikee vielä mikään toimi jostain syystä
+// Havaittuja ongelmia: JSON ei päädy PHP:lle asti, vaikka bodyn pitäisi formatoitua oikein
+// Ongelma mahdollisesti php päässä, ehkä fetch -methodissa ongelmaa? 
+// - Samppa
 export default function LoginFunction() {
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
