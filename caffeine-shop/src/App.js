@@ -15,6 +15,7 @@ import Coffee from './pages/Coffee';
 import EnergyDrinks from './pages/EnergyDrinks';
 import PWO from './pages/PWO';
 import RegisteryPage from './pages/RegisteryPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="energydrinks" element={<EnergyDrinks />} />
           <Route path="pwo" element={<PWO />} />
           <Route path="register" element ={<RegisteryPage />} />
+          <Route path="login" element = { <LoginPage />} />
         </Routes>
       <Footer />
     </>
