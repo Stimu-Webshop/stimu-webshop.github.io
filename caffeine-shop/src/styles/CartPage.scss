@@ -1,0 +1,16 @@
+@import "var.scss";
+
+body {
+    color: $secondary;
+    font-size: 1.2em;
+}
+
+h2 {
+    @include header-text;
+    color: $secondary;
+    font-size: 2.5em;
+}
+
+.cartpage {
+    margin: 10px;
+}

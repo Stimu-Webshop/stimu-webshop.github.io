@@ -67,15 +67,16 @@ export default function Navbar() {
       </nav>
 
       {/* // Shopping cart */}
-      <div
-        className={`offcanvas offcanvas-end ${showCart ? 'show' : ''}`}
-        tabIndex="-1"
-        id="offcanvas"
-        aria-labelledby="offcanvasLabel">
+      
+<div
+  className={`offcanvas offcanvas-end ${showCart ? 'show' : ''}`}
+  tabIndex="-1"
+  id="offcanvas"
+  aria-labelledby="offcanvasLabel"
+>
+  <ShoppingCart showCart={showCart} />
+</div>
 
-        <ShoppingCart />
-
-      </div>
     </>
   );
 }

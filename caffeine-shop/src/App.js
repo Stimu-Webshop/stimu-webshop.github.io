@@ -16,6 +16,7 @@ import EnergyDrinks from './pages/EnergyDrinks';
 import PWO from './pages/PWO';
 import RegisteryPage from './pages/RegisteryPage';
 import LoginPage from './pages/LoginPage';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="pwo" element={<PWO />} />
           <Route path="register" element ={<RegisteryPage />} />
           <Route path="login" element = { <LoginPage />} />
+          <Route path="cartpage" element = { <CartPage />} />
         </Routes>
       <Footer />
     </>

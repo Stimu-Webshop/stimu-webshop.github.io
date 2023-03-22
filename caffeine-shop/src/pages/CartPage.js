@@ -1,10 +1,13 @@
 import React from 'react'
-import ShoppingCart from '../components/Shoppingcart'
+import CartContent from '../components/CartContent'
+import '../styles/CartPage.scss'
+
 
 export default function CartPage() {
   return (
-    <div>
-        <ShoppingCart />
+    <div className='cartpage'>
+      <h2>Ostoskori</h2>
+      <CartContent />
     </div>
   )
 }
