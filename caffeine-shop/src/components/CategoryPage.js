@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductPage from "../pages/ProductPage";
+import { Link } from "react-router-dom";
 
 
 
@@ -26,41 +26,30 @@ export default function CategoryPage({pageid, header}) {
           });
       }, []);
 
-      function handleProductClick(product) {
-        setSelectedItem(product);
-      }
-
-      function handleClose() {
-        setSelectedItem(null);
-      }
-
-      if (selectedItem) {
-        return (
-          <ProductPage product={selectedItem} onClose={handleClose} />
-        );
-      } else if (error) {
+      if (error) {
         return <p>{error.message}</p>;
       } else if (!isLoaded) {
         return <p>Loading...</p>;
       } else {
         return (
           <div>
-            <h1>{header}</h1>
+            <h1>Tuotteet</h1>
             <div className='product-container'>
               {searchResults.map((product) => (
-                <div className="product" key={product.id} onClick={() =>
-                  handleProductClick(product)}>
-                  <img src={product.img} alt="" srcSet="" />
-                  <ul>
-                    <h5>{product.name}</h5>
-                    <li>{product.description.substring(0, 100)}{product.description.length > 100 ? "..." : ""}</li>
-                    <li>{product.price} eur</li>
-                  </ul>
+                <div className="product" key={product.id}>
+                  <Link to={`/productpage/${product.id}`}>
+                    <img src={product.img} alt="" srcSet="" />
+                    <ul>
+                      <h5>{product.name}</h5>
+                      <li>{product.description.substring(0, 100)}{product.description.length > 100 ? "..." : ""}</li>
+                      <li>{product.price} eur</li>
+                    </ul>
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
         );
       }
-    }
+    };
 
