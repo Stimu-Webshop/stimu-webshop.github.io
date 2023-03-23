@@ -31,7 +31,7 @@ const ProductList = () => {
         <h1>Tuotteet</h1>
         <div className='product-container'>
           {products.map((product) => (
-            <div className="product" key={product.id}>
+            <div className="product" id="product-box" key={product.id}>
               <Link to={`/productpage/${product.id}`}>
                 <img src={product.img} alt="" srcSet="" />
                 <ul>
