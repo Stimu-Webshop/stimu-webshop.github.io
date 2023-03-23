@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Rating from '../components/Rating'
 import '../styles/ProductPage.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faXmark, faStar } from "@fortawesome/free-solid-svg-icons"
@@ -64,24 +65,14 @@ const ProductPage = () => {
           <select name="amount" onChange={e => setAmount(e.target.value)}>
             {buyAmount.map(value => <option value={value}>{value}</option>)}
           </select>
-
-          <button onClick={() => console.log(amount)}>Lisää ostoskoriin</button>
+                {/* Sepi lisäs napeille Bootstrap-classit niin saadaan tyylitellä */}
+          <button className='btn btn-secondary' onClick={() => console.log(amount)}>Lisää ostoskoriin</button>
           {/* On click funktio jätetty, jos tarvii vielä myöhemmin tarkastaa määrää */}
         </div>
 
-        <button onClick={() => navigate(-1)}>Go back</button>
-
-        <h3>Arvostelut</h3>
-        <div className='rating'>
-          <div className='ratingStars'>
-            {/* Tässäkin on nyt vaan nämä ikonit, pitää lisätä vielä input kenttiä ja hover toiminnallisuudet (rating ja värin vaihtuminen) ikoneille */}
-            <FontAwesomeIcon icon={faStar} className='star' id="star1" />
-            <FontAwesomeIcon icon={faStar} className='star' id="star2" />
-            <FontAwesomeIcon icon={faStar} className='star' id="star3" />
-            <FontAwesomeIcon icon={faStar} className='star' id="star4" />
-            <FontAwesomeIcon icon={faStar} className='star' id="star5" />
-          </div>
-        </div>
+        <button className='btn btn-secondary' onClick={() => navigate(-1)}>Go back</button>
+          {/* Tein arvostelusta komponentin ks. Rating.js t.Sepi */}
+        <Rating/>
       </div>
 
     )
