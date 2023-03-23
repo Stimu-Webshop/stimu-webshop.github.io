@@ -72,7 +72,7 @@ const ProductPage = () => {
 
         <button className='btn btn-secondary' onClick={() => navigate(-1)}>Go back</button>
           {/* Tein arvostelusta komponentin ks. Rating.js t.Sepi */}
-        <Rating/>
+        <Rating id={product.id}/>
       </div>
 
     )
