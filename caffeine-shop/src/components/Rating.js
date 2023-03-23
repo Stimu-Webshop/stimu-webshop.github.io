@@ -17,11 +17,11 @@ export default function Rating() {
         setName("");
         setComment("");
     };
-
+    // Funktiolla nimi ja kommentti tilamuuttujaan, tätä käytetään "Lähetä" -napissa
     const reviewHandler = () => {
         setReview([...review, { name: name, comment: comment }]);
     };
-
+    // Arvostelukomponentti
     const Review = ({ name, comment }) => (
         <div className="review">
             <h3>{name}</h3>
@@ -42,6 +42,7 @@ export default function Rating() {
                     <label>Arvostelu:</label>
                     <textarea name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                     <button type="submit" className="btn btn-primary" onClick={reviewHandler}>Lähetä</button>
+                    {/* Tilamuuttujaan napilla syötetyt tiedot annetaan arvostelukomponentille ja kutsutaan komponentti */}
                     {review.map((review, index) => (
                         <Review key={index} name={review.name} comment={review.comment} />
                     ))}
