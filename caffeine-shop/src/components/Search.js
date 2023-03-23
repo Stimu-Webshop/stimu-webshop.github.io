@@ -1,7 +1,8 @@
 import React from 'react';
-import '../styles/Search.scss'
+import '../styles/Search.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function SearchBar() {
   const [query, setQuery] = useState('');
@@ -26,10 +27,16 @@ function SearchBar() {
 
   return (
     <form>
-        <input className="search-bar-input" type="text" placeholder="Search..." value={query} onChange={handleQueryChange} />
+      <input className="search-bar-input" type="text" placeholder="Search..." value={query} onChange={handleQueryChange} />
       <ul>
         {results.map((result) => (
-          <li key={result.id}>{result.name}</li>
+          <li key={result.id}>
+            <Link to={`/productpage/${result.id}`}>
+              <img src={result.img} alt={result.name} />
+              {result.name}
+              <p>{result.name} eur</p>
+            </Link>
+          </li>
         ))}
       </ul>
     </form>
