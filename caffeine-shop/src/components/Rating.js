@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
-import { useEffect } from "react"
 
 // TÄÄ TARVII TYYLITTELYÄ T. SEPI
 
