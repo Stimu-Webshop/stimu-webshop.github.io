@@ -11,9 +11,6 @@ export default function Rating(id) {
     const [review, setReview] = useState([]);
     const [pageid, setPageid] = useState(id);
     const [data, setData] = useState([]);
-
-
-
     const [rating, setRating] = useState(0);
 
 
@@ -29,7 +26,7 @@ export default function Rating(id) {
         const responseObject = JSON.parse(response);
         const id = responseObject.id;
 
-        setReview([...review, { name: name, comment: comment }]);
+        setReview([...review, { name: name, comment: comment, rating: rating }]);
         const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`;
         // Läheteään tiedot PHP:lle, joka lisää ne tietokantaan. Huomaa että ID on ProductPage-komponentilta saatu sivun ID
         fetch(PHP, {
