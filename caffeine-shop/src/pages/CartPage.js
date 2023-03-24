@@ -39,12 +39,12 @@ export default function CartPage() {
       )
       .then(() => {
         // Delete successful
-        alert('Ososkori tyhjennetty');
+        alert('Ostoskori tyhjennetty');
         // Update product list or do other actions as needed
       })
       .catch(() => {
         // Delete failed
-        alert('Ososkori tyhjennys epäonnistui');
+        alert('Ostoskorin tyhjennys epäonnistui');
       });
   };
   return (
