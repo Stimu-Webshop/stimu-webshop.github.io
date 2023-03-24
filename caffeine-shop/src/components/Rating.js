@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
+import { useEffect } from "react"
 
 // TÄÄ TARVII TYYLITTELYÄ T. SEPI
 
@@ -34,6 +35,7 @@ export default function Rating(id) {
             },
             body: JSON.stringify({
                 id: id,
+                rating: rating,
                 comment: comment
             })
         })
@@ -56,66 +58,44 @@ export default function Rating(id) {
             <p>{comment}</p>
             <p>{rating}</p>
             <div className='ratingStars'>
-                {/* Tässäkin on nyt vaan nämä ikonit, pitää lisätä vielä input kenttiä ja hover toiminnallisuudet (rating ja värin vaihtuminen) ikoneille */}
+                
                 <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar1" />
                 <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar2" />
                 <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar3" />
-                <FontAwesomeIcon icon={faStar} className='rewStar' id="srewStar4" />
+                <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar4" />
                 <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar5" />
             </div>
         </div>
-    );
+    ); 
 
-    // Lue rating tähden klikkauksesta ja anna sen arvo rating muuttujalle
-    //HUOM tähdet on pitänyt laittaa vastakkaiseen järkkään hienon hoverin takia niin siksi nurinkurinen if lauseke
-
-
-    //EI TÄMÄ TOIMI SAATANA
-/*      function starClickHandler(e) {
-        const star = e.target;
-        const starId = star.id;
-        const starNumber = starId.slice(4);
-        let ratingValue
-        if (starNumber === 1) {
-            ratingValue = 5;
-        } else if (starNumber === 2) {
-            ratingValue = 4;
-        } else if (starNumber === 3) {
-            ratingValue = 3;
-        } else if (starNumber === 4) {
-            ratingValue = 2;
-        } else if (starNumber === 5) {
-            ratingValue = 1;
-        }
-        setRating(ratingValue)
-    } */ 
+    useEffect(() => {
+        console.log(rating);
+      }, [rating]);
 
     return (
-        <>
-            <h3>Arvostelut</h3>
-            <form onSubmit={handleSubmit} className="review-form" method="post">
+            <>
+              <h3>Arvostelut</h3>
+              <form onSubmit={handleSubmit} className="review-form" method="post">
                 <label>Nimi:</label>
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <label>Arvostelu:</label>
                 <textarea name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                 <label>Tähdet:</label>
                 <div className='ratingStars'>
-                    {/* Tässäkin on nyt vaan nämä ikonit, pitää lisätä vielä input kenttiä ja hover toiminnallisuudet (rating ja värin vaihtuminen) ikoneille */}
-                    <FontAwesomeIcon icon={faStar} className='star' id="star5" />
-
-                    <FontAwesomeIcon icon={faStar} className='star' id="star4" />
-                    <FontAwesomeIcon icon={faStar} className='star' id="star3" />
-                    <FontAwesomeIcon icon={faStar} className='star' id="star2" />
-                    <FontAwesomeIcon icon={faStar} className='star' id="star1" />
+                  <FontAwesomeIcon icon={faStar} className='star' id="star5" onClick={() => setRating(5)} />
+                  <FontAwesomeIcon icon={faStar} className='star' id="star4" onClick={() => setRating(4)} />
+                  <FontAwesomeIcon icon={faStar} className='star' id="star3" onClick={() => setRating(3)} />
+                  <FontAwesomeIcon icon={faStar} className='star' id="star2" onClick={() => setRating(2)} />
+                  <FontAwesomeIcon icon={faStar} className='star' id="star1" onClick={() => setRating(1)} />
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={reviewHandler}>Lähetä</button>
-                {/* Tilamuuttujaan napilla syötetyt tiedot annetaan arvostelukomponentille ja kutsutaan komponentti */}
-            </form>
-            <div className='rating'>
+              </form>
+              <div className='rating'>
                 {review.map((review, index) => (
-                    <Review key={index} name={review.name} comment={review.comment} />
+                  <Review key={index} name={review.name} comment={review.comment} rating={review.rating} />
                 ))}
-            </div>
-        </>
-    )
+              </div>
+            </>
+          );
+          
 }
