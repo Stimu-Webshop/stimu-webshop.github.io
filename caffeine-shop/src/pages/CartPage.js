@@ -12,7 +12,10 @@ export default function CartPage() {
   };
 
   const handlePlaceOrder = () => {
-    setIsOrdering(true);
+    const confirmed = window.confirm('Haluatko varmasti vahvistaa tilauksen?');
+    if (!confirmed) {
+      return;
+    }
 
     axios
       .post(
@@ -21,12 +24,12 @@ export default function CartPage() {
       )
       .then(() => {
         // Order successful
-        alert('Order successful');
+        alert('Tilaus vahvistettu, kiitos tilauksesta!');
         // Clear cart or update cart as needed
       })
       .catch(() => {
         // Order failed
-        alert('Order failed');
+        alert('Tilaus epäonnistui');
       });
   };
 
@@ -36,12 +39,12 @@ export default function CartPage() {
       )
       .then(() => {
         // Delete successful
-        alert('Delete successful');
+        alert('Ososkori tyhjennetty');
         // Update product list or do other actions as needed
       })
       .catch(() => {
         // Delete failed
-        alert('Delete failed');
+        alert('Ososkori tyhjennys epäonnistui');
       });
   };
   return (
