@@ -15,9 +15,9 @@ export default function Rating(id) {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setName("");
-        setComment("");
+        e.preventDefault()
+        setName("")
+        setComment("")
     };
     // Funktiolla nimi ja kommentti tilamuuttujaan, tätä käytetään "Lähetä" -napissa
     const reviewHandler = () => {
