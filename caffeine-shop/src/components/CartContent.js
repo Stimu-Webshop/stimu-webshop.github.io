@@ -18,7 +18,7 @@ export default function CartContent() {
       .catch((error) => {
         setError(error);
       });
-  }, []);
+  }, [cartItems]);
 
   const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.total), 0);
 
