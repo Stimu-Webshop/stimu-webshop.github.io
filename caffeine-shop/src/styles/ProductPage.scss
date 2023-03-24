@@ -26,11 +26,18 @@ img {
     font-size: 1.5em;
     padding: 5px;
     color: $greige;
+    transition: color 0.3s ease;
+}
+
+
+.star:hover,
+.star:hover ~ .star {
+  color: $secondary;
 }
 
 .ratingStars {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse; //HUOM tämä määritys pitää olla, että tähdet saa värjättyä vasemmalta oikealle!
     justify-content: center;
     align-items: center;
 }
@@ -79,3 +86,4 @@ h3 {
             color: black;
         }
 }
+

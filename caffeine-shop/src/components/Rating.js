@@ -12,6 +12,7 @@ export default function Rating(id) {
     const [comment, setComment] = useState('');
     const [review, setReview] = useState([]);
     const [pageid, setPageid] = useState(id);
+    const [rating, setRating] = useState(null);
 
 
 
@@ -80,6 +81,15 @@ export default function Rating(id) {
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <label>Arvostelu:</label>
                 <textarea name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+                <label>Tähdet:</label>
+                <div className='ratingStars'>
+                {/* Tässäkin on nyt vaan nämä ikonit, pitää lisätä vielä input kenttiä ja hover toiminnallisuudet (rating ja värin vaihtuminen) ikoneille */}
+                <FontAwesomeIcon icon={faStar} className='star' id="star5" />
+                <FontAwesomeIcon icon={faStar} className='star' id="star4" />
+                <FontAwesomeIcon icon={faStar} className='star' id="star3" />
+                <FontAwesomeIcon icon={faStar} className='star' id="star2" />
+                <FontAwesomeIcon icon={faStar} className='star' id="star1" />
+            </div>
                 <button type="submit" className="btn btn-primary" onClick={reviewHandler}>Lähetä</button>
                 {/* Tilamuuttujaan napilla syötetyt tiedot annetaan arvostelukomponentille ja kutsutaan komponentti */}
             </form>
