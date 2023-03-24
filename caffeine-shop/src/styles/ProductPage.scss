@@ -29,6 +29,13 @@ img {
     transition: color 0.3s ease;
 }
 
+.rewStar {
+    font-size: 1.5em;
+    padding: 5px;
+    color: $secondary;
+
+}
+
 
 .star:hover,
 .star:hover ~ .star {
