@@ -15,7 +15,6 @@ export default function Rating(id) {
 
 
     const handleSubmit = (e) => {
-
         e.preventDefault();
         setName("");
         setComment("");
@@ -77,24 +76,24 @@ export default function Rating(id) {
 
 
     //EI TÄMÄ TOIMI SAATANA
-/*      function starClickHandler(e) {
-        const star = e.target;
-        const starId = star.id;
-        const starNumber = starId.slice(4);
-        let ratingValue
-        if (starNumber === 1) {
-            ratingValue = 5;
-        } else if (starNumber === 2) {
-            ratingValue = 4;
-        } else if (starNumber === 3) {
-            ratingValue = 3;
-        } else if (starNumber === 4) {
-            ratingValue = 2;
-        } else if (starNumber === 5) {
-            ratingValue = 1;
-        }
-        setRating(ratingValue)
-    } */ 
+    /*      function starClickHandler(e) {
+            const star = e.target;
+            const starId = star.id;
+            const starNumber = starId.slice(4);
+            let ratingValue
+            if (starNumber === 1) {
+                ratingValue = 5;
+            } else if (starNumber === 2) {
+                ratingValue = 4;
+            } else if (starNumber === 3) {
+                ratingValue = 3;
+            } else if (starNumber === 4) {
+                ratingValue = 2;
+            } else if (starNumber === 5) {
+                ratingValue = 1;
+            }
+            setRating(ratingValue)
+        } */
 
     return (
         <>
