@@ -36,7 +36,7 @@ const ProductPage = () => {
 
 const handleAddToCart = () => {
   const cartItem = {
-    user_id: 1, // Replace with the actual user id
+    user_id: 1, // tällä hetkellä tilaukset menee aina käyttäjälle 1
     id: product.id,
     name: product.name,
     quantity: parseInt(amount),
