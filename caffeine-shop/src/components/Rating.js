@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
@@ -11,14 +11,14 @@ export default function Rating(id) {
     const [comment, setComment] = useState('');
     const [review, setReview] = useState([]);
     const [pageid, setPageid] = useState(id);
+    const [data, setData] = useState([]);
     const [rating, setRating] = useState(0);
 
 
     const handleSubmit = (e) => {
-
-        e.preventDefault();
-        setName("");
-        setComment("");
+        e.preventDefault()
+        setName("")
+        setComment("")
     };
     // Funktiolla nimi ja kommentti tilamuuttujaan, tätä käytetään "Lähetä" -napissa
     const reviewHandler = () => {
@@ -26,8 +26,9 @@ export default function Rating(id) {
         const responseObject = JSON.parse(response);
         const id = responseObject.id;
 
-        setReview([...review, { name: name, comment: comment, rating: rating }])
-        const PHP = `http://localhost:3001/reviews/review.php`
+        setReview([...review, { name: name, comment: comment, rating: rating }]);
+        const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`;
+        // Läheteään tiedot PHP:lle, joka lisää ne tietokantaan. Huomaa että ID on ProductPage-komponentilta saatu sivun ID
         fetch(PHP, {
             method: 'POST',
             headers: {
@@ -36,20 +37,24 @@ export default function Rating(id) {
             body: JSON.stringify({
                 id: id,
                 rating: rating,
-                comment: comment
+                comment: comment,
+                name: name
             })
         })
+    };
+
+    useEffect(() => {
+        const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/getreview.php?pageid=${pageid.id}`;
+        axios.get(PHP)
             .then(response => {
-                if (response.ok) {
-                    console.log('Review submitted successfully.')
-                } else {
-                    throw new Error('Network response was not ok.')
-                }
+                setData(response.data)
+                console.log(response.data);
             })
             .catch(error => {
-                console.error('There was a problem submitting the review:', error)
-            });
-    };
+                console.log(error)
+            })
+    }, []);
+
 
     // Arvostelukomponentti
     const Review = ({ name, comment, rating }) => (
@@ -93,6 +98,9 @@ export default function Rating(id) {
               <div className='rating'>
                 {review.map((review, index) => (
                   <Review key={index} name={review.name} comment={review.comment} rating={review.rating} />
+                ))}
+                {data.map((product, index) => (
+                    <Review key={index} name={product.review_name} comment={product.review_text} />
                 ))}
               </div>
             </>
