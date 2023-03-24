@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
@@ -12,6 +12,7 @@ export default function Rating(id) {
     const [comment, setComment] = useState('');
     const [review, setReview] = useState([]);
     const [pageid, setPageid] = useState(id);
+    const [data, setData] = useState([]);
 
 
 
@@ -30,7 +31,8 @@ export default function Rating(id) {
         const id = responseObject.id;
 
         setReview([...review, { name: name, comment: comment }]);
-        const PHP = `http://localhost:3001/reviews/review.php`;
+        const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`;
+        // Läheteään tiedot PHP:lle, joka lisää ne tietokantaan. Huomaa että ID on ProductPage-komponentilta saatu sivun ID
         fetch(PHP, {
             method: 'POST',
             headers: {
@@ -38,20 +40,24 @@ export default function Rating(id) {
             },
             body: JSON.stringify({
                 id: id,
-                comment: comment
+                comment: comment,
+                name: name
             })
         })
+    };
+
+    useEffect(() => {
+        const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/getreview.php?pageid=${pageid.id}`;
+        axios.get(PHP)
             .then(response => {
-                if (response.ok) {
-                    console.log('Review submitted successfully.');
-                } else {
-                    throw new Error('Network response was not ok.');
-                }
+                setData(response.data)
+                console.log(response.data);
             })
             .catch(error => {
-                console.error('There was a problem submitting the review:', error);
-            });
-    };
+                console.log(error)
+            })
+    }, []);
+
 
     // Arvostelukomponentti
     const Review = ({ name, comment }) => (
@@ -86,6 +92,9 @@ export default function Rating(id) {
             <div className='rating'>
                 {review.map((review, index) => (
                     <Review key={index} name={review.name} comment={review.comment} />
+                ))}
+                {data.map((product, index) => (
+                    <Review key={index} name={product.review_name} comment={product.review_text} />
                 ))}
             </div>
         </>
