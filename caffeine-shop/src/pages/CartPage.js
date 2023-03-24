@@ -19,7 +19,7 @@ export default function CartPage() {
 
     axios
       .post(
-        "https://www.students.oamk.fi/~n2jato00/PHP/products/deletecart.php",
+        "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
         orderData
       )
       .then(() => {
@@ -34,7 +34,7 @@ export default function CartPage() {
   };
 
   const handleDeleteCart = () => {
-    axios.post("https://www.students.oamk.fi/~n2jato00/PHP/products/deletecart.php",
+    axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
       orderData
       )
       .then(() => {
