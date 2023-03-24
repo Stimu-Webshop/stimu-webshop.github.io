@@ -8,6 +8,8 @@ export default function CartPage() {
     <div className='cartpage'>
       <h2>Ostoskori</h2>
       <CartContent />
+      <button>Vahvista ostokset</button>
+      <button className='emptyCart'>Tyhjennä kori</button>
     </div>
   )
 }
