@@ -3,8 +3,6 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 
-
-
 // TÄÄ TARVII TYYLITTELYÄ T. SEPI
 
 export default function Rating(id) {
@@ -13,9 +11,6 @@ export default function Rating(id) {
     const [review, setReview] = useState([]);
     const [pageid, setPageid] = useState(id);
     const [rating, setRating] = useState(null);
-
-
-
 
 
     const handleSubmit = (e) => {
@@ -30,8 +25,8 @@ export default function Rating(id) {
         const responseObject = JSON.parse(response);
         const id = responseObject.id;
 
-        setReview([...review, { name: name, comment: comment }]);
-        const PHP = `http://localhost:3001/reviews/review.php`;
+        setReview([...review, { name: name, comment: comment }])
+        const PHP = `http://localhost:3001/reviews/review.php`
         fetch(PHP, {
             method: 'POST',
             headers: {
@@ -44,13 +39,13 @@ export default function Rating(id) {
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('Review submitted successfully.');
+                    console.log('Review submitted successfully.')
                 } else {
-                    throw new Error('Network response was not ok.');
+                    throw new Error('Network response was not ok.')
                 }
             })
             .catch(error => {
-                console.error('There was a problem submitting the review:', error);
+                console.error('There was a problem submitting the review:', error)
             });
     };
 
