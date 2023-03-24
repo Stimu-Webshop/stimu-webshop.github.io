@@ -34,13 +34,35 @@ const ProductPage = () => {
       })
   }, [id])
 
+const handleAddToCart = () => {
+  const cartItem = {
+    user_id: 1, // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    id: product.id,
+    name: product.name,
+    quantity: parseInt(amount),
+    price: product.price,
+    total: parseInt(amount) * product.price // Calculate the total value
+  };
+
+  axios
+    .post(
+      'https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/shoppingcart.php',
+      [cartItem] // Send the cart data as an array
+    )
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
   if (error) {
     return <p>{error.message}</p>
   } else if (!isLoaded) {
     return <p>Loading...</p>
   } else {
     return (
-
       <div className='productContainer'>
         <h1>{product.name}</h1>
         <div className='productPic'>
@@ -49,7 +71,6 @@ const ProductPage = () => {
         <div className='productInfo'>
           <ul>
             <li>{product.description}</li>
-            {/* Jos varastossa -> checkmark, muuten rasti */}
             <li>Varastossa: {product.quantity}
               {product.quantity > 0 ?
                 <FontAwesomeIcon
@@ -65,16 +86,11 @@ const ProductPage = () => {
           <select name="amount" onChange={e => setAmount(e.target.value)}>
             {buyAmount.map(value => <option value={value}>{value}</option>)}
           </select>
-                {/* Sepi lisäs napeille Bootstrap-classit niin saadaan tyylitellä */}
-          <button className='btn btn-secondary' onClick={() => console.log(amount)}>Lisää ostoskoriin</button>
-          {/* On click funktio jätetty, jos tarvii vielä myöhemmin tarkastaa määrää */}
+          <button className='btn btn-secondary' onClick={handleAddToCart}>Lisää ostoskoriin</button>
         </div>
-
         <button className='btn btn-secondary' onClick={() => navigate(-1)}>Go back</button>
-          {/* Tein arvostelusta komponentin ks. Rating.js t.Sepi */}
         <Rating id={product.id}/>
       </div>
-
     )
   }
 }
