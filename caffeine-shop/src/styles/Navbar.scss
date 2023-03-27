@@ -30,15 +30,29 @@
     }
 }
 
+.icons {
+    margin-left: auto;
+}
+
 .shoppingCart {
     font-size: 2em;
     color: white;
-    margin-left: auto;
     :hover {
         color: $light;
         cursor: pointer;
     }
 }
+
+.user {
+    font-size: 2em;
+    color: white;
+    padding-right: 20px;
+    :hover {
+        color: $light;
+        cursor: pointer;
+    }
+}
+
 .btn-dropdown {
     @include header-text;
     background-color: $dark;
