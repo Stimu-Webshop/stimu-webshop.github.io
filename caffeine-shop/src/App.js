@@ -17,7 +17,7 @@ import PWO from './pages/PWO';
 import RegisteryPage from './pages/RegisteryPage';
 import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
-
+import LoginSuccess from './pages/LoginSuccess';
 function App() {
   return (
     <>
@@ -35,6 +35,7 @@ function App() {
           <Route path="register" element ={<RegisteryPage />} />
           <Route path="login" element = { <LoginPage />} />
           <Route path="cartpage" element = { <CartPage />} />
+          <Route path="loginsuccess" element = {<LoginSuccess/>} />
         </Routes>
       <Footer />
     </>
