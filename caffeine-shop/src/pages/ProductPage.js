@@ -71,8 +71,8 @@ const handleAddToCart = () => {
         <div className='productInfo'>
           <ul>
             <li>{product.description}</li>
-            <li>Varastossa: {product.quantity}
-              {product.quantity > 0 ?
+            <li>Varastossa: {product.inventory}
+              {product.inventory > 0 ?
                 <FontAwesomeIcon
                   icon={faCheck}
                   className='check' /> :
