@@ -51,16 +51,16 @@ export default function LoginFunction() {
       return (
         <form onSubmit={handleSubmit}>
           <label>
-            Username:
+            Käyttäjänimi:
             <input type="text" value={username} onChange={handleUsernameChange} />
           </label>
           <br />
           <label>
-            Password:
+            Salasana:
             <input type="password" value={password} onChange={handlePasswordChange} />
           </label>
           <br />
-          <button type="submit">Log In</button>
+          <button type="submit">Kirjaudu sisään</button>
           {error && <p>{error}</p>}
         </form>
       ); 
