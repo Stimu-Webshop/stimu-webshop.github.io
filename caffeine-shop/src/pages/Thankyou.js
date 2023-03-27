@@ -4,7 +4,7 @@ export default function Thankyou() {
     return (
         <div>
         <h1>Kiitos ostoksestasi!</h1>
-        <p>Ostoksesi on suoritettu onnistuneesti ja toimitetaan sinulle kolmen arkipäivän kuluessa.</p>
+        <p>Ostoksesi on suoritettu onnistuneesti ja toimitetaan sinulle yhden arkipäivän kuluessa.</p>
         </div>
     );
     }

@@ -3,18 +3,21 @@ import axios from 'axios'
 import CartContent from '../components/CartContent'
 import '../styles/CartPage.scss'
 import { useState } from "react";
+import Thankyou from './Thankyou';
 
 export default function CartPage() {
 
-  const [isOrdering, setIsOrdering] = useState(false);
+  const [isOrdering, setIsOrdering] = useState(false)
+  const [shouldRedirect, setShouldRedirect] = useState(false)
+
   const orderData = {
     user_id: 1, // tällä hetkellä tilaukset menee aina käyttäjälle 1
-  };
+  }
 
   const handlePlaceOrder = () => {
     const confirmed = window.confirm('Haluatko varmasti vahvistaa tilauksen?');
     if (!confirmed) {
-      return;
+      return
     }
 
     axios
@@ -24,14 +27,19 @@ export default function CartPage() {
       )
       .then(() => {
         // Order successful
-        alert('Tilaus vahvistettu, kiitos tilauksesta!');
+        setShouldRedirect(true);
         // Clear cart or update cart as needed
+        
       })
       .catch(() => {
         // Order failed
         alert('Tilaus epäonnistui');
       });
   };
+
+  if (shouldRedirect) {
+    return <Thankyou />
+  }
 
   const handleDeleteCart = () => {
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
