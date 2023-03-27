@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import ShoppingCart from "./Shoppingcart";
 
 import logo from "../img/logo_stimu.png"
@@ -55,6 +55,11 @@ export default function Navbar() {
                 <Search />
               </form>
             </ul>
+            <ul className="icons">
+            <Link to="login"><FontAwesomeIcon
+            icon={faUser}
+            className="user"
+            /></Link>
             <FontAwesomeIcon
               icon={faCartShopping}
               className="shoppingCart"
@@ -62,6 +67,7 @@ export default function Navbar() {
               data-bs-target="#offcanvas"
               onClick={toggleCart}
             />
+            </ul>
           </div>
         </div>
       </nav>
