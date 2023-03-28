@@ -4,47 +4,61 @@
 // Visuaalinen puoli, linkitys Navbaariin --> Account page?
 // Login page (tulossa)
 // -- 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function RegisteryFunction() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [telephone, setTelephone] = useState('');
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [postalCode, setPostalCode] = useState('');
-    const [country, setCountry] = useState('');
-  
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData();
-        formData.append('username', username);
-        formData.append('password', password);
-        formData.append('first_name', firstName);
-        formData.append('last_name', lastName);
-        formData.append('email', email);
-        formData.append('telephone', telephone);
-        formData.append('address', address);
-        formData.append('city', city);
-        formData.append('postal_code', postalCode);
-        formData.append('country', country);
-        fetch('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/register.php', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          console.log(response);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [telephone, setTelephone] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [country, setCountry] = useState('');
+  const [Error, setError] = useState('');
+  const navigate = useNavigate()
 
-          // Display success message to user
-        })
-        .catch(error => {
-          console.log(error);
-          // Display error message to user
-        });
-      };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+    formData.append('first_name', firstName);
+    formData.append('last_name', lastName);
+    formData.append('email', email);
+    formData.append('telephone', telephone);
+    formData.append('address', address);
+    formData.append('city', city);
+    formData.append('postal_code', postalCode);
+    formData.append('country', country);
+    fetch('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/register.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => {
+        console.log(response);
+        console.log(response.ok);
+        setError(response.status);
+        console.log(Error);
+        if (response.ok) {
+        navigate('/loginsuccess')        
+        } else if (Error === 409) {
+          alert('This username is already in use.');
+        } else {
+          alert('Unknown error, please try again later!');
+        }
+      })
+      .catch(error => {
+        console.log(error.status);
+
+        // Display error message to user
+      });
+  };
+
   
+   
     return (
         <form method='POST' onSubmit={handleSubmit}>
           <label>Username:</label>
@@ -81,4 +95,4 @@ export default function RegisteryFunction() {
         </form>
       );
     }  
-
+  

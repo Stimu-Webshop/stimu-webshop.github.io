@@ -19,7 +19,16 @@ export default function CartPage() {
     if (!confirmed) {
       return
     }
-
+    axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateinventory.php", orderData)
+      .then(() => {
+        // Inventory update successful
+        console.log('Varasto päivitetty');
+        // Clear cart or update cart as needed
+      })
+      .catch(() => {
+        // Inventory update failed
+        console.log('Varaston päivitys epäonnistui');
+      });
     axios
       .post(
         "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
@@ -28,8 +37,7 @@ export default function CartPage() {
       .then(() => {
         // Order successful
         setShouldRedirect(true);
-        // Clear cart or update cart as needed
-        
+
       })
       .catch(() => {
         // Order failed
@@ -44,7 +52,7 @@ export default function CartPage() {
   const handleDeleteCart = () => {
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
       orderData
-      )
+    )
       .then(() => {
         // Delete successful
         alert('Ostoskori tyhjennetty');
