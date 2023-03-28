@@ -26,14 +26,18 @@ img {
     font-size: 1.5em;
     padding: 5px;
     color: $greige;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
 }
 
 .rewStar {
     font-size: 1.5em;
     padding: 5px;
-    color: $secondary;
+    color: $greige;
 
+}
+
+.black {
+    color: $secondary;
 }
 
 
