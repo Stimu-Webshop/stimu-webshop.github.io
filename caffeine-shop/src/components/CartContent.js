@@ -5,11 +5,18 @@ export default function CartContent() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-
+  const storedUserId = JSON.parse(localStorage.getItem('userId'));
+  const userId = storedUserId ? storedUserId.userId : null;
+  
+  // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
+  // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
+  // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
+  // - Samppa 
   useEffect(() => {
     const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getcart.php";
+    const url = `${PHP}?UserId=${userId}`;
     axios
-      .get(PHP)
+      .get(url)
       .then((response) => {
         setError(null);
         setIsLoaded(true);
@@ -18,7 +25,7 @@ export default function CartContent() {
       .catch((error) => {
         setError(error);
       });
-  }, [cartItems]);
+  }, [cartItems, userId]);
 
   const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.total), 0);
 

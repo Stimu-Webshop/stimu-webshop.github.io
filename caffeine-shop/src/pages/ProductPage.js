@@ -16,6 +16,28 @@ const ProductPage = () => {
 
   const buyAmount = []
 
+  // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
+  // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
+  // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
+  // - Samppa 
+
+  // TÄMÄ HAKEE USERID:N LOCALSTORAGESTA SIVUN LADATESSA JA TALLENTAA SEN MUUTTUJAAN
+  const [UserId, setUserId] = useState(null)
+
+  useEffect(() => {
+    const storedUserId = JSON.parse(localStorage.getItem('userId'));
+    if (storedUserId) {
+      setUserId(storedUserId);
+      console.log(UserId);
+    } else {
+      console.log('User id is empty');
+    }
+    console.log(storedUserId);
+    console.log(UserId);
+  }, []);
+
+  // STORAGE HAKU LOPPUU
+
   for (let i = 0; i < 11; i++) {
     buyAmount.push(i)
   }
@@ -36,7 +58,7 @@ const ProductPage = () => {
 
 const handleAddToCart = () => {
   const cartItem = {
-    user_id: 1, // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
     id: product.id,
     name: product.name,
     quantity: parseInt(amount),

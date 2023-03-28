@@ -11,10 +11,12 @@ export default function CartPage() {
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [UserId, setUserId] = useState(null)
 
+  // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
+  // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
+  // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
+  // - Samppa 
+  
   // TÄMÄ HAKEE USERID:N LOCALSTORAGESTA SIVUN LADATESSA JA TALLENTAA SEN MUUTTUJAAN
-  // TÄLLE PITÄÄ VIELÄ LÖYTÄÄ OIKEA KÄYTTÖPAIKKA 
-  // PROOF OF CONCEPT, KYSY ENNEN POISTOA/MUOKKAUSTA - Samppa 28.3.2023 15:47
-
   useEffect(() => {
     const storedUserId = JSON.parse(localStorage.getItem('userId'));
     if (storedUserId) {
@@ -24,15 +26,15 @@ export default function CartPage() {
       console.log('User id is empty');
     }
     console.log(storedUserId);
-    console.log(UserId);
   }, []);
 
 
-  const orderData = {
-    user_id: 1 // tällä hetkellä tilaukset menee aina käyttäjälle 1
-  }
 
   const handlePlaceOrder = () => {
+    
+  const orderData = {
+    user_id: UserId.userId // Menee userId:n mukaiselle käyttäjälle
+  }
     const confirmed = window.confirm('Haluatko varmasti vahvistaa tilauksen?');
     if (!confirmed) {
       return
@@ -68,6 +70,10 @@ export default function CartPage() {
   }
 
   const handleDeleteCart = () => {
+    
+  const orderData = {
+    user_id: UserId.userId // tällä hetkellä tilaukset menee aina käyttäjälle 1
+  }
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
       orderData
     )

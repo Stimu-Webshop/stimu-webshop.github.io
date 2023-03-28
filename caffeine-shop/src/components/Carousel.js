@@ -24,12 +24,13 @@ export default function Carousel() {
     const storedUserId = JSON.parse(localStorage.getItem('userId'));
     if (storedUserId) {
       setUserId(storedUserId);
+      console.log(UserId);
+
     } else {
       console.log('User id is empty');
     }
 
   }, []);
-  console.log(UserId);
   // USERID LOPPUU
   return (
     <div id="carouselExampleCaptions" class="vertical carousel slide">
