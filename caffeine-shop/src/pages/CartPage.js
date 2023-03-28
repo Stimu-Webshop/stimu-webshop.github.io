@@ -2,16 +2,34 @@ import React from 'react'
 import axios from 'axios'
 import CartContent from '../components/CartContent'
 import '../styles/CartPage.scss'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Thankyou from './Thankyou';
 
 export default function CartPage() {
 
   const [isOrdering, setIsOrdering] = useState(false)
   const [shouldRedirect, setShouldRedirect] = useState(false)
+  const [UserId, setUserId] = useState(null)
+
+  // TÄMÄ HAKEE USERID:N LOCALSTORAGESTA SIVUN LADATESSA JA TALLENTAA SEN MUUTTUJAAN
+  // TÄLLE PITÄÄ VIELÄ LÖYTÄÄ OIKEA KÄYTTÖPAIKKA 
+  // PROOF OF CONCEPT, KYSY ENNEN POISTOA/MUOKKAUSTA - Samppa 28.3.2023 15:47
+
+  useEffect(() => {
+    const storedUserId = JSON.parse(localStorage.getItem('userId'));
+    if (storedUserId) {
+      setUserId(storedUserId);
+      console.log(UserId);
+    } else {
+      console.log('User id is empty');
+    }
+    console.log(storedUserId);
+    console.log(UserId);
+  }, []);
+
 
   const orderData = {
-    user_id: 1, // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    user_id: 1 // tällä hetkellä tilaukset menee aina käyttäjälle 1
   }
 
   const handlePlaceOrder = () => {
