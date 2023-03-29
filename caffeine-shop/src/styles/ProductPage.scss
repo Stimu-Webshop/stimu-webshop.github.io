@@ -6,6 +6,10 @@
     padding: 20px;
     min-width: 80vw;
 }
+.productInfo {
+    @include flexbox;
+    flex-direction: column;
+}
 
 img {
     margin-left: auto;
