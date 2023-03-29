@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 
 // TÄÄ TARVII TYYLITTELYÄ T. SEPI
 
 export default function Rating(id) {
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
-  const [review, setReview] = useState([]);
-  const [pageid, setPageid] = useState(id);
-  const [data, setData] = useState([]);
-  const [rating, setRating] = useState(0);
+  const [name, setName] = useState('')
+  const [comment, setComment] = useState('')
+  const [review, setReview] = useState([])
+  const [pageid, setPageid] = useState(id)
+  const [data, setData] = useState([])
+  const [rating, setRating] = useState(null)
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setName("")
     setComment("")
-  };
+    setRating(null)
+  }
   // Funktiolla nimi ja kommentti tilamuuttujaan, tätä käytetään "Lähetä" -napissa
   const reviewHandler = () => {
-    const response = JSON.stringify(pageid);
-    const responseObject = JSON.parse(response);
-    const id = responseObject.id;
+    const response = JSON.stringify(pageid)
+    const responseObject = JSON.parse(response)
+    const id = responseObject.id
 
-    setReview([...review, { name: name, comment: comment, rating: rating }]);
-    const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`;
+    setReview([...review, { name: name, comment: comment, rating: rating }])
+    const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`
     // Läheteään tiedot PHP:lle, joka lisää ne tietokantaan. Huomaa että ID on ProductPage-komponentilta saatu sivun ID
     fetch(PHP, {
       method: 'POST',
@@ -40,6 +41,7 @@ export default function Rating(id) {
         name: name
       })
     })
+    
   };
 
   useEffect(() => {
@@ -47,19 +49,21 @@ export default function Rating(id) {
     axios.get(PHP)
       .then(response => {
         setData(response.data)
-        console.log(response.data);
+        console.log(response.data)
       })
       .catch(error => {
         console.log(error)
       })
-  }, []);
+  }, [])
 
 
   // Arvostelukomponentti
   const Review = ({ name, comment, rating }) => {
-    const stars = [];
+
+    //Tähtien tulostus komponenttiin rating -arvon perusteella
+    const stars = []
     for (let i = 0; i < 5; i++) {
-      const className = i < rating ? "black" : "";
+      const className = i < rating ? "black" : ""
       stars.push(
         <FontAwesomeIcon
           key={i}
@@ -67,7 +71,7 @@ export default function Rating(id) {
           className={`rewStar ${className}`}
           id={`rewStar${i + 1}`}
         />
-      );
+      )
     }
     return (
       <div className="review">
@@ -75,26 +79,27 @@ export default function Rating(id) {
         <p>{comment}</p>
         <div className="rewStars">{stars}</div>
       </div>
-    );
+    )
   }
 
   useEffect(() => {
-    console.log(rating);
-  }, [rating]);
+    console.log(rating)
+  }, [rating])
 
   // Tähtien väri vaihtuu klikatessa ja arvosteluun tallentuu tähtien määrä
 
   const handleStarClick = (starId) => {
-    setRating(starId);
+    setRating(starId)
   };
 
   const getStarClassName = (starId) => {
     if (starId <= rating) {
-      return 'black';
+      return 'black'
     } else {
-      return 'star';
+      return 'star'
     }
   };
+
 
   return (
     <>
