@@ -56,15 +56,16 @@ const ProductPage = () => {
       })
   }, [id])
 
-  const handleAddToCart = () => {
-    const cartItem = {
-      user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
-      id: product.id,
-      name: product.name,
-      quantity: parseInt(amount),
-      price: product.price,
-      total: parseInt(amount) * product.price // Calculate the total value
-    };
+const handleAddToCart = () => {
+  const cartItem = {
+    user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    id: product.id,
+    name: product.name,
+    quantity: parseInt(amount),
+    price: product.price,
+    total: parseInt(amount) * product.price,
+    image: product.img // Calculate the total value
+  };
 
     axios
       .post(

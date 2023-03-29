@@ -14,11 +14,11 @@ import ProductPage from './pages/ProductPage';
 import Coffee from './pages/Coffee';
 import EnergyDrinks from './pages/EnergyDrinks';
 import PWO from './pages/PWO';
-import RegisteryPage from './pages/RegisteryPage';
-import LoginPage from './pages/LoginPage';
+import RegisteryPage from './account_management/RegisteryPage';
+import LoginPage from './account_management/LoginPage';
 import CartPage from './pages/CartPage';
 import Thankyou from './pages/Thankyou';
-import LoginSuccess from './pages/LoginSuccess';
+import AccountPage from './account_management/AccountPage';
 function App() {
   return (
     <>
@@ -36,8 +36,8 @@ function App() {
           <Route path="register" element ={<RegisteryPage />} />
           <Route path="login" element = { <LoginPage />} />
           <Route path="cartpage" element = { <CartPage />} />
-          <Route path="loginsuccess" element = {<LoginSuccess/>} />
           <Route path="thankyou" element = { <Thankyou />} />
+          <Route path="account" element = {<AccountPage/>} />
         </Routes>
       <Footer />
     </>

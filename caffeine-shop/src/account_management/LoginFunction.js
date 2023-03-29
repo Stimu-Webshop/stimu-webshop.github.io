@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 // 21:19 21.3.23 TODOs:
@@ -24,6 +24,14 @@ export default function LoginFunction() {
       const handlePasswordChange = (event) => {
         setPassword(event.target.value);
       };
+
+      useEffect(() => { 
+        const userId = localStorage.getItem("userId");
+        if(userId) {
+          window.location.href = '/account';
+        }
+      }, [])
+      
     
       const handleSubmit = (event) => {
         event.preventDefault();
