@@ -38,6 +38,8 @@ img {
 
 .black {
     color: $secondary;
+    padding: 5px;
+    font-size: 1.5em;
 }
 
 
@@ -45,6 +47,7 @@ img {
 .star:hover ~ .star {
   color: $secondary;
 }
+
 
 .ratingStars {
     display: flex;
