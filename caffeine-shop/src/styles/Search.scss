@@ -1,13 +1,13 @@
 @import "var.scss";
 
 
-.search-bar-container{
+.search-bar-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.search-bar-input{
+.search-bar-input {
     border: 1px solid $primary;
     border-radius: 5px;
     padding: 5px;
@@ -17,6 +17,27 @@
     color: white;
     background-color: $greige;
 }
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+    overflow-y : scroll;
+    max-height: 100vh;
+    width: 300px;
+    background-color: $primary;
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    p {
+        color: white;
+    }
+}
+
 ::placeholder {
     color: white;
 }

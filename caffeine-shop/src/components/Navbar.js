@@ -7,7 +7,7 @@ import { useState } from "react";
 import "../styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
-import ShoppingCart from "./Shoppingcart";
+import CartOffcanvas from "./CartOffcanvas";
 
 import logo from "../img/logo_stimu.png"
 
@@ -90,7 +90,7 @@ export default function Navbar() {
   id="offcanvas"
   aria-labelledby="offcanvasLabel"
 >
-  <ShoppingCart showCart={showCart} />
+  <CartOffcanvas showCart={showCart} />
 </div>
 
     </>

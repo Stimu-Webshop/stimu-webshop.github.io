@@ -25,16 +25,26 @@ function SearchBar() {
     setQuery(event.target.value);
   };
 
+  const handleResultClick = (result) => {
+    // Do something with the selected result
+    console.log(result);
+  
+    // Clear the search query and results
+    setQuery('');
+    setResults([]);
+  
+  };
+
   return (
-    <form>
+    <form className='search-container'> 
       <input className="search-bar-input" type="text" placeholder="Search..." value={query} onChange={handleQueryChange} />
-      <ul>
+      <ul className='dropdown-container'>
         {results.map((result) => (
-          <li key={result.id}>
+          <li key={result.id} onClick={() => handleResultClick(result)} >
             <Link to={`/productpage/${result.id}`}>
               <img src={result.img} alt={result.name} />
-              {result.name}
-              <p>{result.name} eur</p>
+              <p>{result.name}</p>
+              <p>{result.price} eur</p>
             </Link>
           </li>
         ))}
