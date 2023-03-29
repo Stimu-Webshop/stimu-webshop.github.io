@@ -36,9 +36,9 @@ function SearchBar() {
   };
 
   return (
-    <form>
+    <form className='search-container'> 
       <input className="search-bar-input" type="text" placeholder="Search..." value={query} onChange={handleQueryChange} />
-      <ul>
+      <ul className='dropdown-container'>
         {results.map((result) => (
           <li key={result.id} onClick={() => handleResultClick(result)} >
             <Link to={`/productpage/${result.id}`}>
