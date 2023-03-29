@@ -56,21 +56,27 @@ export default function Rating(id) {
 
 
     // Arvostelukomponentti
-    const Review = ({ name, comment, rating }) => (
+    const Review = ({ name, comment, rating }) => {
+      const stars = [];
+      for (let i = 0; i < 5; i++) {
+        const className = i < rating ? "black" : "";
+        stars.push(
+          <FontAwesomeIcon
+            key={i}
+            icon={faStar}
+            className={`rewStar ${className}`}
+            id={`rewStar${i + 1}`}
+          />
+        );
+      }
+      return (
         <div className="review">
-            <h3>{name}</h3>
-            <p>{comment}</p>
-            <p>{rating}</p>
-            <div className='ratingStars'>
-                
-                <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar1" />
-                <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar2" />
-                <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar3" />
-                <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar4" />
-                <FontAwesomeIcon icon={faStar} className='rewStar' id="rewStar5" />
-            </div>
+          <h3>{name}</h3>
+          <p>{comment}</p>
+          <div className="rewStars">{stars}</div>
         </div>
-    ); 
+      );
+    } 
 
     useEffect(() => {
         console.log(rating);
@@ -99,7 +105,7 @@ export default function Rating(id) {
                   <Review key={index} name={review.name} comment={review.comment} rating={review.rating} />
                 ))}
                 {data.map((product, index) => (
-                    <Review key={index} name={product.review_name} comment={product.review_text} />
+                    <Review key={index} name={product.review_name} comment={product.review_text} rating={product.rating} />
                 ))}
               </div>
             </>
