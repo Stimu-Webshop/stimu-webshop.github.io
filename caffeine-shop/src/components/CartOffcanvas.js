@@ -3,7 +3,7 @@ import '../styles/Shoppingcart.scss';
 import CartContent from './CartContent';
 import { Link } from 'react-router-dom';
 
-export default function ShoppingCart({ showCart }) {
+export default function CartOffcanvas({ showCart }) {
   return (
     <>
       <div className="offcanvas-header">
