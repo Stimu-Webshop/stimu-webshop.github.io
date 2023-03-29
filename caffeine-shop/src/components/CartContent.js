@@ -48,7 +48,7 @@ export default function CartContent() {
               </ul>
             </div>
             <div className="right">
-              <img src="https://via.placeholder.com/300x300" alt="" />
+              <img src={item.image} alt={item.name} />
             </div>
           </div>
         ))}

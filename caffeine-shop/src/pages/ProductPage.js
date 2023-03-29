@@ -63,7 +63,8 @@ const handleAddToCart = () => {
     name: product.name,
     quantity: parseInt(amount),
     price: product.price,
-    total: parseInt(amount) * product.price // Calculate the total value
+    total: parseInt(amount) * product.price,
+    image: product.img // Calculate the total value
   };
 
   axios
