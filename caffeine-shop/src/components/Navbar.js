@@ -20,6 +20,15 @@ export default function Navbar() {
     setShowCart(!showCart)
   }
 
+// Function is used for checking if the user is logged in, if not redirects to the login page, if is redirects to account page isntead
+  const handleUserClick = () => {
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      window.location.href = '/account';
+    } else {
+      window.location.href = '/login';    }
+  }
+
   return (
     <>
       <nav id="nav" className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -56,10 +65,11 @@ export default function Navbar() {
               </form>
             </ul>
             <ul className="icons">
-            <Link to="login"><FontAwesomeIcon
+            <FontAwesomeIcon
             icon={faUser}
             className="user"
-            /></Link>
+             onClick={handleUserClick}
+              />
             <FontAwesomeIcon
               icon={faCartShopping}
               className="shoppingCart"

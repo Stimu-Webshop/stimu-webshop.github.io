@@ -19,6 +19,7 @@ import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
 import Thankyou from './pages/Thankyou';
 import LoginSuccess from './pages/LoginSuccess';
+import AccountPage from './account_management/AccountPage';
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
           <Route path="cartpage" element = { <CartPage />} />
           <Route path="loginsuccess" element = {<LoginSuccess/>} />
           <Route path="thankyou" element = { <Thankyou />} />
+          <Route path="account" element = {<AccountPage/>} />
         </Routes>
       <Footer />
     </>
