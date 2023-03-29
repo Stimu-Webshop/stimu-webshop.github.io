@@ -1,6 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import UpdateAccountInfo from './UpdateAccountInfo';
+
+// TODOs:
+// Tässä nyt toimii vain tietojen haku, korjattavaa käyttäjälle mahdollisuus muokata käyttäjätietoja
+// Salasanan vaihto, yms (tämän varmennus myös)
+// Vastaavaa PHP tiedostoa ei vielä ole, UpdateAccountInfo.js on mockup tiedosto joka pienellä fixillä saattais toimia
+// 17:06 29.3.23 - Samppa
+
 export default function AccountPage() {
 
   const [User, setUser] = useState({})
