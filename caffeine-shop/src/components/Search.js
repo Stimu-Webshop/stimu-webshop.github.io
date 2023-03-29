@@ -43,8 +43,8 @@ function SearchBar() {
           <li key={result.id} onClick={() => handleResultClick(result)} >
             <Link to={`/productpage/${result.id}`}>
               <img src={result.img} alt={result.name} />
-              {result.name}
-              <p>{result.name} eur</p>
+              <p>{result.name}</p>
+              <p>{result.price} eur</p>
             </Link>
           </li>
         ))}
