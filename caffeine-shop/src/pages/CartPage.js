@@ -69,6 +69,26 @@ export default function CartPage() {
     return <Thankyou />
   }
 
+  const handleDeleteItem = (id) => {
+    const confirmed = window.confirm('Haluatko varmasti poistaa tuotteen ostoskorista?');
+    if (!confirmed) {
+      return
+    }
+    axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecartitem.php",
+      { id: id }
+    )
+      .then(() => {
+        // Delete successful
+        alert('Tuote poistettu ostoskorista');
+        // Update product list or do other actions as needed
+      })
+      .catch(() => {
+        // Delete failed
+        alert('Tuotteen poisto epäonnistui');
+      });
+  };
+
+
   const handleDeleteCart = () => {
     
   const orderData = {
@@ -91,8 +111,8 @@ export default function CartPage() {
     <div className='cartpage'>
       <h2>Ostoskori</h2>
       <CartContent />
-      <button onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
-      <button className='emptyCart' onClick={handleDeleteCart}>Tyhjennä kori</button>
+      <button className='btn btn-secondary' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
+      <button className='btn btn-secondary' onClick={handleDeleteCart}>Tyhjennä kori</button>
     </div>
   )
 }

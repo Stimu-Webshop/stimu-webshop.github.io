@@ -1,16 +1,5 @@
 @import "var.scss";
 
-.flexbox1 {
-    @include flexbox;
-    flex-direction: row;
-    width: 70%;
-    margin: 10px;
-    justify-content: space-between;
-}
-
-.amountbuttons input {
-    width: 40px;
-}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -23,30 +12,72 @@ input::-webkit-inner-spin-button {
     min-width: 80vw;
     @include flexbox;
     flex-direction: column;
-        .btn {
-            background-color: $light;
-            :hover {
-                background-color: $primary;
-                cursor: pointer;
-            }
-        }
+
+    .flexbox1 {
+        @include flexbox;
+        flex-direction: row;
+        width: 70%;
+        margin: 10px;
+        justify-content: space-between;
+    }
         // Ei toimi mobilessa kunnolla, lisää mediarule
-        #backbutton {
+    #backbutton {
+            @include header-text;
+            background-color: $light;
             position: absolute;
             top: 130px;
             left: 30px;
             @include header-text;
             font-size: 1.5em;
-        }
+    }
+    .orderInfo {
+            @include flexbox;
+            flex-direction: column;
+            border: 2px solid $dark;
+            border-radius: 10px;
+            padding: 10px;
+            width: 190px;
+            background-color: $greige;
+            color: rgb(0, 0, 0);  
+
+                .amountbuttons {
+                    @include flexbox;
+                        input {
+                            width: 50px;
+                            height: 40px;
+                            text-align: center;
+                            background-color: $offwhite;
+                            border-radius: 5px;
+                            border: none;
+                            @include header-text;
+                            font-size: 1.5em;
+                            color: black;
+                        }
+                }
+
+                span {
+                    font-size: 1.9em;
+                    color: black;
+                }
+
+                #amount {
+                    background-color: $greige;
+                    border: none;
+                    :hover {
+                        color: $light;
+                    }
+                }
+
+                h1 {
+                    color: $light;
+                    font-weight: 600;
+                }
+    }
 }
 .productInfo {
     @include flexbox;
     flex-direction: column;
     text-align: left;
-    .orderInfo {
-        @include flexbox;
-        flex-direction: column;
-    }
 }
 
 img {
@@ -55,7 +86,7 @@ img {
 }
 
 .check {
-    color: green;
+    color: $light;
     font-size: 1.5em;
 }
 

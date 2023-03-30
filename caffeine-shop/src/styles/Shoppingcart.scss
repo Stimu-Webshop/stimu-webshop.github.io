@@ -10,12 +10,11 @@ h5 {
     color: black;
 }
 
-button {
+/* button {
     background-color: black;
     color: white;
-    margin-top: 10px;
-      
-}
+    margin-top: 10px;    
+} */
 
 .emptyCart {
   margin-left: 10px;  
@@ -31,21 +30,30 @@ p {
     justify-content: space-between;
     align-items: center;
     margin: 10px;
-  }
-  
-  .left {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    img {
-      width: 150px;
-      height: 150px;
+    .deleteItem {
+      text-decoration: underline;
+    }
+    .deleteItem:hover {
+      cursor: pointer;
+    }
+    .itemName {
+      font-family: 'abel', sans-serif;
+      font-size: 1.5em;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+    }
+    
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      img {
+        width: 150px;
+        height: 150px;
+      }
     }
   }
   

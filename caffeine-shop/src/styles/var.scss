@@ -35,3 +35,12 @@ $deepPurple: #200721;
   margin: 0;
   padding: 0;
 }
+
+@mixin webshop-button {
+    color: $text;
+    background-color: $light;
+    font-family: 'abel', sans-serif;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
