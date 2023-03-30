@@ -87,7 +87,7 @@ const ProductPage = () => {
   } else {
     return (
       <div className='productContainer'>
-        <button className='btn' id='backbutton' onClick={() => navigate(-1)}>
+        <button id='backbutton' onClick={() => navigate(-1)}>
           <span class="material-symbols-outlined">
             arrow_back_ios
           </span>
@@ -98,7 +98,7 @@ const ProductPage = () => {
           <div className='productPic'>
             <img src={product.img} alt="" srcSet="" />
           </div>
-           <p>{product.description}</p>
+           
             <ul>
               <div className='orderInfo'>
                   <h1>{product.price} €</h1>
@@ -124,12 +124,11 @@ const ProductPage = () => {
                   </span>
                   </button>
                 </div>
-
                 <button id='orderbtn' onClick={handleAddToCart}>Lisää ostoskoriin</button>
               </div>
             </ul>
-
         </div>
+        <p>{product.description}</p>
         <Rating id={product.id} />
       </div>
     )
