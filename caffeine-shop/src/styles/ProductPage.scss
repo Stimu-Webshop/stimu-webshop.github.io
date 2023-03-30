@@ -12,6 +12,7 @@ input::-webkit-inner-spin-button {
     min-width: 80vw;
     @include flexbox;
     flex-direction: column;
+
     .flexbox1 {
         @include flexbox;
         flex-direction: row;
@@ -19,22 +20,17 @@ input::-webkit-inner-spin-button {
         margin: 10px;
         justify-content: space-between;
     }
-        .btn {
-            background-color: $light;
-            :hover {
-                background-color: $primary;
-                cursor: pointer;
-            }
-        }
         // Ei toimi mobilessa kunnolla, lisää mediarule
-        #backbutton {
+    #backbutton {
+            @include header-text;
+            background-color: $light;
             position: absolute;
             top: 130px;
             left: 30px;
             @include header-text;
             font-size: 1.5em;
-        }
-        .orderInfo {
+    }
+    .orderInfo {
             @include flexbox;
             flex-direction: column;
             border: 2px solid $dark;
@@ -42,16 +38,8 @@ input::-webkit-inner-spin-button {
             padding: 10px;
             width: 190px;
             background-color: $greige;
-            color: rgb(0, 0, 0);
-                .orderbtn {
-                    @include header-text;
-                    @include button;
-                    font-size: 1.4em;
+            color: rgb(0, 0, 0);  
 
-                         :hover {
-                            background-color: $dark !important;
-                         }
-                }
                 .amountbuttons {
                     @include flexbox;
                         input {
@@ -66,10 +54,12 @@ input::-webkit-inner-spin-button {
                             color: black;
                         }
                 }
+
                 span {
                     font-size: 1.9em;
                     color: black;
                 }
+
                 #amount {
                     background-color: $greige;
                     border: none;
@@ -77,11 +67,12 @@ input::-webkit-inner-spin-button {
                         color: $light;
                     }
                 }
+
                 h1 {
                     color: $light;
                     font-weight: 600;
                 }
-        }
+    }
 }
 .productInfo {
     @include flexbox;
