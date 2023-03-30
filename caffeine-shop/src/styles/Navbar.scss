@@ -5,7 +5,6 @@
 }
 .navbar {
     background-color: $dark !important;
-    height: 200px;
     .nav-item {
         @include header-text;
     }
