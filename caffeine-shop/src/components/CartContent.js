@@ -28,6 +28,7 @@ export default function CartContent() {
         setError(error);
       });
   }, [cartItems, userId]);
+ 
 
   const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.total), 0);
 
