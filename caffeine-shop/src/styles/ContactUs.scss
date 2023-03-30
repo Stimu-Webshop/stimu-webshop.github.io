@@ -1,0 +1,17 @@
+@import "var.scss";
+
+.contact-us-container {
+    height: 90vh;
+}
+
+.contact-us-story {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
