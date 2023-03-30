@@ -2,6 +2,14 @@
 
 .contact-us-container {
     height: 90vh;
+        button {
+            @include webshop-button;
+            margin: 10px;
+        }
+        input, textarea {
+            border: 1px solid $dark;
+            border-radius: 5px;
+        }
 }
 
 .contact-us-story {
