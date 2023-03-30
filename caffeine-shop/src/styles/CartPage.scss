@@ -20,3 +20,7 @@ h2 {
 .cartpage {
     margin: 10px;
 }
+
+button {
+    @include button;
+}

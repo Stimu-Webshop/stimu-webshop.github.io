@@ -36,6 +36,10 @@ p {
     .deleteItem:hover {
       cursor: pointer;
     }
+    .itemName {
+      font-family: 'abel', sans-serif;
+      font-size: 1.5em;
+    }
     .left {
       flex: 1;
       display: flex;

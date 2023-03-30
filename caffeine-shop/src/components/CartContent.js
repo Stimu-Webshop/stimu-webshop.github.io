@@ -44,7 +44,7 @@ export default function CartContent() {
           <div className="cartItem" key={item.id}>
             <div className="left">
               <ul>
-                <li>{item.name}</li>
+                <li className="itemName">{item.name}</li>
                 <li>Määrä: {item.quantity}</li>
                 <li>Summa: {item.total} eur</li>
                 <li className="deleteItem"><FontAwesomeIcon
