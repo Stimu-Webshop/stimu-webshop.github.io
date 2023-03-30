@@ -1,22 +1,15 @@
 @import "var.scss";
 
-body {
-    color: $secondary;
-    font-size: 1.0em;
-}
+
 
 .cartpage {
+    color: $secondary;
     background-color: $offwhite;
     margin: 10px;
     padding: 10px;
-}
-
-h2 {
-    @include header-text;
-    color: $secondary;
-    font-size: 2.5em;
-}
-
-.cartpage {
-    margin: 10px;
+    h2 {
+        @include header-text;
+        color: $secondary;
+        font-size: 2.5em;
+    }
 }
