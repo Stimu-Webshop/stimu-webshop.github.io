@@ -36,8 +36,8 @@ const ProductList = () => {
                 <img src={product.img} alt="" srcSet="" />
                 <ul>
                   <h5>{product.name}</h5>
+                  <p id="prdprice">{product.price} eur</p>
                   <li>{product.description.substring(0, 100)}{product.description.length > 100 ? "..." : ""}</li>
-                  <li>{product.price} eur</li>
                 </ul>
               </Link>
             </div>
