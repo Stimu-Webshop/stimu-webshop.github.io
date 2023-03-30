@@ -19,7 +19,7 @@ export default function CartOffcanvas({ showCart }) {
       </div>
       <div className={`offcanvas-body ${showCart ? 'show' : ''}`}>
         <CartContent />
-        <Link to="/cartpage"><button className='btn btn-secondary' data-bs-dismiss="offcanvas">Kassalle</button></Link>
+        <Link to="/cartpage"><button data-bs-dismiss="offcanvas">Kassalle</button></Link>
       </div>
     </>
   );
