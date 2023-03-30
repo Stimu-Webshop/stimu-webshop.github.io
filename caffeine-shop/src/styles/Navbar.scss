@@ -2,10 +2,10 @@
 
 #nav {
     margin-bottom: 0 !important;
-
 }
 .navbar {
     background-color: $dark !important;
+    height: 200px;
     .nav-item {
         @include header-text;
     }
@@ -16,12 +16,6 @@
         height: auto;
     }
 }
-.container-fluid {
-    @include flexbox;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
 .nav-link {
     @include header-text;
     color: $greige;
@@ -29,7 +23,6 @@
         color: $accent;
     }
 }
-
 .icons {
     margin-left: auto;
 }

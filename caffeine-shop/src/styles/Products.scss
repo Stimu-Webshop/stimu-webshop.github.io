@@ -9,7 +9,12 @@ body{
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-  
+  #prdprice{
+    color: $light;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0;
+  }
   .product {
     @include text;
     font-size: 1.0em;
@@ -26,24 +31,24 @@ body{
     height: 500px;
         img {
           border-radius: 0px;
-          transition: 0.6s;
+          transition: 0.4s;
         }
-    transition: 0.6s;
+    transition: 0.4s;
   }
   #product-box:hover {
     border-radius: 20px;
       img {
         border-radius: 20px;
-        height: 425px;
+        height: 390px;
       }
       li {
         visibility: hidden;
         opacity: 0;
-        transition: visibility 0.3s, opacity 0.3s linear;
+        transition: visibility 0s, opacity 0s linear;
       }
     height: 495px;
     box-shadow: 0px 13px 10px 7px rgb(75, 75, 75);
-    transition: 0.6s;
+    transition: 0.4s;
   }
   // tää pitää vielä päivittää paremmaksi
   a{
