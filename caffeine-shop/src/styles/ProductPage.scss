@@ -1,14 +1,52 @@
 @import "var.scss";
 
+.flexbox1 {
+    @include flexbox;
+    flex-direction: row;
+    width: 70%;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.amountbuttons input {
+    width: 40px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .productContainer {
     background-color: $offwhite;
     margin: 20px;
     padding: 20px;
     min-width: 80vw;
+    @include flexbox;
+    flex-direction: column;
+        .btn {
+            background-color: $light;
+            :hover {
+                background-color: $primary;
+                cursor: pointer;
+            }
+        }
+        // Ei toimi mobilessa kunnolla, lisää mediarule
+        #backbutton {
+            position: absolute;
+            top: 130px;
+            left: 30px;
+            @include header-text;
+            font-size: 1.5em;
+        }
 }
 .productInfo {
     @include flexbox;
     flex-direction: column;
+    text-align: left;
+    .orderInfo {
+        @include flexbox;
+        flex-direction: column;
+    }
 }
 
 img {
