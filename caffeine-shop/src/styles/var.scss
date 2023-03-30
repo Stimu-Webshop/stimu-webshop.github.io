@@ -35,3 +35,9 @@ $deepPurple: #200721;
   margin: 0;
   padding: 0;
 }
+
+@mixin button {
+    color: $text;
+    background-color: $light;
+    font-family: 'abel', sans-serif;
+}

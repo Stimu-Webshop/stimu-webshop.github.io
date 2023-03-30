@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons"
 
 export default function CartContent() {
   const [error, setError] = useState(null);
@@ -45,6 +47,8 @@ export default function CartContent() {
                 <li>{item.name}</li>
                 <li>Määrä: {item.quantity}</li>
                 <li>Summa: {item.total} eur</li>
+                <li className="deleteItem"><FontAwesomeIcon
+            icon={faTrashCan}/> Poista tuote</li>
               </ul>
             </div>
             <div className="right">
