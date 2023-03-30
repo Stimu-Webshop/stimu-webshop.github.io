@@ -125,7 +125,7 @@ const ProductPage = () => {
                   </button>
                 </div>
 
-                <button className='orderbtn' onClick={handleAddToCart}>Lisää ostoskoriin</button>
+                <button id='orderbtn' onClick={handleAddToCart}>Lisää ostoskoriin</button>
               </div>
             </ul>
 
