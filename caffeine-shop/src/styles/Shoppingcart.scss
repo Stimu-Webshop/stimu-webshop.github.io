@@ -64,7 +64,7 @@ h5 {
   }
 
   .cartButton {
-    @include button;
+    @include webshop-button;
     margin: 5px;
     font-size: 1.4em;
   }
