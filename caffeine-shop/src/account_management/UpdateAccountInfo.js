@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+// Jos joku tänne eksyy nii nää vois tyylitellä (AccountPage, Loginpage, RegisteryPage, UpdateAccountInfo, LoginFunction) :) 
+
 export default function UpdateAccountInfo() {
   const [userData, setUserData] = useState({
-    username: '',
     first_name: '',
     last_name: '',
     email: '',
@@ -15,6 +16,10 @@ export default function UpdateAccountInfo() {
     current_password: '',
     new_password: ''
   });
+  const [InitUsername, setInitUsername] = useState('')
+  const [error, setError] = useState('');
+
+  // Hakee alkuperäiset käyttäjätiedot tietokannasta
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
@@ -23,30 +28,46 @@ export default function UpdateAccountInfo() {
         `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getaccountdata.php?userId=${userId}`
       )
       .then(response => {
-        setUserData(response.data);
+        setUserData({...response.data, username: ''});
+        setInitUsername(response.data.username);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
 
+// Funktio vastuussa tietojen päivittämisestä, onnistuessa ilmoittaa tietojen muuttumisen onnistuneen, epäonnistuessa näyttää error-viestin
+
   const handleSubmit = event => {
     event.preventDefault();
     const userId = localStorage.getItem('userId');
-    console.log(userId);
+    const userDataWithUserId = { ...userData, userId };
+    console.log(userDataWithUserId);
     axios
-      .get
-        (`https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateaccountdata.php?userId=${userId}`,
-        userData
+      .post(
+        `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateaccountdata.php`,
+        userDataWithUserId
       )
       .then(response => {
-        console.log('Account updated successfully');
-        console.log(response);
+        setError('Account updated succesfully!');
+        setTimeout(() => {
+          window.location.href = "/account";
+        }, 500); // delay the redirection for 2 seconds (2000 milliseconds)
       })
       .catch(error => {
         console.log(error);
+        if (error.response.status === 401) {
+          setError('Incorrect password.');
+        } else if (error.response.status === 409){ 
+          setError('Username already exists.')
+        } 
+          else {
+          setError('Login failed. Please try again later.');
+        }
       });
   };
+
+ // Tallentaa muuttujiin tiedot
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -57,11 +78,11 @@ export default function UpdateAccountInfo() {
     <form onSubmit={handleSubmit}>
       <h2>Update Account Information</h2>
       <label>
-        Username:
+        Current Username : {InitUsername}
         <input
           type="text"
           name="username"
-          value={userData.username}
+          placeholder='Enter new username:'
           onChange={handleChange}
         />
       </label>
@@ -155,7 +176,8 @@ export default function UpdateAccountInfo() {
 onChange={handleChange}
 />
 </label>
-<button type="submit">Update Account</button>
+<button type="submit">Update</button>
+{error && <p>{error}</p>}
 </form>
 );
 }

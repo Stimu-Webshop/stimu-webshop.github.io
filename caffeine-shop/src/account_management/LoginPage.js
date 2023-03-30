@@ -1,16 +1,22 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import LoginFunction from './LoginFunction';
+import '../styles/Login.scss';
 
-import React from 'react'
-import LoginFunction from './LoginFunction'
-import '../styles/Login.scss'
+// Jos joku tänne eksyy nii nää vois tyylitellä (AccountPage, Loginpage, RegisteryPage, UpdateAccountInfo, LoginFunction) :) 
+
 
 export default function LoginPage() {
   return (
     <>
-    <h1>Kirjaudu sisään</h1>
-    <div className='login'>
-    <LoginFunction/>
-    </div>
-    <p>Eikö sinulla ole vielä käyttäjätiliä? Rekisteröidy.</p>
+      <h1>Kirjaudu sisään</h1>
+      <div className='login'>
+        <LoginFunction />
+      </div>
+      <p>
+        Eikö sinulla ole vielä käyttäjätiliä?{' '}
+        <Link to='/register'>Rekisteröidy.</Link>
+      </p>
     </>
-    )
+  );
 }
