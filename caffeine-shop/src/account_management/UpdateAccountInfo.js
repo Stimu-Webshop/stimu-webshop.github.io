@@ -1,98 +1,161 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-export default function UpdateAccountInfo() {
-    
 
-      const [user, setUser] = useState({});
-      const [firstName, setFirstName] = useState('');
-      const [lastName, setLastName] = useState('');
-      const [email, setEmail] = useState('');
-      const [telephone, setTelephone] = useState('');
-      const [address, setAddress] = useState('');
-      const [city, setCity] = useState('');
-      const [postalCode, setPostalCode] = useState('');
-      const [country, setCountry] = useState('');
-    
-      useEffect(() => {
-        const userId = localStorage.getItem('userId');
-        axios
-          .get(`https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getaccountdata.php?userId=${userId}`)
-          .then((response) => {
-            setUser(response.data);
-            setFirstName(response.data.first_name);
-            setLastName(response.data.last_name);
-            setEmail(response.data.email);
-            setTelephone(response.data.telephone);
-            setAddress(response.data.address);
-            setCity(response.data.city);
-            setPostalCode(response.data.postal_code);
-            setCountry(response.data.country);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }, []);
-    
-      const handleLogout = () => {
-        localStorage.removeItem('userId');
-        window.location.href = '/';
-      };
-    
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        const userId = localStorage.getItem('userId');
-        axios
-          .post(`https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateaccountdata.php?userId=${userId}`, {
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            telephone: telephone,
-            address: address,
-            city: city,
-            postal_code: postalCode,
-            country: country,
-          })
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-    
-      return (
-        <>
-          <h1>Account Page</h1>
-          <form onSubmit={handleSubmit}>
-            <label>
-              First Name:
-              <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-            </label>
-            <label>
-              Last Name:
-              <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-            </label>
-            <label>
-              Email:
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <label>
-              Telephone:
-              <input type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
-            </label>
-            <label>
-              Address:
-              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-            </label>
-            <label>
-              City:
-              <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-            </label>
-            <label>
-              Postal Code:
-              <input type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
-        </label>
-        </form>
-    </>
-    )
+export default function UpdateAccountInfo() {
+  const [userData, setUserData] = useState({
+    username: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    telephone: '',
+    address: '',
+    city: '',
+    postal_code: '',
+    country: '',
+    current_password: '',
+    new_password: ''
+  });
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    axios
+      .get(
+        `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getaccountdata.php?userId=${userId}`
+      )
+      .then(response => {
+        setUserData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const userId = localStorage.getItem('userId');
+    console.log(userId);
+    axios
+      .get
+        (`https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateaccountdata.php?userId=${userId}`,
+        userData
+      )
+      .then(response => {
+        console.log('Account updated successfully');
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setUserData(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Update Account Information</h2>
+      <label>
+        Username:
+        <input
+          type="text"
+          name="username"
+          value={userData.username}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        First Name:
+        <input
+          type="text"
+          name="first_name"
+          value={userData.first_name}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Last Name:
+        <input
+          type="text"
+          name="last_name"
+          value={userData.last_name}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Email:
+        <input
+          type="email"
+          name="email"
+          value={userData.email}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Telephone:
+        <input
+          type="text"
+          name="telephone"
+          value={userData.telephone}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Address:
+        <input
+          type="text"
+          name="address"
+          value={userData.address}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        City:
+        <input
+          type="text"
+          name="city"
+          value={userData.city}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Postal Code:
+        <input
+          type="text"
+          name="postal_code"
+          value={userData.postal_code}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Country:
+        <input
+          type="text"
+          name="country"
+          value={userData.country}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Current Password:
+        <input
+          type="password"
+          name="current_password"
+          value={userData.current_password}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        New Password:
+        <input
+          type="password"
+          name="new_password"
+          value={userData.new_password}
+onChange={handleChange}
+/>
+</label>
+<button type="submit">Update Account</button>
+</form>
+);
 }
