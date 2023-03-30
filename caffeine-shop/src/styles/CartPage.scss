@@ -5,6 +5,12 @@ body {
     font-size: 1.0em;
 }
 
+.cartpage {
+    background-color: $offwhite;
+    margin: 10px;
+    padding: 10px;
+}
+
 h2 {
     @include header-text;
     color: $secondary;
@@ -13,4 +19,8 @@ h2 {
 
 .cartpage {
     margin: 10px;
+}
+
+button {
+    @include button;
 }
