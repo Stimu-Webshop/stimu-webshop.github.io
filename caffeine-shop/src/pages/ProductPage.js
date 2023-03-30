@@ -56,16 +56,16 @@ const ProductPage = () => {
       })
   }, [id])
 
-const handleAddToCart = () => {
-  const cartItem = {
-    user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
-    id: product.id,
-    name: product.name,
-    quantity: parseInt(amount),
-    price: product.price,
-    total: parseInt(amount) * product.price,
-    image: product.img // Calculate the total value
-  };
+  const handleAddToCart = () => {
+    const cartItem = {
+      user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
+      id: product.id,
+      name: product.name,
+      quantity: parseInt(amount),
+      price: product.price,
+      total: parseInt(amount) * product.price,
+      image: product.img // Calculate the total value
+    };
 
     axios
       .post(
@@ -87,35 +87,47 @@ const handleAddToCart = () => {
   } else {
     return (
       <div className='productContainer'>
-        <h1>{product.name}</h1>
-        <div className='productPic'>
-          <img src={product.img} alt="" srcSet="" />
-        </div>
-        <div className='productInfo'>
-          <ul>
-            <li>{product.description}</li>
-            <li>Varastossa: {product.inventory}
-              {product.inventory > 0 ?
-                <FontAwesomeIcon
-                  icon={faCheck}
-                  className='check' /> :
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className='xmark' />}
-            </li>
-            <li>Hinta: {product.price} eur</li>
-          </ul>
-          <label>Määrä: </label>
-          <select name="amount" onChange={e => setAmount(e.target.value)}>
-            {buyAmount.map(value => <option value={value}>{value}</option>)}
-          </select>
-          <button className='btn btn-secondary' onClick={handleAddToCart}>Lisää ostoskoriin</button>
-        </div>
-        <button className='btn btn-secondary' onClick={() => navigate(-1)}>
+        <button className='btn btn-secondary' id='backbutton' onClick={() => navigate(-1)}>
           <span class="material-symbols-outlined">
             arrow_back_ios
           </span>
-          Takaisin kauppaan</button>
+          Takaisin kauppaan
+        </button>
+        <h1>{product.name}</h1>
+        <div className='flexbox1'>
+          <div className='productPic'>
+            <img src={product.img} alt="" srcSet="" />
+          </div>
+          <div className='productInfo'>
+            <ul>
+              <li>{product.description}</li>
+              <div className='orderInfo'>
+                <li>
+                  <h1>{product.price} €</h1>
+                </li>
+                <li>Varastossa: {product.inventory}
+                  {product.inventory > 0 ?
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className='check' /> :
+                    <FontAwesomeIcon
+                      icon={faXmark}
+                      className='xmark' />}
+                </li>
+                <div className='amountbuttons'>
+                  <span class="material-symbols-outlined" onClick={() => setAmount(amount-1)}>
+                    do_not_disturb_on
+                  </span>
+                  <input type="number" value={amount} onChange={e => setAmount(e.target.value)} />
+                  <span class="material-symbols-outlined" onClick={() => setAmount(amount+1)}>
+                    add_circle
+                  </span>
+                </div>
+                <button className='btn btn-secondary' onClick={handleAddToCart}>Lisää ostoskoriin</button>
+              </div>
+            </ul>
+          </div>
+        </div>
         <Rating id={product.id} />
       </div>
     )
