@@ -10,19 +10,8 @@ h5 {
     color: black;
 }
 
-button {
-    background-color: black;
-    color: white;
-    margin-top: 10px;
-      
-}
-
 .emptyCart {
   margin-left: 10px;  
-}
-
-p {
-    margin-top: 10px;
 }
 
 .cartItem {
@@ -31,33 +20,56 @@ p {
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    p {
+      margin-top: 10px;
+      align-content: left;
   }
-  
-  .left {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    img {
-      width: 150px;
-      height: 150px;
+    .deleteItem {
+      text-decoration: underline;
+    }
+    .deleteItem:hover {
+      cursor: pointer;
+    }
+    .itemName {
+      font-family: 'abel', sans-serif;
+      font-size: 1.5em;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      max-width: 50%;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+      
+      li {
+        padding: 2px;
+        align-items: left;
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      img {
+        width: 150px;
+        height: 150px;
+        align-self: right;
+      }
     }
   }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+  .cartButton {
+    @include webshop-button;
+    margin: 5px;
+    font-size: 1.4em;
   }
   
-  li {
-    padding: 2px;
-  }
+ 
   
  
   

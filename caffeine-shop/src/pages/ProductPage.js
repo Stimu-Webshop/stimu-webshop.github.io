@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Rating from '../components/Rating'
 import '../styles/ProductPage.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheck, faXmark, faStar } from "@fortawesome/free-solid-svg-icons"
+import { faCheck, faCircleRight, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from 'react-router-dom'
 
 const ProductPage = () => {
@@ -87,7 +87,7 @@ const ProductPage = () => {
   } else {
     return (
       <div className='productContainer'>
-        <button className='btn btn-secondary' id='backbutton' onClick={() => navigate(-1)}>
+        <button id='backbutton' onClick={() => navigate(-1)}>
           <span class="material-symbols-outlined">
             arrow_back_ios
           </span>
@@ -98,13 +98,10 @@ const ProductPage = () => {
           <div className='productPic'>
             <img src={product.img} alt="" srcSet="" />
           </div>
-          <div className='productInfo'>
+           
             <ul>
-              <li>{product.description}</li>
               <div className='orderInfo'>
-                <li>
                   <h1>{product.price} €</h1>
-                </li>
                 <li>Varastossa: {product.inventory}
                   {product.inventory > 0 ?
                     <FontAwesomeIcon
@@ -115,19 +112,23 @@ const ProductPage = () => {
                       className='xmark' />}
                 </li>
                 <div className='amountbuttons'>
+                  <button id='amount'>
                   <span class="material-symbols-outlined" onClick={() => setAmount(amount-1)}>
                     do_not_disturb_on
                   </span>
+                  </button>
                   <input type="number" value={amount} onChange={e => setAmount(e.target.value)} />
+                  <button id='amount'>
                   <span class="material-symbols-outlined" onClick={() => setAmount(amount+1)}>
                     add_circle
                   </span>
+                  </button>
                 </div>
-                <button className='btn btn-secondary' onClick={handleAddToCart}>Lisää ostoskoriin</button>
+                <button id='orderbtn' onClick={handleAddToCart}>Lisää ostoskoriin</button>
               </div>
             </ul>
-          </div>
         </div>
+        <p>{product.description}</p>
         <Rating id={product.id} />
       </div>
     )

@@ -17,3 +17,8 @@ footer {
     }
 
 }
+.footerLink{
+    @include text;
+    @include borders;
+    padding: 10px;
+}

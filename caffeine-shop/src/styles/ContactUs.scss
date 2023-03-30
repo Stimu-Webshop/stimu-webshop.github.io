@@ -1,0 +1,25 @@
+@import "var.scss";
+
+.contact-us-container {
+    height: 90vh;
+        button {
+            @include webshop-button;
+            margin: 10px;
+        }
+        input, textarea {
+            border: 1px solid $dark;
+            border-radius: 5px;
+        }
+}
+
+.contact-us-story {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

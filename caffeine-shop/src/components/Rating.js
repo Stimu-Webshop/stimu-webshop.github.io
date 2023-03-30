@@ -106,10 +106,9 @@ export default function Rating(id) {
       <h3>Arvostelut</h3>
       <form onSubmit={handleSubmit} className="review-form" method="post">
         <label>Nimi:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="reviewbox" type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <label>Arvostelu:</label>
-        <textarea name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
-        <label>Tähdet:</label>
+        <textarea className="reviewbox" name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
         <div className='ratingStars'>
           <FontAwesomeIcon
             icon={faStar}
@@ -142,7 +141,7 @@ export default function Rating(id) {
             onClick={() => handleStarClick(1)}
           />
         </div>
-        <button type="submit" className="btn btn-primary" onClick={reviewHandler}>Lähetä</button>
+        <button type="submit" id="sendbtn" onClick={reviewHandler}>Lähetä</button>
       </form>
       <div className='rating'>
         {review.map((review, index) => (

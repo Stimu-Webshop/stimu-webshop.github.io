@@ -91,8 +91,8 @@ export default function CartPage() {
     <div className='cartpage'>
       <h2>Ostoskori</h2>
       <CartContent />
-      <button onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
-      <button className='emptyCart' onClick={handleDeleteCart}>Tyhjennä kori</button>
+      <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
+      <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
     </div>
   )
 }
