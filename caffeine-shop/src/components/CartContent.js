@@ -34,7 +34,7 @@ export default function CartContent() {
       });
   }, [cartItems, userId]);
 
-  //Delete item from shopping
+  //Delete item from shopping cart TÄMÄ EI TOIMI VIELÄ! 
   const deleteCartItem = () => {
     const url = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deleteitem.php"
     const deleteData = { user_id: userId, product_id: productId };
@@ -69,7 +69,7 @@ export default function CartContent() {
                 <li>Määrä: {item.quantity}</li>
                 <li>Summa: {item.total} eur</li>
                 <li className="deleteItem" onClick={() => deleteCartItem()}><FontAwesomeIcon
-            icon={faTrashCan}/> Poista tuote</li>
+            icon={faTrashCan}/> Poista tuote</li> {/* Ei toimi vielä, linkki vaan näkyy tällä hetkellä. */}
               </ul>
             </div>
             <div className="right">
