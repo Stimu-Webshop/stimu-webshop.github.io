@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// 21:19 21.3.23 TODOs:
-// Tässä ei oikee vielä mikään toimi jostain syystä - KORJATTU
-// Havaittuja ongelmia: JSON ei päädy PHP:lle asti, vaikka bodyn pitäisi formatoitua oikein - KORJATTU
-// Ongelma mahdollisesti php päässä, ehkä fetch -methodissa ongelmaa?  - KORJATTU
-// - Samppa
+// Jos joku tänne eksyy nii nää vois tyylitellä (AccountPage, Loginpage, RegisteryPage, UpdateAccountInfo, LoginFunction) :) 
 
-// 14:28 28.3.23 TODOS:
-// Toiminnallisuus korjattu
-// Tehtäviä asioita, ongelmatilanteessa (wrong user/pass) tiedon näyttäminen kirjautujalle  - KORJATTU 
-// User ID:n hakeminen kirjautuessa ja tallentaminen shoppingcart:ia varten  - KORJATTU
+
 export default function LoginFunction() {
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
