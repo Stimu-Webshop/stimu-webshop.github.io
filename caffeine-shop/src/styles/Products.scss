@@ -26,8 +26,21 @@ body{
     margin: 10px;
     background-color: $offwhite;
     align-items: flex-start;
+    h5 {
+      @include header-text;
+      color: black;
+    }
   }
   #product-box {
+    img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
     height: 500px;
         img {
           border-radius: 0px;
@@ -51,31 +64,28 @@ body{
     transition: 0.4s;
   }
   // tää pitää vielä päivittää paremmaksi
-  a{
-    text-decoration: none;
-    color: black;
-  }
+  
   .backLink{
     font-size: 3em;
   }
-  img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-  }
+ 
   
   .product ul {
     margin: 0;
     padding: 20px;
   }
 
-  h1 {
-    display: block;
-    @include header-text;
-    color: $dark;
-    font-size: 3em;
-    text-align: center;
+  #allProducts {
+    h1 {
+      display: block;
+      @include header-text;
+      color: $dark;
+      font-size: 3em;
+      text-align: center;
+    }
   }
+
+  
 
   .divLink {
     

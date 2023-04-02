@@ -1,20 +1,15 @@
 @import 'var.scss';
 
-body {
-    @include text;
-    font-size: 1.0em;
-}
-
-h5 {
-    @include header-text;
-    color: black;
-}
 
 .emptyCart {
   margin-left: 10px;  
 }
 
 .cartItem {
+    @include text;
+    font-size: 1.0em;
+    color: black;
+    font-size: 1.0em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,7 +18,12 @@ h5 {
     p {
       margin-top: 10px;
       align-content: left;
+      
   }
+    h5 {
+      @include header-text;
+      color: black;
+}
     .deleteItem {
       text-decoration: underline;
     }

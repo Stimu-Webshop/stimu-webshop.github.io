@@ -27,7 +27,7 @@ const ProductList = () => {
     return <p>Loading...</p>;
   } else {
     return (
-      <div>
+      <div id="allProducts">
         <h1>Tuotteet</h1>
         <div className='product-container'>
           {products.map((product) => (

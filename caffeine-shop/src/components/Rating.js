@@ -103,7 +103,7 @@ export default function Rating(id) {
 
   return (
     <>
-      <h3>Arvostelut</h3>
+      <h3 className="ratingHeader">Arvostelut</h3>
       <form onSubmit={handleSubmit} className="review-form" method="post">
         <label>Nimi:</label>
         <input className="reviewbox" type="text" value={name} onChange={(e) => setName(e.target.value)} />
