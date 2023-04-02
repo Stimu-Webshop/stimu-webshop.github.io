@@ -21,13 +21,18 @@ export default function Navbar() {
   }
 
 // Function is used for checking if the user is logged in, if not redirects to the login page, if is redirects to account page isntead
+// Tähän vois tehä ihan oman ikonin tolle admin pagelle sitte jossai vaiheessa
   const handleUserClick = () => {
     const userId = localStorage.getItem("userId");
+    const adminValue = localStorage.getItem('adminValue');
     if (userId) {
       window.location.href = '/account';
+    } else if (adminValue) {
+      window.location.href = '/admin';    
     } else {
-      window.location.href = '/login';    }
+      window.location.href = '/login';
   }
+}
 
   return (
     <>

@@ -24,6 +24,8 @@ export default function AccountPage() {
   // Kirjaa käyttäjän ulos
   const handleLogout = () => {
     localStorage.removeItem('userId');
+    localStorage.removeItem('adminValue');
+    localStorage.removeItem('adminId');
     window.location.href = '/';
   };
 

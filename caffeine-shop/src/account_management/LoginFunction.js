@@ -8,7 +8,6 @@ export default function LoginFunction() {
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
       const [error, setError] = useState('');
-      const [userId, setUserId] = useState('');
     
       const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -42,10 +41,15 @@ export default function LoginFunction() {
           return response.data;
         })
         .then((data) => {
-          if (data) { 
-            setUserId(data);
-            localStorage.setItem('userId', JSON.stringify(data));
-            window.location.href = '/'; }
+          console.log(data);
+          if (data.adminValue) {
+            localStorage.setItem('adminValue', JSON.stringify(data.adminValue));
+            localStorage.setItem('adminId', JSON.stringify(data.adminId));
+            window.location.href = '/admin';
+          } else if (data.userId) {
+            localStorage.setItem('userId', JSON.stringify(data.userId));
+            window.location.href = '/';
+          }
         })
         .catch((error) => {
           console.log(error);

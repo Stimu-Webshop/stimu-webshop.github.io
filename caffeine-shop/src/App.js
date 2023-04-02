@@ -18,6 +18,7 @@ import LoginPage from './account_management/LoginPage';
 import CartPage from './pages/CartPage';
 import Thankyou from './pages/Thankyou';
 import AccountPage from './account_management/AccountPage';
+import AdminPage from './account_management/AdminPage';
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
           <Route path="cartpage" element = { <CartPage />} />
           <Route path="thankyou" element = { <Thankyou />} />
           <Route path="account" element = {<AccountPage/>} />
+          <Route path="admin" element = {<AdminPage/>}  />
         </Routes>
       <Footer />
     </>
