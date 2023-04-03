@@ -133,7 +133,7 @@ const ProductTable = () => {
   <tfoot>
     <tr>
       <td colSpan="8">
-        <button onClick={handleAddClick}>Add Product</button>
+        <button onClick={handleAddClick}>Add product</button>
         <button onClick={handleLogout}>Logout</button>
       </td>
     </tr>
