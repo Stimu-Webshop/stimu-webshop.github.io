@@ -56,9 +56,9 @@ export default function LoginFunction() {
           console.log(error);
           // Display a generic error message if the network request fails
           if (error.response.status === 401) {
-            setError('Incorrect username or password.');
+            setError('Väärä käyttäjätunnus tai salasana');
           } else {
-            setError('Login failed. Please try again later.');
+            setError('Kirjautuminen epäonnistui. Yritä uudelleen.');
           }
         });
       };

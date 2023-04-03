@@ -60,39 +60,52 @@ export default function RegisteryFunction() {
   
    
     return (
+      <div className='registryDiv'>
+        <h1>Rekisteröidy</h1>
         <form method='POST' onSubmit={handleSubmit}>
-          <label>Username:</label>
+          <label>Käyttäjänimi
           <input type="text" name="username" value={username} required onChange={(event) => setUsername(event.target.value)}/><br/>
-      
-          <label>Password:</label>
+          </label>
+
+          <label>Salasana
           <input type="password" name="password" value={password} required onChange={(event) => setPassword(event.target.value)}/><br/>
-      
-          <label>First Name:</label>
+          </label>
+
+          <label>Etunimi
           <input type="text" name="first_name" value={firstName} required onChange={(event) => setFirstName(event.target.value)}/><br/>
-      
-          <label>Last Name:</label>
+          </label>
+
+          <label>Sukunimi
           <input type="text" name="last_name" value={lastName} required onChange={(event) => setLastName(event.target.value)}/><br/>
-      
-          <label>Email:</label>
+          </label>
+
+          <label>Email
           <input type="email" name="email" value={email} required onChange={(event) => setEmail(event.target.value)}/><br/>
-      
-          <label>Telephone:</label>
+          </label>
+
+          <label>Puhelin
           <input type="tel" name="telephone" value={telephone} required onChange={(event) => setTelephone(event.target.value)}/><br/>
-      
-          <label>Address:</label>
+          </label>
+
+          <label>Katuosoite
           <input type="text" name="address" value={address} required onChange={(event) => setAddress(event.target.value)}/><br/>
-      
-          <label>City:</label>
+          </label>
+
+          <label>Kaupunki
           <input type="text" name="city" value={city} required onChange={(event) => setCity(event.target.value)}/><br/>
-      
-          <label>Postal Code:</label>
+          </label>
+
+          <label>Postinumero
           <input type="text" name="postal_code" value={postalCode} required onChange={(event) => setPostalCode(event.target.value)}/><br/>
-      
-          <label>Country:</label>
+          </label>
+
+          <label>Maa
           <input type="text" name="country" value={country} required onChange={(event) => setCountry(event.target.value)}/><br/>
-      
-          <button type="submit">Register</button>
+          </label>
+
+          <button type="submit" className="registryButton">Rekisteröidy</button>
         </form>
+        </div>
       );
     }  
   
