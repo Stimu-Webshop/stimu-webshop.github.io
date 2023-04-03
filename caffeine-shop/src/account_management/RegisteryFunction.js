@@ -60,9 +60,12 @@ export default function RegisteryFunction() {
   
    
     return (
-      <div className='registryDiv'>
-        <h1>Rekisteröidy</h1>
+      <div className='registryContainer'>
+        <div className='registryAdvertisement'><h1>Kun rekisteröidyt</h1> <p>Saat parhaat etumme ja tarjouksemme</p></div>
+        <div className='registryForm'>
+        
         <form method='POST' onSubmit={handleSubmit}>
+        <h1>Rekisteröidy</h1>
           <label>Käyttäjänimi
           <input type="text" name="username" value={username} required onChange={(event) => setUsername(event.target.value)}/><br/>
           </label>
@@ -105,6 +108,7 @@ export default function RegisteryFunction() {
 
           <button type="submit" className="registryButton">Rekisteröidy</button>
         </form>
+        </div>
         </div>
       );
     }  

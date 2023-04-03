@@ -1,24 +1,52 @@
 @import 'var.scss';
 
-.registryDiv {
+.registryContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: $offwhite;
     /* width: max-content; */
-    height: fit-content;
+    min-height: 100%;
     margin: 20px;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 10px;
     border: 2px solid $dark;
-    padding: 20px;
+    overflow: hidden;
+}
+
+.registryAdvertisement {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: $light;
+    color: white;
+    width: auto;
+    min-height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        @include header-text;
+        font-size: 2.5em;
+        color: white !important;
+        font-weight: bolder;
+    }
+}
+
+.registryForm {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
     h1 {
         @include header-text;
         font-size: 2.5em;
         color: $light;
         font-weight: bolder;
+        text-align: center;
     }
     form {
         display: flex;
@@ -37,6 +65,8 @@
         }
     }
 }
+
+
 
 .registryButton {
     @include webshop-button;
