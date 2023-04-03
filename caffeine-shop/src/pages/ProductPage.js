@@ -57,6 +57,25 @@ const ProductPage = () => {
   }, [id])
 
   const handleAddToCart = () => {
+
+    // Tarkastaa onko käyttäjä kirjautunut sisään, jos ei niin laittaa tavarat localstoragen muistiin.
+    // Myöhemmin kirjautuessa tarkastetaan onko localstoragessa tavaraa, jos on ne asetetaan käyttäjän ostoskoriksi
+    if (!UserId){
+      const localCartItem = {
+        id: product.id,
+        name: product.name,
+        quantity: parseInt(amount),
+        price: product.price,
+        total: parseInt(amount) * product.price,
+        image: product.img,
+      };
+      const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+      const cartItems = storedCartItems ? [...storedCartItems, localCartItem] : [localCartItem];
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      console.log(localStorage.getItem('cartItems'));
+      return;
+   
+    }
     const cartItem = {
       user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
       id: product.id,
@@ -65,8 +84,8 @@ const ProductPage = () => {
       price: product.price,
       total: parseInt(amount) * product.price,
       image: product.img // Calculate the total value
-    };
-
+    }
+    
     axios
       .post(
         'https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/shoppingcart.php',
@@ -78,7 +97,8 @@ const ProductPage = () => {
       .catch(error => {
         console.log(error);
       });
-  };
+    }
+  ;
 
   if (error) {
     return <p>{error.message}</p>
