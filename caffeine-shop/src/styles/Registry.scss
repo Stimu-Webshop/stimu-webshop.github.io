@@ -1,0 +1,52 @@
+@import 'var.scss';
+
+.registryDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $offwhite;
+    /* width: max-content; */
+    height: fit-content;
+    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    border: 2px solid $dark;
+    padding: 20px;
+    h1 {
+        @include header-text;
+        font-size: 2.5em;
+        color: $light;
+        font-weight: bolder;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+         label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        } 
+        input {
+            margin-left: auto;
+            border: 1px solid $dark;
+            border-radius: 3px;
+            min-width: 300px;
+        }
+    }
+}
+
+.registryButton {
+    @include webshop-button;
+    margin: 10px;
+    font-size: 1.4em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.registryButton:hover {
+    background-color: $dark;
+}
