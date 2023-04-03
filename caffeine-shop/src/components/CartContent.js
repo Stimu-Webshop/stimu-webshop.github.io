@@ -39,7 +39,7 @@ export default function CartContent() {
     const url = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deleteitem.php"
     const deleteData = { user_id: userId, product_id: productId };
     axios
-      .post(url, {deleteData} )
+      .post(url, deleteData)
       .then((response) => {
         console.log(response)
         // Refresh the cart items after deletion
