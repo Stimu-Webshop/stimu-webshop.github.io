@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-const ProductTable = ({ isAdmin }) => {
+const ProductTable = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -23,22 +22,71 @@ const ProductTable = ({ isAdmin }) => {
     localStorage.removeItem('adminValue');
     localStorage.removeItem('adminId');
     window.location.href = '/';
-  }
+  };
 
   const handleUpdateClick = (id) => {
     const product = products.find(product => product.id === id);
-    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateproduct.php', {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin.php', {
       id: id,
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.image,
-      category: product.category,
-      is_featured: product.is_featured,
+      img: product.image, // changed 'img' to 'image'
+      category_id: product.category,
+      inventory: product.inventory,
     })
       .then(response => console.log(response))
       .catch(error => console.log(error));
   };
+
+  const handleAddClick = () => {
+    const newProduct = {
+      id: '',
+      name: '',
+      description: '',
+      price: '',
+      image: '', // changed 'img' to 'image'
+      category_id: '', // changed 'category' to 'category_id'
+      inventory: '',
+    };
+    handleAddProduct(newProduct);
+  };
+  
+
+  const handleDeleteClick = (id) => {
+    const newProducts = products.filter(product => product.id !== id);
+    setProducts(newProducts);
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin.php', {
+      id: id,
+    })
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+  };
+
+  const handleAddProduct = (product) => {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin.php', {
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image, // changed 'img' to 'image'
+      category_id: product.category_id, // changed 'category' to 'category_id'
+      inventory: product.inventory,
+    })
+      .then(response => {
+        const newProduct = {
+          id: response.data.id,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image: product.image, // changed 'img' to 'image'
+          category_id: product.category_id, // changed 'category' to 'category_id'
+          inventory: product.inventory,
+        };
+        setProducts([...products, newProduct]);
+      })
+      .catch(error => console.log(error));
+  };
+
   return (
     <table>
       <thead>
@@ -50,47 +98,48 @@ const ProductTable = ({ isAdmin }) => {
           <th>Image URL</th>
           <th>Category</th>
           <th>Inventory</th>
-
-          {isAdmin && <th>Featured</th>}
           <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {products.map(product => (
-          <tr key={product.id}>
-            <td>{product.id}</td>
-            <td>
-              <input type="text" value={product.name} onChange={(e) => handleInputChange(e, product.id, 'name')} />
-            </td>
-            <td>
-              <input type="text" value={product.description} onChange={(e) => handleInputChange(e, product.id, 'description')} />
-            </td>
-            <td>
-              <input type="number" value={product.price} onChange={(e) => handleInputChange(e, product.id, 'price')} />
-            </td>
-            <td>
-              <input type="text" value={product.img} onChange={(e) => handleInputChange(e, product.id, 'img')} />
-            </td>
-            <td>
-              <input type="text" value={product.category_id} onChange={(e) => handleInputChange(e, product.id, 'category_id')} />
-            </td>
-            <td>
-              <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} />
-            </td>
-            {isAdmin && (
-              <td>
-                <input type="checkbox" checked={product.is_featured} onChange={(e) => handleInputChange(e, product.id, 'is_featured')} />
-              </td>
-            )}
-            <td>
-              <button onClick={() => handleUpdateClick(product.id)}>Update</button>
-            </td>
           </tr>
-        ))}
-      </tbody>
-      <button onClick={handleLogout}>Kirjaudu ulos</button>
-    </table>
-  );
+        </thead>
+  <tbody>
+    {products.map(product => (
+      <tr key={product.id}>
+        <td>{product.id}</td>
+        <td>
+          <input type="text" value={product.name} onChange={(e) => handleInputChange(e, product.id, 'name')} />
+        </td>
+        <td>
+          <input type="text" value={product.description} onChange={(e) => handleInputChange(e, product.id, 'description')} />
+        </td>
+        <td>
+          <input type="text" value={product.price} onChange={(e) => handleInputChange(e, product.id, 'price')} />
+        </td>
+        <td>
+          <input type="text" value={product.image} onChange={(e) => handleInputChange(e, product.id, 'image')} />
+        </td>
+        <td>
+          <input type="text" value={product.category_id} onChange={(e) => handleInputChange(e, product.id, 'category_id')} />
+        </td>
+        <td>
+          <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} />
+        </td>
+        <td>
+          <button onClick={() => handleUpdateClick(product.id)}>Update</button>
+          <button onClick={() => handleDeleteClick(product.id)}>Delete</button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colSpan="8">
+        <button onClick={handleAddClick}>Add Product</button>
+        <button onClick={handleLogout}>Logout</button>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+);
 };
 
 export default ProductTable;
