@@ -31,8 +31,8 @@ const ProductTable = () => {
       name: product.name,
       description: product.description,
       price: product.price,
-      img: product.image, // changed 'img' to 'image'
-      category_id: product.category,
+      image: product.img, // changed 'img' to 'image'
+      category: product.category_id,
       inventory: product.inventory,
     })
       .then(response => console.log(response))
@@ -68,8 +68,8 @@ const ProductTable = () => {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.image, // changed 'img' to 'image'
-      category_id: product.category_id, // changed 'category' to 'category_id'
+      image: product.img, // changed 'img' to 'image'
+      category: product.category_id, // changed 'category' to 'category_id'
       inventory: product.inventory,
     })
       .then(response => {
@@ -78,8 +78,8 @@ const ProductTable = () => {
           name: product.name,
           description: product.description,
           price: product.price,
-          image: product.image, // changed 'img' to 'image'
-          category_id: product.category_id, // changed 'category' to 'category_id'
+          image: product.img, // changed 'img' to 'image'
+          category: product.category_id, // changed 'category' to 'category_id'
           inventory: product.inventory,
         };
         setProducts([...products, newProduct]);
@@ -115,7 +115,7 @@ const ProductTable = () => {
           <input type="text" value={product.price} onChange={(e) => handleInputChange(e, product.id, 'price')} />
         </td>
         <td>
-          <input type="text" value={product.image} onChange={(e) => handleInputChange(e, product.id, 'image')} />
+          <input type="text" value={product.img} onChange={(e) => handleInputChange(e, product.id, 'image')} />
         </td>
         <td>
           <input type="text" value={product.category_id} onChange={(e) => handleInputChange(e, product.id, 'category_id')} />
