@@ -4,7 +4,7 @@ export default function Thankyou() {
     return (
         <div style={{ textAlign: "center" }}>
         <h1>Kiitos ostoksestasi!</h1>
-        <p>Ostoksesi on suoritettu onnistuneesti ja toimitetaan sinulle yhden arkipäivän kuluessa.</p>
+        <p>Viritä teleport -vastaanottimesi ja tuotteet toimitetaan sinulle seuraavan tunnin kuluessa.</p>
         </div>
     );
     }
