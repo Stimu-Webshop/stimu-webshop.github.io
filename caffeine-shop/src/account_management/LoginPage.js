@@ -9,6 +9,7 @@ import '../styles/Login.scss';
 export default function LoginPage() {
   return (
     <>
+    <div className='loginDiv'>
       <h1>Kirjaudu sisään</h1>
       <div className='login'>
         <LoginFunction />
@@ -17,6 +18,7 @@ export default function LoginPage() {
         Eikö sinulla ole vielä käyttäjätiliä?{' '}
         <Link to='/register'>Rekisteröidy.</Link>
       </p>
+      </div>
     </>
   );
 }

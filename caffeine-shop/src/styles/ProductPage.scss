@@ -18,6 +18,11 @@ h1 {
     margin-bottom: 20px;
 }
 
+body { //jos fonttia ei ole muuten määritelty
+    font-family: 'poppins', sans-serif;
+    font-size: 1em;
+}
+
 .productContainer {
     background-color: $offwhite;
     margin: 20px;
