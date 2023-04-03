@@ -42,12 +42,13 @@ export default function LoginFunction() {
         })
         .then((data) => {
           console.log(data);
+          console.log(data.userId);
           if (data.adminValue) {
             localStorage.setItem('adminValue', JSON.stringify(data.adminValue));
             localStorage.setItem('adminId', JSON.stringify(data.adminId));
             window.location.href = '/admin';
           } else if (data.userId) {
-            localStorage.setItem('userId', JSON.stringify(data.userId));
+            localStorage.setItem('userId', JSON.stringify(data));
             window.location.href = '/';
           }
         })
