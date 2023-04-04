@@ -33,7 +33,7 @@ export default function CategoryPage({pageid, header}) {
       } else {
         return (
           <div>
-            <h1>Tuotteet</h1>
+            <h1 id="header">{header}</h1>
             <div className='product-container'>
               {searchResults.map((product) => (
                 <div className="product" id="product-box" key={product.id}>
