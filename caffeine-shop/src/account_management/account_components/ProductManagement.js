@@ -40,8 +40,8 @@ const ProductManagement = () => {
       name: '',
       description: '',
       price: '',
-      image: '', // changed 'img' to 'image'
-      category_id: '', // changed 'category' to 'category_id'
+      image: '',
+      category: '',
       inventory: '',
     };
     handleAddProduct(newProduct);
@@ -49,8 +49,13 @@ const ProductManagement = () => {
   
 
   const handleDeleteClick = (id) => {
+    const confirmed = window.confirm('Haluatko varmasti poistaa tuotteen?');
+    if (!confirmed) {
+      return
+    }
     const newProducts = products.filter(product => product.id !== id);
     setProducts(newProducts);
+
     axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_deleteproduct.php', {
       id: id,
     })
@@ -63,8 +68,8 @@ const ProductManagement = () => {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.img, // changed 'img' to 'image'
-      category: product.category_id, // changed 'category' to 'category_id'
+      image: product.img,
+      category: product.category_id,
       inventory: product.inventory,
     })
       .then(response => {
@@ -73,8 +78,8 @@ const ProductManagement = () => {
           name: product.name,
           description: product.description,
           price: product.price,
-          image: product.img, // changed 'img' to 'image'
-          category: product.category_id, // changed 'category' to 'category_id'
+          image: product.img,
+          category: product.category_id,
           inventory: product.inventory,
         };
         setProducts([...products, newProduct]);
