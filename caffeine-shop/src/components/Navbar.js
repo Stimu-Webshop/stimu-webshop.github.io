@@ -76,10 +76,8 @@ export default function Navbar() {
                 icon={faUser}
                 className="user"
                 onClick={handleUserClick}
-
               />
-              {showLogin && (
-                <div className='loginDiv'>
+                <div className={`loginDiv ${showLogin ? 'show' : ''}`}>
                   <span class="material-symbols-outlined" id='closer' onClick={() => setShowLogin(!showLogin)}>
                     close
                   </span>
@@ -91,7 +89,8 @@ export default function Navbar() {
                     Eikö sinulla ole vielä käyttäjätiliä?{' '}
                     <Link to='/register'>Rekisteröidy.</Link>
                   </p>
-                </div>)}
+                </div>
+
               <FontAwesomeIcon
                 icon={faCartShopping}
                 className="shoppingCart"

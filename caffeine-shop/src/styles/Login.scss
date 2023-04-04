@@ -14,28 +14,40 @@
     border-radius: 10px;
     border: 2px solid $dark;
     padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
     h1 {
         @include header-text;
         font-size: 2.5em;
         color: $light;
         font-weight: bolder;
     }
+
     a {
         text-decoration: underline;
         color: $dark;
     }
+
     a:hover {
         cursor: pointer;
         color: $light;
     }
+
     form {
         display: flex;
         flex-direction: column;
+
         label {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         input {
             margin-left: 5px;
             border: 1px solid $dark;
@@ -43,11 +55,13 @@
         }
 
     }
+
     #closer {
         margin-left: 23vw;
         font-size: 2em;
         color: $dark;
     }
+
     #closer:hover {
         cursor: pointer;
         color: $light;
