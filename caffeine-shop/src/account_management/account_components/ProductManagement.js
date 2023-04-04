@@ -21,7 +21,7 @@ const ProductManagement = () => {
 
   const handleUpdateClick = (id) => {
     const product = products.find(product => product.id === id);
-    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin.php', {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_updateproduct.php', {
       id: id,
       name: product.name,
       description: product.description,
@@ -51,7 +51,7 @@ const ProductManagement = () => {
   const handleDeleteClick = (id) => {
     const newProducts = products.filter(product => product.id !== id);
     setProducts(newProducts);
-    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin.php', {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_deleteproduct.php', {
       id: id,
     })
       .then(response => console.log(response))
@@ -59,7 +59,7 @@ const ProductManagement = () => {
   };
 
   const handleAddProduct = (product) => {
-    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin.php', {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_insertproduct.php', {
       name: product.name,
       description: product.description,
       price: product.price,
