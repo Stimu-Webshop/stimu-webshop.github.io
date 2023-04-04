@@ -43,6 +43,15 @@
         }
 
     }
+    #closer {
+        margin-left: 23vw;
+        font-size: 2em;
+        color: $dark;
+    }
+    #closer:hover {
+        cursor: pointer;
+        color: $light;
+    }
 }
 
 .loginButton {

@@ -24,10 +24,11 @@
 }
 .icons {
     margin-left: auto;
+    margin-bottom: 0px;
 }
 
 .shoppingCart {
-    font-size: 2em;
+    font-size: 2.5em;
     color: white;
     :hover {
         color: $light;
@@ -36,7 +37,7 @@
 }
 
 .user {
-    font-size: 2em;
+    font-size: 2.5em;
     color: white;
     padding-right: 20px;
     :hover {
@@ -44,7 +45,12 @@
         cursor: pointer;
     }
 }
-
+.loginDiv {
+    position: absolute;
+    top: 6vh;
+    right: 8vh;
+    z-index: 3;
+}
 .btn-dropdown {
     @include header-text;
     background-color: $dark;

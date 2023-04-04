@@ -1,5 +1,13 @@
-img {
-    width: 30%;
-    height: 100%;
-    object-fit: cover;
+@import "var.scss";
+
+
+.notfound {
+    @include flexbox;
+    flex-direction: column;
+    img {
+        width: 30%;
+        height: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
 }

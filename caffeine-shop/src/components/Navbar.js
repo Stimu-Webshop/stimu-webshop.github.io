@@ -4,6 +4,7 @@ import React from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LoginFunction from '../account_management/LoginFunction';
 import "../styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -15,24 +16,25 @@ export default function Navbar() {
 
   // Shopping cart functions
   const [showCart, setShowCart] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
 
   const toggleCart = () => {
     setShowCart(!showCart)
   }
-
-// Function is used for checking if the user is logged in, if not redirects to the login page, if is redirects to account page isntead
-// Tähän vois tehä ihan oman ikonin tolle admin pagelle sitte jossai vaiheessa
+  // Function is used for checking if the user is logged in, if not redirects to the login page, if is redirects to account page isntead
+  // Tähän vois tehä ihan oman ikonin tolle admin pagelle sitte jossai vaiheessa
   const handleUserClick = () => {
     const userId = localStorage.getItem("userId");
     const adminValue = localStorage.getItem('adminValue');
     if (userId) {
       window.location.href = '/account';
     } else if (adminValue) {
-      window.location.href = '/admin';    
+      window.location.href = '/admin';
     } else {
-      window.location.href = '/login';
+      setShowLogin(!showLogin);
+    }
   }
-}
+
 
   return (
     <>
@@ -70,33 +72,48 @@ export default function Navbar() {
               </form>
             </ul>
             <ul className="icons">
-            <FontAwesomeIcon
-            icon={faUser}
-            className="user"
-             onClick={handleUserClick}
+              <FontAwesomeIcon
+                icon={faUser}
+                className="user"
+                onClick={handleUserClick}
+
               />
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              className="shoppingCart"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvas"
-              onClick={toggleCart}
-            />
+              {showLogin && (
+                <div className='loginDiv'>
+                  <span class="material-symbols-outlined" id='closer' onClick={() => setShowLogin(!showLogin)}>
+                    close
+                  </span>
+                  <h1>Kirjaudu sisään</h1>
+                  <div className='login'>
+                    <LoginFunction />
+                  </div>
+                  <p>
+                    Eikö sinulla ole vielä käyttäjätiliä?{' '}
+                    <Link to='/register'>Rekisteröidy.</Link>
+                  </p>
+                </div>)}
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                className="shoppingCart"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvas"
+                onClick={toggleCart}
+              />
             </ul>
           </div>
         </div>
       </nav>
 
       {/* // Shopping cart */}
-      
-<div
-  className={`offcanvas offcanvas-end ${showCart ? 'show' : ''}`}
-  tabIndex="-1"
-  id="offcanvas"
-  aria-labelledby="offcanvasLabel"
->
-  <CartOffcanvas showCart={showCart} />
-</div>
+
+      <div
+        className={`offcanvas offcanvas-end ${showCart ? 'show' : ''}`}
+        tabIndex="-1"
+        id="offcanvas"
+        aria-labelledby="offcanvasLabel"
+      >
+        <CartOffcanvas showCart={showCart} />
+      </div>
 
     </>
   );

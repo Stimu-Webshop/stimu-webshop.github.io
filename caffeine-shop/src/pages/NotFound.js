@@ -4,8 +4,9 @@ import "../styles/NotFound.scss"
 
 export default function NotFound() {
   return (
-    <div class="notfound"><img src={catimg} alt="cat" />
-    <h1>404 - sivua ei löytynyt!</h1>
+    <div class="notfound">
+      <h1>404 - sivua ei löytynyt!</h1>
+      <img src={catimg} alt="cat" />
     </div>
   )
 }
