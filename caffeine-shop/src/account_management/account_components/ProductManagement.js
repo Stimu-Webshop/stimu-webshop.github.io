@@ -11,9 +11,12 @@ const ProductManagement = () => {
   }, []);
 
   const handleInputChange = (e, id, field) => {
-    const newProducts = [...products];
-    const index = newProducts.findIndex(product => product.id === id);
-    newProducts[index][field] = e.target.value;
+    const newProducts = products.map(product => {
+      if (product.id === id) {
+        return { ...product, [field]: e.target.value };
+      }
+      return product;
+    });
     setProducts(newProducts);
   };
 
@@ -35,8 +38,12 @@ const ProductManagement = () => {
   };
 
   const handleAddClick = () => {
+    function getNextFreeId(data) {
+      const maxId = data.reduce((max, item) => (parseInt(item.id) > max ? parseInt(item.id) : max), 0);
+      return parseInt(maxId) + 1;
+    }
     const newProduct = {
-      id: '',
+      id: getNextFreeId(products),
       name: '',
       description: '',
       price: '',
@@ -44,7 +51,8 @@ const ProductManagement = () => {
       category: '',
       inventory: '',
     };
-    handleAddProduct(newProduct);
+    setProducts([...products, newProduct]);
+    /* handleAddProduct(newProduct); */
   };
   
 
@@ -64,28 +72,24 @@ const ProductManagement = () => {
   };
 
   const handleAddProduct = (product) => {
-    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_insertproduct.php', {
+
+    const newProduct = {
+      id: product.id,
       name: product.name,
       description: product.description,
       price: product.price,
       image: product.img,
       category: product.category_id,
       inventory: product.inventory,
-    })
+    };
+  
+    axios.post('https://www.students.oamk.fi/~n2jato00/PHP/accounts/admin_insertproduct.php', newProduct)
       .then(response => {
-        const newProduct = {
-          id: response.data.id,
-          name: product.name,
-          description: product.description,
-          price: product.price,
-          image: product.img,
-          category: product.category_id,
-          inventory: product.inventory,
-        };
-        setProducts([...products, newProduct]);
+        console.log(newProduct);
       })
       .catch(error => console.log(error));
   };
+  
 
   return (
     <table>
@@ -115,7 +119,7 @@ const ProductManagement = () => {
           <input type="text" value={product.price} onChange={(e) => handleInputChange(e, product.id, 'price')} />
         </td>
         <td>
-          <input type="text" value={product.img} onChange={(e) => handleInputChange(e, product.id, 'image')} />
+          <input type="text" value={product.img} onChange={(e) => handleInputChange(e, product.id, 'img')} />
         </td>
         <td>
           <input type="text" value={product.category_id} onChange={(e) => handleInputChange(e, product.id, 'category_id')} />
@@ -133,7 +137,8 @@ const ProductManagement = () => {
   <tfoot>
     <tr>
       <td colSpan="8">
-        <button onClick={handleAddClick}>Add product</button>
+        <button onClick={handleAddClick}>Add row</button>
+        <button onClick={handleAddProduct}>Add product</button>
       </td>
     </tr>
   </tfoot>
