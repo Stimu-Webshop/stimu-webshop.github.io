@@ -17,12 +17,7 @@ export default function LoginFunction() {
         setPassword(event.target.value);
       };
 
-      useEffect(() => { 
-        const userId = localStorage.getItem("userId");
-        if(userId) {
-          window.location.href = '/account';
-        }
-      }, [])
+      
       
     
       const handleSubmit = (event) => {
