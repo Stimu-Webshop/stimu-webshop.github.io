@@ -41,6 +41,7 @@
     flex: 1;
     align-items: center;
     justify-content: center;
+    
     h1 {
         @include header-text;
         font-size: 2.5em;
