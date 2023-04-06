@@ -1,0 +1,25 @@
+@import 'var.scss';
+
+.add-product-form{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 5px;
+    
+    input, textarea{
+        height: 30px;
+        width: 200px;
+        color: black;
+        vertical-align: top;
+    }
+}
+.product-table{
+    input{
+        height: 30px;
+        width: 200px;
+    }
+}
+
+::placeholder {
+    color: black;
+}

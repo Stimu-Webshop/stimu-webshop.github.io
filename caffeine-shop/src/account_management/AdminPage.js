@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductManagement from './account_components/ProductManagement'
+import InsertProduct from './account_components/InsertProduct'
+import '../styles/Admin.scss'
 
 
 export default function AdminPage() {
@@ -29,6 +31,7 @@ export default function AdminPage() {
   return (
     <>
       <ProductManagement/>
+      <InsertProduct/>
       <button onClick={handleLogout}>Logout</button>
       </>
   
