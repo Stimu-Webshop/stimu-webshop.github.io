@@ -100,6 +100,32 @@ const ProductPage = () => {
     }
   ;
 
+  // Funktiot tuotteiden määrän muuttamiseen, ei voi olla enempää kuin varastossa eikä vähempää kuin 0 t. Sari
+  const handleAmountChange = (e) => {
+    let productAmount = parseInt(e.target.value);
+    if (productAmount > product.inventory) {
+      productAmount = product.inventory
+    }
+    if (productAmount < 0) {
+      productAmount = 0
+    }
+    setAmount(productAmount)
+  }
+  
+  const handleIncrementAmount = () => {
+    if (amount < product.inventory) {
+      setAmount(amount + 1)
+    }
+  }
+  
+  const handleDecrementAmount = () => {
+    if (amount > 0) {
+      setAmount(amount - 1)
+    }
+  }
+  
+  
+
   if (error) {
     return <p>{error.message}</p>
   } else if (!isLoaded) {
@@ -133,13 +159,13 @@ const ProductPage = () => {
                 </li>
                 <div className='amountbuttons'>
                   <button id='amount'>
-                  <span class="material-symbols-outlined" onClick={() => setAmount(amount-1)}>
+                  <span class="material-symbols-outlined" onClick={handleDecrementAmount}>
                     do_not_disturb_on
                   </span>
                   </button>
-                  <input type="number" value={amount} onChange={e => setAmount(e.target.value)} />
+                  <input type="number" id="inputValue" value={amount} onChange={handleAmountChange} />
                   <button id='amount'>
-                  <span class="material-symbols-outlined" onClick={() => setAmount(amount+1)}>
+                  <span class="material-symbols-outlined" onClick={handleIncrementAmount}>
                     add_circle
                   </span>
                   </button>
