@@ -80,8 +80,10 @@ body{
       display: block;
       @include header-text;
       color: $dark;
-      font-size: 3em;
+      margin-top: 10px;
       text-align: center;
+      font-size: 60px;
+      font-weight: 700;
     }
   }
 
