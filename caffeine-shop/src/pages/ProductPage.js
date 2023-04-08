@@ -133,6 +133,7 @@ const ProductPage = () => {
   } else {
     return (
       <div className='productContainer'>
+        <div className='headerContent'>
         <button id='backbutton' onClick={() => navigate(-1)}>
           <span class="material-symbols-outlined">
             arrow_back_ios
@@ -140,6 +141,8 @@ const ProductPage = () => {
           Takaisin kauppaan
         </button>
         <h1>{product.name}</h1>
+        <p></p>
+        </div>
         <div className='flexbox1'>
           <div className='productPic'>
             <img src={product.img} alt="" srcSet="" />
