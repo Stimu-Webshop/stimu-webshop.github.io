@@ -3,27 +3,26 @@
 
 
 .carousel-item {
-
     :hover {
         cursor: pointer;
-    }
-    img {
-        justify-content: center;
-        
-        width: 100%;
-        height: 90vh;
-        margin-left: auto;
     }
     h5 {
         @include header-text;
     }
-    
+
+    img {
+        width: 75%;
+        height: 90vh;
+        margin-left: 13vw;
+    }
     p {
         @include text;
         font-size: 1.1em;
     }
 }
-
+.carousel-inner {
+    margin:auto;
+}
 .carousel {
     background: black;
 }
