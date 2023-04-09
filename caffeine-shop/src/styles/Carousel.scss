@@ -3,12 +3,14 @@
 
 
 .carousel-item {
+
     :hover {
         cursor: pointer;
     }
     img {
         justify-content: center;
-        width: 90%;
+        
+        width: 100%;
         height: 90vh;
         margin-left: auto;
     }
