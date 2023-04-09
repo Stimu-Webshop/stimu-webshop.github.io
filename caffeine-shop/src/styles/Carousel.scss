@@ -7,10 +7,10 @@
         cursor: pointer;
     }
     img {
-        width: 100%;
+        justify-content: center;
+        width: 90%;
         height: 90vh;
-        
-
+        margin-left: auto;
     }
     h5 {
         @include header-text;
@@ -22,6 +22,9 @@
     }
 }
 
+.carousel {
+    background: black;
+}
 .ad-text-container {
     border-radius: 3px;
     /* background-color: $greige; Tarviiko tuota taustaväriä? tai pitäiskö sen olla ainakin läpinäkyvä? */

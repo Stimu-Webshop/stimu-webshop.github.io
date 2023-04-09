@@ -60,6 +60,7 @@
 .btn-dropdown:hover, .btn-dropdown:focus, .btn-dropdown:active, .btn-dropdown.active, .open>.dropdown-toggle.btn-dropdown {
     background-color: $light !important;
     border-color: white;
+    color: white;
 }
 .dropdown-menu {
     background-color: $dark;
