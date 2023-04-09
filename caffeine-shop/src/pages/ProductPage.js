@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Rating from '../components/Rating'
 import '../styles/ProductPage.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheck, faCircleRight, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from 'react-router-dom'
 
 const ProductPage = () => {
@@ -38,9 +38,6 @@ const ProductPage = () => {
 
   // STORAGE HAKU LOPPUU
 
-  for (let i = 0; i < 11; i++) {
-    buyAmount.push(i)
-  }
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -123,7 +120,6 @@ const ProductPage = () => {
       setAmount(amount - 1)
     }
   }
-  
   
 
   if (error) {
