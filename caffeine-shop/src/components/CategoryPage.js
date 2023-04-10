@@ -19,7 +19,6 @@ export default function CategoryPage({pageid, header}) {
             setError(null);
             setIsLoaded(true);
             setSearchResults(response.data);
-            console.log(response.data)
           })
           .catch(error => {
             alert(error);
