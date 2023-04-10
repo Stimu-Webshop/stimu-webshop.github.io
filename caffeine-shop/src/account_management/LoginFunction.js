@@ -22,6 +22,7 @@ export default function LoginFunction() {
     
       const handleSubmit = (event) => {
         event.preventDefault();
+        localStorage.removeItem('localCartItems');
         const body = {username: username, password: password}
         console.log(body);
     
