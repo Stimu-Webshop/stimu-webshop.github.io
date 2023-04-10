@@ -2,10 +2,10 @@
 
 footer {
     @include flexbox;
-    flex-direction: row;
+    flex-direction: column;
     background-color: $dark;
-    height: 250px;
-
+    height: 400px;
+    text-align: center;
     h1 {
         @include header-text;
     }
@@ -14,6 +14,7 @@ footer {
         @include text;
         @include borders;
         padding: 10px;
+        font-size: 1em;
     }
 
 }
@@ -21,4 +22,5 @@ footer {
     @include text;
     @include borders;
     padding: 10px;
+    margin-bottom: 20px;
 }
