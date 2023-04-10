@@ -101,7 +101,24 @@ body { //jos fonttia ei ole muuten määritelty
                 transition: 0.3s;
                  background-color: $primary;
                 }
-
+                #orderbtn::after {
+                    content: "Lisätty!";
+                    background: $light;
+                    border-radius: 5px;
+                    display: block;
+                    position: absolute;
+                    top: 300px;
+                    right: 380px;
+                    padding: 18px;
+                    margin: 0;
+                    opacity: 0;
+                    transition: 2s;
+                }
+                #orderbtn:active::after {
+                    opacity: 1;
+                    transition: 0.1s;
+                }
+                
                 .amountbuttons {
                     @include flexbox;
                         input {
