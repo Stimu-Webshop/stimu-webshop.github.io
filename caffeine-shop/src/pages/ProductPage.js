@@ -14,10 +14,10 @@ const ProductPage = () => {
   const [product, setProduct] = useState(null)
   const [amount, setAmount] = useState(0)
 
-  // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
-  // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
-  // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
-  // - Samppa 
+  // Älkää tehkö ostoksia loppuun asti ilman että olette sisäänkirjautuneena, voi mennä rikki
+  // 11.4 TODOs:
+  // Ei voi tehdä ostoksia ilman sisäänkirjautumista
+  // Kassalle napin sijasta kirjaudu tms nappi
 
   // TÄMÄ HAKEE USERID:N LOCALSTORAGESTA SIVUN LADATESSA JA TALLENTAA SEN MUUTTUJAAN
   const [UserId, setUserId] = useState(null)
@@ -30,8 +30,6 @@ const ProductPage = () => {
     } else {
       console.log('User id is empty');
     }
-    console.log(storedUserId);
-    console.log(UserId);
   }, []);
 
   // STORAGE HAKU LOPPUU
@@ -70,8 +68,9 @@ const ProductPage = () => {
       console.log(localStorage.getItem('cartItems'));
       return;
     }
+    // Luo tietokannalle lähetettävät cart itemit ja lähettää ne.
     const cartItem = {
-      user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
+      user_id: UserId.userId, 
       id: product.id,
       name: product.name,
       quantity: parseInt(amount),

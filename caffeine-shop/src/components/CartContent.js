@@ -17,11 +17,13 @@ export default function CartContent() {
   const localCartItems = JSON.parse(localItems);
 
   
-  // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
-  // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
-  // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
-  // - Samppa 
+ // Älkää tehkö ostoksia loppuun asti ilman että olette sisäänkirjautuneena, voi mennä rikki
+  // 11.4 TODOs:
+  // Ei voi tehdä ostoksia ilman sisäänkirjautumista
+  // Kassalle napin sijasta kirjaudu tms nappi
+
   useEffect(() => {
+    // Tarkistaa onko käyttäjä kirjautunut sisälle, jos on hakee käyttäjän henkilökohtaisen ostoskorin.
     if (userId) {
     const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getcart.php";
     const url = `${PHP}?UserId=${userId}`;
@@ -41,6 +43,7 @@ export default function CartContent() {
       });
       return
     }
+    // Tarkistaa onko käyttäjällä localstoragessa tuotteita, jos on näytää ne ostoskorissa.
     else if (localCartItems) {
       setError(null);
       setIsLoaded(true);
@@ -53,12 +56,13 @@ export default function CartContent() {
   }, [cartItems, userId, localCartItems]);
 
 
-  //Delete item from shopping cart TÄMÄ EI TOIMI VIELÄ! 
+  //Delete item from shopping cart 
   const deleteCartItem = (index, quantity, itemProductId) => {
     const confirmed = window.confirm('Haluatko varmasti poistaa tuotteen ostoskorista?');
     if (!confirmed) {
       return
     }
+    // Tarkistaa onko käyttäjä kirjautunut sisälle. Jos ei ole, poistaa tuotteen tiedot localstoragesta.
     if (!userId) {
       const newCartItems = [...cartItems];
       newCartItems.splice(index,1);
@@ -66,6 +70,8 @@ export default function CartContent() {
       localStorage.setItem('cartItems', JSON.stringify(newCartItems));
       return;
     }
+
+    // Jos käyttää on kirjautunut poistaa tuotteen tietokannasta
     const url = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deleteitem.php"
     const deleteData = { user_id: userId, product_id: itemProductId, quantity: quantity};
     axios
@@ -88,9 +94,7 @@ export default function CartContent() {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
     return <div>Loading...</div>;
-  } else if (cartItems.length === 0 || (!localCartItems && localCartItems.length === 0)) {
-    return <div>Ostoskorisi on tyhjä</div>;
-  } else {
+  } else if (cartItems.length > 0) {
     return (
       <>
         {cartItems.map((item, index) => (
@@ -101,7 +105,7 @@ export default function CartContent() {
                 <li>Määrä: {item.quantity}</li>
                 <li>Summa: {item.total} eur</li>
                 <li className="deleteItem" key={index} onClick={() => deleteCartItem(index, item.quantity, item.product_id)}><FontAwesomeIcon
-            icon={faTrashCan}/> Poista tuote</li> {/* Ei toimi vielä, linkki vaan näkyy tällä hetkellä. */}
+            icon={faTrashCan}/> Poista tuote</li> 
               </ul>
             </div>
             <div className="right">
@@ -112,5 +116,7 @@ export default function CartContent() {
         <p>Yhteensä: {totalPrice} eur</p>
       </>
     );
-  }
+  } else if (cartItems.length === 0 || (!localCartItems )) {
+    return <div>Ostoskorisi on tyhjä</div>;
+  } 
 }
