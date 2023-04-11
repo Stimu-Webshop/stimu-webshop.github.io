@@ -89,7 +89,7 @@ export default function CartContent() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else if (cartItems.length === 0 || (!localCartItems && localCartItems.length === 0)) {
-    return <div>Ostoskorisi on tyhjä</div>;
+    return <div className="emptyCart">Ostoskorisi on tyhjä</div>;
   } else {
     return (
       <>

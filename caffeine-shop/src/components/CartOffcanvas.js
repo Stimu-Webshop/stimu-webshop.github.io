@@ -7,9 +7,9 @@ export default function CartOffcanvas({ showCart }) {
   return (
     <>
       <div className="offcanvas-header">
-        <h5 className="offcanvas-title" id="offcanvasLabel">
+        <h3 className="offcanvas-title" id="offcanvasLabel">
           Ostoskori
-        </h5>
+        </h3>
         <button
           type="button"
           className="btn-close text-reset"

@@ -7,6 +7,9 @@
     margin: 10px;
     padding: 10px;
     align-items: center;
+    h1 {
+        font-weight: bold;
+    }
     button {
         @include webshop-button;
         width: fit-content;
@@ -14,7 +17,8 @@
         font-size: 1.4em;
     }
     button:hover {
-        background-color: black;
+        background-color: $primary;
+        transition: 0.3s;
     }
     label {
         font-weight: bold;
