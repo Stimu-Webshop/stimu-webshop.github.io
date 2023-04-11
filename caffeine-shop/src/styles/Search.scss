@@ -36,6 +36,13 @@
     p {
         color: white;
     }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: white;
+    }
 }
 
 ::placeholder {

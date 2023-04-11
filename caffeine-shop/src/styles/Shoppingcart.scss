@@ -9,7 +9,6 @@
     @include text;
     font-size: 1.0em;
     color: black;
-    font-size: 1.0em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,7 +17,6 @@
     p {
       margin-top: 10px;
       align-content: left;
-      
   }
     h5 {
       @include header-text;
@@ -72,6 +70,16 @@
   .cartButton:hover {
     cursor: pointer;
     background-color: $dark;
+  }
+
+  #offcanvasLabel {
+    @include header-text;
+    color: black;
+  }
+
+  .emptyCart {
+    font-size: 1.2em;
+    margin-bottom: 10px;
   }
   
  
