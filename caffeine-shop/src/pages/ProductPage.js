@@ -71,7 +71,6 @@ const ProductPage = () => {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
       console.log(localStorage.getItem('cartItems'));
       return;
-   
     }
     const cartItem = {
       user_id: UserId.userId, // tällä hetkellä tilaukset menee aina käyttäjälle 1
