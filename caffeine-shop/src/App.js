@@ -19,11 +19,11 @@ import CartPage from './pages/CartPage';
 import Thankyou from './pages/Thankyou';
 import AccountPage from './account_management/AccountPage';
 import AdminPage from './account_management/AdminPage';
+import Management from './account_management/Management';
 function App() {
   return (
     <>
       <Navbar />
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="products" element={<Products />} />
@@ -39,6 +39,7 @@ function App() {
           <Route path="thankyou" element = { <Thankyou />} />
           <Route path="account" element = {<AccountPage/>} />
           <Route path="admin" element = {<AdminPage/>}  />
+          <Route path="management" element = {<Management/>} />
         </Routes>
       <Footer />
     </>
