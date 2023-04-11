@@ -1,0 +1,31 @@
+@import 'var.scss';
+
+.accountInfoDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: $offwhite;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    button {
+        @include webshop-button;
+        width: fit-content;
+        margin: 5px;
+        font-size: 1.4em;
+    }
+    button:hover {
+        background-color: black;
+    }
+    label {
+        font-weight: bold;
+        padding-left: 5px;
+        color: $light;
+    }
+    .userInfo {
+        border: 4px solid $light;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import UpdateAccountInfo from './UpdateAccountInfo';
+import '../styles/AccountPage.scss'
 
 // Jos joku tänne eksyy nii nää vois tyylitellä (AccountPage, Loginpage, RegisteryPage, UpdateAccountInfo, LoginFunction) :) 
 
@@ -36,22 +37,26 @@ export default function AccountPage() {
 
   return (
     <>
-      <h1>Account Page</h1>
+    <div className='accountInfoDiv'>
+      <h1>Käyttäjätilin tiedot</h1>
      
       {updateMode ? (
         <UpdateAccountInfo user={user} setUser={setUser} setUpdateMode={setUpdateMode} />
       ) : (
-        <div>
+        <div className='userInfo'>
           <h2>{user.username}</h2>
-          <p>{user.first_name} {user.last_name}</p>
-          <p>{user.email}</p>
-          <p>{user.telephone}</p>
-          <p>{user.address}, {user.city} {user.postal_code}, {user.country}</p>
+          <p><label>Etunimi:</label> {user.first_name}</p> <p><label>Sukunimi:</label> {user.last_name}</p>
+          <p><label>Sähköposti:</label> {user.email}</p>
+          <p><label>Puhelinnumero:</label> {user.telephone}</p>
+          <p><label>Katuosoite:</label> {user.address} <label>Kaupunki:</label> {user.city} <label>Postinumero:</label> {user.postal_code} <label>Maa:</label> {user.country}</p>
         </div>
       )}
-      
+      <div className='accountButtons'>
       <button onClick={handleLogout}>Kirjaudu ulos</button>
       <button onClick={handleUpdateInfo}>Päivitä tietoja</button>
+      </div>
+      </div>
     </>
+
   );
 }
