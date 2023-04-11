@@ -75,10 +75,11 @@ export default function UpdateAccountInfo() {
   };
 
   return (
+    <div className='updateAccount'>
     <form onSubmit={handleSubmit}>
-      <h2>Update Account Information</h2>
+      <h2>Päivitä tietoja käyttäjätunnukselle {InitUsername}</h2>
       <label>
-        Current Username : {InitUsername}
+        Uusi käyttäjätunnus:
         <input
           type="text"
           name="username"
@@ -87,7 +88,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        First Name:
+        Etunimi:
         <input
           type="text"
           name="first_name"
@@ -96,7 +97,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Last Name:
+        Sukunimi:
         <input
           type="text"
           name="last_name"
@@ -105,7 +106,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Email:
+        Sähköposti:
         <input
           type="email"
           name="email"
@@ -114,7 +115,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Telephone:
+        Puhelinnumero:
         <input
           type="text"
           name="telephone"
@@ -123,7 +124,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Address:
+        Katuosoite:
         <input
           type="text"
           name="address"
@@ -132,7 +133,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        City:
+        Kaupunki:
         <input
           type="text"
           name="city"
@@ -141,7 +142,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Postal Code:
+        Postinumero:
         <input
           type="text"
           name="postal_code"
@@ -150,7 +151,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Country:
+        Maa:
         <input
           type="text"
           name="country"
@@ -159,7 +160,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        Current Password:
+        Nykyinen salasana:
         <input
           type="password"
           name="current_password"
@@ -168,7 +169,7 @@ export default function UpdateAccountInfo() {
         />
       </label>
       <label>
-        New Password:
+        Uusi salasana:
         <input
           type="password"
           name="new_password"
@@ -176,8 +177,9 @@ export default function UpdateAccountInfo() {
 onChange={handleChange}
 />
 </label>
-<button type="submit">Update</button>
+<button type="submit">Päivitä</button>
 {error && <p>{error}</p>}
 </form>
+</div>
 );
 }

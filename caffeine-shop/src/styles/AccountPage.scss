@@ -31,5 +31,45 @@
         margin-bottom: 10px;
         border-radius: 10px;
     }
+    .hidden {
+        display: none;
+    }
 
 }
+
+.updateAccount {
+    border: 4px solid $light;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        @include header-text;
+        color: black;
+        margin-bottom: 30px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+         label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        } 
+        input {
+            border: 1px solid $dark;
+            border-radius: 3px;
+        }
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        label {
+            margin-right: 10px;
+        }
+    }
+
+    }}

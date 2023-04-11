@@ -33,6 +33,7 @@ export default function AccountPage() {
   // Siirtyy käyttäjän tietojen päivitysmoodiin
   const handleUpdateInfo = () => {
     setUpdateMode(true);
+    document.getElementById("updateInfoButton").classList.add('hidden')
   }
 
   return (
@@ -52,8 +53,8 @@ export default function AccountPage() {
         </div>
       )}
       <div className='accountButtons'>
-      <button onClick={handleLogout}>Kirjaudu ulos</button>
-      <button onClick={handleUpdateInfo}>Päivitä tietoja</button>
+      <button id="logOutButton" onClick={handleLogout}>Kirjaudu ulos</button>
+      <button id="updateInfoButton" onClick={handleUpdateInfo}>Päivitä tietoja</button>
       </div>
       </div>
     </>
