@@ -14,8 +14,6 @@ const ProductPage = () => {
   const [product, setProduct] = useState(null)
   const [amount, setAmount] = useState(0)
 
-  const buyAmount = []
-
   // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
   // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
   // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
