@@ -1,28 +1,25 @@
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from 'react'
-import '../styles/Admin.scss'
-
+import React, { useEffect, useState } from 'react';
+import '../styles/Admin.scss';
 
 export default function AdminPage() {
   const [isLoading, setIsLoading] = useState(true)
 
-
   useEffect(() => {
-      const adminValue = localStorage.getItem('adminValue');
+      const adminValue = localStorage.getItem('adminValue')
       if (!adminValue) {
-          window.location.href = '/';
+          window.location.href = '/'
       } else {
           setIsLoading(false)
       }
-  }, []);
-
+  }, [])
 
   const handleLogout = () => {
-      localStorage.removeItem('userId');
-      localStorage.removeItem('adminValue');
-      localStorage.removeItem('adminId');
-      window.location.href = '/';
-  };
+      localStorage.removeItem('userId')
+      localStorage.removeItem('adminValue')
+      localStorage.removeItem('adminId')
+      window.location.href = '/'
+  }
   if (isLoading) {
       return <div>Loading...</div>
   }
@@ -35,5 +32,5 @@ export default function AdminPage() {
       <button onClick={handleLogout}>Logout</button>
     </div>
    
-  );
+  )
 }
