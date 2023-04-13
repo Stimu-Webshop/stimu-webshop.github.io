@@ -61,6 +61,10 @@
         input {
             border: 1px solid $dark;
             border-radius: 3px;
+            color: #908e8e;
+        }
+        input:focus {
+            color: black;
         }
     p {
         display: flex;
