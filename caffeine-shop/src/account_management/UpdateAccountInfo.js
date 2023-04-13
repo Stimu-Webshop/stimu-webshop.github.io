@@ -83,7 +83,6 @@ export default function UpdateAccountInfo() {
         <input
           type="text"
           name="username"
-          placeholder='Enter new username:'
           onChange={handleChange}
         />
       </label>
