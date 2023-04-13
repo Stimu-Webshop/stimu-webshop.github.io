@@ -27,7 +27,7 @@ export default function Rating(id) {
     const id = responseObject.id
 
     if (name === "" || comment === "") { //tämä jotta ei voi jättää tyhjää arvostelua
-      alert("Täytä kaikki kentät!")
+      
     } else {
 
     setReview([...review, { name: name, comment: comment, rating: rating }])
@@ -110,9 +110,9 @@ export default function Rating(id) {
       <h3 className="ratingHeader">Arvostelut</h3>
       <form onSubmit={handleSubmit} className="review-form" method="post">
         <label>Nimi:</label>
-        <input className="reviewbox" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="reviewbox" type="text" required="required" value={name} onChange={(e) => setName(e.target.value)} />
         <label>Arvostelu:</label>
-        <textarea className="reviewbox" name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+        <textarea className="reviewbox" name="review" rows="4" cols="33" required="required" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
         <div className='ratingStars'>
           <FontAwesomeIcon
             icon={faStar}
