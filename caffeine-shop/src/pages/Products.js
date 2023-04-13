@@ -33,13 +33,14 @@ const ProductList = () => {
           {products.map((product) => (
             <div className="product" id="product-box" key={product.id}>
               <Link to={`/productpage/${product.id}`}>
-                <img src={product.img} alt="" srcSet="" />
+                <img src={product.img} alt="" srcSet="" /></Link>
+                <Link to={`/productpage/${product.id}`}>
                 <ul>
                   <h5>{product.name}</h5>
                   <p id="prdprice">{product.price} eur</p>
                   <li>{product.description.substring(0, 100)}{product.description.length > 100 ? "..." : ""}</li>
-                </ul>
-              </Link>
+                </ul></Link>
+              
             </div>
           ))}
         </div>
