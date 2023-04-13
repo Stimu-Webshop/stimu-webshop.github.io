@@ -98,6 +98,8 @@ body{
 
   @media screen and (max-width: 670px) {
 
+  
+
     .product-container {
       display: flex;
       flex-direction: row;
@@ -107,10 +109,12 @@ body{
     }
   
     #product-box.product {
-      width: 100%;
+      width: 100vw;
       display: flex;
       flex-direction: row;
       max-height: 150px;
+      margin-left: 10px;
+      margin-right: 10px;
   
       img {
         width: 150px;
