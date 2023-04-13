@@ -28,8 +28,7 @@ export default function Rating(id) {
 
     if (name === "" || comment === "") { //tämä jotta ei voi jättää tyhjää arvostelua
       alert("Täytä kaikki kentät!")
-      return
-    }
+    } else {
 
     setReview([...review, { name: name, comment: comment, rating: rating }])
     const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`
@@ -46,7 +45,7 @@ export default function Rating(id) {
         name: name
       })
     })
-    
+  }
   };
 
   useEffect(() => {
