@@ -50,7 +50,9 @@ const ProductPage = () => {
   }, [id])
 
   const handleAddToCart = () => {
-
+    if (amount === 0) {
+      return
+    }
     // Tarkastaa onko käyttäjä kirjautunut sisään, jos ei niin laittaa tavarat localstoragen muistiin.
     // Myöhemmin kirjautuessa tarkastetaan onko localstoragessa tavaraa, jos on ne asetetaan käyttäjän ostoskoriksi
     if (!UserId){
