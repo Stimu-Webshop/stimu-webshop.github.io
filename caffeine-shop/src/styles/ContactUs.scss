@@ -1,7 +1,6 @@
 @import "var.scss";
 
 .contact-us-container {
-    height: 90vh;
     font-size: 1.3em;
         button {
             @include webshop-button;
@@ -37,4 +36,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media screen and (max-width:500px){
+    .contact-us-container {
+        font-size: 1.3em;
+            textarea {
+                height: 100px;
+                width: 300px;
+                font-size: 0.8em;        
+            }
+
+    }
 }
