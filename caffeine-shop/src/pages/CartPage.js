@@ -108,13 +108,21 @@ export default function CartPage() {
   } else {
     confirmButton = <Link to="/login" ><button className='cartButton'>Kirjaudu</button></Link>;
   }
-  
+
+  let deleteButton = null;
+  if (UserId) {
+    deleteButton = <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
+  } else {
+    deleteButton = null;
+  }
+
   return (
   <div className='cartpage'>
   <h2>Ostoskori</h2>
   <CartContent />
   {confirmButton}
-  <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
+  {deleteButton}
+  
   </div>
   )
   }
