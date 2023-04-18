@@ -76,7 +76,7 @@ export default function LoginFunction() {
                   "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/shoppingcart.php",
                   cartItems // Send the cart data as an array
                 )
-                .then((response) => {
+                .then(() => {
                   // Tämä ei toimi vielä, location ei muutu, cartItems poistuu(?)
                   localStorage.removeItem('cartItems');
                 })
