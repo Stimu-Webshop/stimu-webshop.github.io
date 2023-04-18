@@ -6,6 +6,9 @@
 // -- 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 export default function RegisteryFunction() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -61,7 +64,25 @@ export default function RegisteryFunction() {
    
     return (
       <div className='registryContainer'>
-        <div className='registryAdvertisement'><h1>Kun rekisteröidyt</h1> <p>Saat parhaat etumme ja tarjouksemme</p></div>
+        <div className='registryAdvertisement'><h1>Kun rekisteröidyt</h1> 
+        <div className='reasons'><p><FontAwesomeIcon
+                      icon={faCheck}
+                      className='checkMark' /> 
+                      Saat parhaat etumme ja tarjouksemme</p>
+                      <p><FontAwesomeIcon
+                      icon={faCheck}
+                      className='checkMark' /> 
+                      Voit suorittaa ostoksia sivuillamme</p>
+                      <p><FontAwesomeIcon
+                      icon={faCheck}
+                      className='checkMark' /> 
+                      Lähetämme sinulle uutiskirjeemme joka kuukausi</p>
+                      <p><FontAwesomeIcon
+                      icon={faCheck}
+                      className='checkMark' /> 
+                      Pääset osaksi Stimu -yhteisöämme!</p>
+                      </div>
+                      </div>
         <div className='registryForm'>
         
         <form method='POST' onSubmit={handleSubmit}>

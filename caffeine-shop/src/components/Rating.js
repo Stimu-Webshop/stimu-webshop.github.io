@@ -26,6 +26,10 @@ export default function Rating(id) {
     const responseObject = JSON.parse(response)
     const id = responseObject.id
 
+    if (name === "" || comment === "") { //tämä jotta ei voi jättää tyhjää arvostelua
+      
+    } else {
+
     setReview([...review, { name: name, comment: comment, rating: rating }])
     const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/reviews/review.php`
     // Läheteään tiedot PHP:lle, joka lisää ne tietokantaan. Huomaa että ID on ProductPage-komponentilta saatu sivun ID
@@ -41,7 +45,7 @@ export default function Rating(id) {
         name: name
       })
     })
-    
+  }
   };
 
   useEffect(() => {
@@ -106,9 +110,9 @@ export default function Rating(id) {
       <h3 className="ratingHeader">Arvostelut</h3>
       <form onSubmit={handleSubmit} className="review-form" method="post">
         <label>Nimi:</label>
-        <input className="reviewbox" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="reviewbox" type="text" required="required" value={name} onChange={(e) => setName(e.target.value)} />
         <label>Arvostelu:</label>
-        <textarea className="reviewbox" name="review" rows="4" cols="33" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+        <textarea className="reviewbox" name="review" rows="4" cols="33" required="required" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
         <div className='ratingStars'>
           <FontAwesomeIcon
             icon={faStar}

@@ -37,7 +37,8 @@ export default function CategoryPage({pageid, header}) {
               {searchResults.map((product) => (
                 <div className="product" id="product-box" key={product.id}>
                   <Link to={`/productpage/${product.id}`}>
-                    <img src={product.img} alt="" srcSet="" />
+                    <img src={product.img} alt="" srcSet="" /></Link>
+                    <Link to={`/productpage/${product.id}`}>
                     <ul>
                       <h5>{product.name}</h5>
                       <p id="prdprice">{product.price} eur</p>

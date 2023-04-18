@@ -44,7 +44,7 @@ export default function Carousel() {
         <Link to="/coffee">
         <div class="carousel-item active" >
           <img src={coffeeImg} alt="image" />
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption  d-md-block">
           <div class="ad-text-container">
             <h5>Paahto on meidän intohimomme</h5>
             <p>Rakastamme kahvia yhtä paljon kuin sinäkin. Valikoimamme sisältää vain parhaita kahvilajeja, jotka on paahdettu rakkaudella. 
@@ -56,7 +56,7 @@ export default function Carousel() {
         <Link to="/energydrinks">
         <div class="carousel-item">
           <img src={edImg} alt="image" />
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption  d-md-block">
             <div class="ad-text-container">
             <h5>Tölkillinen tehokkuutta</h5>
             <p>Stimun premium-valikoima maistuvia, raikkaita ja piristäviä energiajuomia.
@@ -69,7 +69,7 @@ export default function Carousel() {
         <Link to="/pwo">
         <div class="carousel-item">
           <img src={stimImg} alt="image" />
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption  d-md-block">
           <div class="ad-text-container">
             <h5>Korkeat tavoitteet vaativat korkeaa energiatasoa</h5>
             <p>Haluatko saavuttaa maalisi tehokkaammin? Valitse laadukkaat kofeiinitabletit ja pre-workout tuotteet, jotka antavat sinulle energiaa

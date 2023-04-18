@@ -33,7 +33,7 @@ export default function AccountPage() {
   // Siirtyy käyttäjän tietojen päivitysmoodiin
   const handleUpdateInfo = () => {
     setUpdateMode(true);
-    document.getElementById("updateInfoButton").classList.add('hidden')
+    document.getElementById("updateInfoButton").classList.add('hidden') //piilota siirtymänappi kun ollaan päivitysmoodissa
   }
 
   return (
