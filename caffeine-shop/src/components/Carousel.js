@@ -71,7 +71,7 @@ export default function Carousel() {
           <img src={stimImg} alt="image" />
           <div class="carousel-caption  d-md-block">
           <div class="ad-text-container">
-            <h5>Korkeat tavoitteet vaativat korkeaa energiatasoa</h5>
+            <h5>Pre-workoutit ja piristeet</h5>
             <p>Haluatko saavuttaa maalisi tehokkaammin? Valitse laadukkaat kofeiinitabletit ja pre-workout tuotteet, jotka antavat sinulle energiaa
               ja siivittävät sinut onnistumiseen valonnopeudella.
             </p>

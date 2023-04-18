@@ -17,6 +17,7 @@ body{
   }
   .product {
     @include text;
+    word-wrap: break-word;
     font-size: 1.0em;
     color: black;
     display: flex;
@@ -30,8 +31,12 @@ body{
       @include header-text;
       color: black;
     }
+    a {
+      width: 100%;
+    }
   }
   #product-box {
+   
     img {
       width: 300px;
       height: 300px;
@@ -40,6 +45,9 @@ body{
     a{
       text-decoration: none;
       color: black;
+    }
+    li {
+      transition: 0.4s;
     }
     height: 500px;
         img {
