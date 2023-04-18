@@ -1,5 +1,7 @@
 import React from "react";
 import '../styles/Thankyou.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 
 export default function Thankyou() {
     return (
@@ -11,6 +13,7 @@ export default function Thankyou() {
         </div>
         <div className="right">
             Viritä teleport -vastaanottimesi ja tuotteet toimitetaan sinulle seuraavan tunnin kuluessa.
+            <FontAwesomeIcon icon={faSpinner} spin className="spinner" />
         </div>
         
         

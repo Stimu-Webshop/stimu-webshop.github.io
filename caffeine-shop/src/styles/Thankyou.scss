@@ -32,6 +32,7 @@
     align-content: center;
     .right {
         display: flex;
+        flex-direction: column;
         height: 300px;
         width: 300px;
         background-color: $light;
@@ -39,5 +40,10 @@
         color: white;
         text-align: center;
         padding: 10px 10px 0px 10px;
+        .spinner {
+            font-size: 2em;
+            margin-top: 20px;
+        }
     }
+
 }
