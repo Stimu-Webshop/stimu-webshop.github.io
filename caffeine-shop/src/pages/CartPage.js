@@ -39,6 +39,7 @@ export default function CartPage() {
     if (!confirmed) {
       return
     }
+    // Päivittää inventaarion
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateinventory.php", orderData)
       .then(() => {
         // Inventory update successful
@@ -49,6 +50,19 @@ export default function CartPage() {
         // Inventory update failed
         console.log('Varaston päivitys epäonnistui');
       });
+
+
+      // Lähettää datan order tauluun
+    axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/placeorder.php", orderData)
+      .then(() => {
+        console.log('Tilauksen päivitys onnistui');
+      })
+      .catch(() => {
+        console.log('Tilauksen päivitys epäonnistui');
+      });
+
+      
+      // Poistaa ostoskorin datan
     axios
       .post(
         "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
