@@ -4,11 +4,11 @@ import '../styles/Admin.scss'
 
 export default function OrderAdmin() {
 
-        const [products, setProducts] = useState([]);
+        const [orders, setOrders] = useState([]);
       
         useEffect(() => {
           axios.get('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php')
-            .then(response => setProducts(response.data))
+            .then(response => setOrders(response.data))
             .catch(error => console.log(error));
         }, []);
 
@@ -26,23 +26,23 @@ export default function OrderAdmin() {
         </tr>
       </thead>
       <tbody>
-        {products.map(product => (
-          <tr key={product.id} className='order-table-column'>
-            <td>{product.id}</td>
+        {orders.map(order => (
+          <tr key={order.id} className='order-table-column'>
+            <td>{order.id}</td>
             <td>
-              <p>{product.name}</p> 
+              <p>{order.name}</p> 
             </td>
             <td>
-              <p>{product.description}</p>
+              <p>{order.description}</p>
             </td>
             <td>
-              <p>{product.price}</p>
+              <p>{order.price}</p>
             </td>
             <td>
               <p>ID</p>
             </td>
             <td>
-              <p>{product.category_id}</p>
+              <p>{order.category_id}</p>
             </td>
             <td>
               <button className="btn btn-success">Toimitettu</button>
