@@ -1,7 +1,7 @@
 {
   "name": "caffeine-shop",
   "version": "0.1.0",
-  "homepage": "https://web-shop-studygroup1-a.github.io/Frontend/",
+  "homepage": "https://web-shop-studygroup1-a.github.io",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
