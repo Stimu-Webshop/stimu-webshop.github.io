@@ -9,7 +9,7 @@ export default function OrderAdmin() {
     axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php')
       .then(response => setOrders(response.data))
       .catch(error => console.log(error));
-  }, []);
+  }, [orders]);
 
   const handleOrderDelivered = (orderId) => {
     const id = orderId
