@@ -2,7 +2,18 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
+
+
 export default function OrderAdmin() {
+
+        const [products, setProducts] = useState([]);
+      
+        useEffect(() => {
+          axios.get('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php')
+            .then(response => setProducts(response.data))
+            .catch(error => console.log(error));
+        }, []);
+
     return (
         <table>
       <thead>
