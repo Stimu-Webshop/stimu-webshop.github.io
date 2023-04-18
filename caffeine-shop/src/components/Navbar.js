@@ -1,6 +1,6 @@
 //17.3.2023 Sari lisäsi ostokorin ja siihen liittyvät jutut
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -13,6 +13,23 @@ import CartOffcanvas from "./CartOffcanvas";
 import logo from "../img/logo_stimu.png"
 
 export default function Navbar() {
+  // This is used for closing the login form when clicking outside of it
+  const loginRef = useRef(null);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (loginRef.current && !loginRef.current.contains(event.target)) {
+        setShowLogin(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [loginRef]);
+
+  
 
   // Shopping cart functions
   const [showCart, setShowCart] = useState(false)
@@ -77,7 +94,7 @@ export default function Navbar() {
                 className="user"
                 onClick={handleUserClick}
               />
-                <div className={`loginDiv ${showLogin ? 'show' : ''}`}>
+                <div className={`loginDiv ${showLogin ? 'show' : ''}`} ref={loginRef}>
                   <span class="material-symbols-outlined" id='closer' onClick={() => setShowLogin(!showLogin)}>
                     close
                   </span>
