@@ -3,7 +3,7 @@ import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons"
 
-export default function CartContent() {
+export default function CartContent({ update }) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -27,6 +27,7 @@ export default function CartContent() {
     if (userId) {
     const PHP = "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getcart.php";
     const url = `${PHP}?UserId=${userId}`;
+    
     axios
       .get(url)
       .then((response) => {
@@ -53,7 +54,7 @@ export default function CartContent() {
       setIsLoaded(true);
     }
 
-  }, [cartItems, userId, localCartItems]);
+  }, [update, cartItems.length]);
 
 
   //Delete item from shopping cart 
@@ -103,7 +104,7 @@ export default function CartContent() {
               <ul>
                 <li className="itemName">{item.name}</li>
                 <li>Määrä: {item.quantity}</li>
-                <li>Summa: {item.total} eur</li>
+                <li>Summa: {parseFloat(item.total).toFixed(2)} eur</li>
                 <li className="deleteItem" key={index} onClick={() => deleteCartItem(index, item.quantity, item.product_id)}><FontAwesomeIcon
             icon={faTrashCan}/> Poista tuote</li> 
               </ul>
