@@ -1,6 +1,6 @@
 //17.3.2023 Sari lisäsi ostokorin ja siihen liittyvät jutut
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -13,13 +13,32 @@ import CartOffcanvas from "./CartOffcanvas";
 import logo from "../img/logo_stimu.png"
 
 export default function Navbar() {
+  // This is used for closing the login form when clicking outside of it
+  const loginRef = useRef(null);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (loginRef.current && !loginRef.current.contains(event.target)) {
+        setShowLogin(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [loginRef]);
+
+  
 
   // Shopping cart functions
   const [showCart, setShowCart] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [update, setUpdate] = useState(false)
 
   const toggleCart = () => {
     setShowCart(!showCart)
+    setUpdate(!update)
   }
   // Function is used for checking if the user is logged in, if not redirects to the login page, if is redirects to account page isntead
   // Tähän vois tehä ihan oman ikonin tolle admin pagelle sitte jossai vaiheessa
@@ -77,7 +96,7 @@ export default function Navbar() {
                 className="user"
                 onClick={handleUserClick}
               />
-                <div className={`loginDiv ${showLogin ? 'show' : ''}`}>
+                <div className={`loginDiv ${showLogin ? 'show' : ''}`} ref={loginRef}>
                   <span class="material-symbols-outlined" id='closer' onClick={() => setShowLogin(!showLogin)}>
                     close
                   </span>
@@ -111,7 +130,7 @@ export default function Navbar() {
         id="offcanvas"
         aria-labelledby="offcanvasLabel"
       >
-        <CartOffcanvas showCart={showCart} />
+        <CartOffcanvas showCart={showCart} update={update} />
       </div>
 
     </>

@@ -12,8 +12,10 @@
 
     img {
         width: 75%;
-        height: 90vh;
+        height: 85vh;
         margin-left: 13vw;
+        object-fit: cover;
+        object-position: center;
     }
     p {
         @include text;
@@ -32,7 +34,20 @@
     background-color: rgba(0, 0, 0, 0.575);
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 740px) {
+    .ad-text-container {
+        h5 {
+            content: "röökiä";
+        }
+        p {
+            display: none;
+        }
+    }
+}
+    
+
+
+@media screen and (max-width: 426px) {
     .carousel-item {
         img {
             width: 100%;

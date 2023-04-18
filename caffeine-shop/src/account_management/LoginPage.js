@@ -8,15 +8,11 @@ import '../styles/Login.scss';
 
 // TÄÄ ON NYT TURHA, MUTTA EN VIELÄ POISTA t. Sepi
 export default function LoginPage() {
-  const [showLogin, setShowLogin] = useState(true);
+  
 
   return (
     <>
-      {showLogin && (
-      <div className='loginDiv'>
-        <span class="material-symbols-outlined" id='closer' onClick={()=>setShowLogin(false)}>
-          close
-        </span>
+      <div className='loginDiv2'>
         <h1>Kirjaudu sisään</h1>
         <div className='login'>
           <LoginFunction />
@@ -25,7 +21,7 @@ export default function LoginPage() {
           Eikö sinulla ole vielä käyttäjätiliä?{' '}
           <Link to='/register'>Rekisteröidy.</Link>
         </p>
-      </div>)}
+      </div>
     </>
   );
 }

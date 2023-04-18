@@ -4,6 +4,7 @@ import CartContent from '../components/CartContent'
 import '../styles/CartPage.scss'
 import { useState, useEffect } from "react";
 import Thankyou from './Thankyou';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
 
@@ -39,6 +40,7 @@ export default function CartPage() {
     if (!confirmed) {
       return
     }
+    // Päivittää inventaarion
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateinventory.php", orderData)
       .then(() => {
         // Inventory update successful
@@ -49,6 +51,19 @@ export default function CartPage() {
         // Inventory update failed
         console.log('Varaston päivitys epäonnistui');
       });
+
+
+      // Lähettää datan order tauluun
+    axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/placeorder.php", orderData)
+      .then(() => {
+        console.log('Tilauksen päivitys onnistui');
+      })
+      .catch(() => {
+        console.log('Tilauksen päivitys epäonnistui');
+      });
+
+      
+      // Poistaa ostoskorin datan
     axios
       .post(
         "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
@@ -72,7 +87,7 @@ export default function CartPage() {
   const handleDeleteCart = () => {
     
   const orderData = {
-    user_id: UserId.userId // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    user_id: UserId.userId
   }
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
       orderData
@@ -87,12 +102,27 @@ export default function CartPage() {
         alert('Ostoskorin tyhjennys epäonnistui');
       });
   };
+  let confirmButton = null;
+  if (UserId) {
+  confirmButton = <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
+  } else {
+    confirmButton = <Link to="/login" ><button className='cartButton'>Kirjaudu</button></Link>;
+  }
+
+  let deleteButton = null;
+  if (UserId) {
+    deleteButton = <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
+  } else {
+    deleteButton = null;
+  }
+
   return (
-    <div className='cartpage'>
-      <h2>Ostoskori</h2>
-      <CartContent />
-      <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
-      <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
-    </div>
+  <div className='cartpage'>
+  <h2>Ostoskori</h2>
+  <CartContent />
+  {confirmButton}
+  {deleteButton}
+  
+  </div>
   )
-}
+  }

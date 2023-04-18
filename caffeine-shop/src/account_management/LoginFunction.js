@@ -26,7 +26,8 @@ export default function LoginFunction() {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        const body = { username: username, password: password };      
+        const body = { username: username, password: password };
+             
         // Send a POST request to the PHP file with the user's credentials
         axios
           .post(
@@ -68,13 +69,14 @@ export default function LoginFunction() {
                     image: item.image,
                   };
                 });
+                setLocalCartItems(cartItems); 
               // Post request to send the data to the database  
                 axios
                 .post(
                   "https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/shoppingcart.php",
                   cartItems // Send the cart data as an array
                 )
-                .then((response) => {
+                .then(() => {
                   // Tämä ei toimi vielä, location ei muutu, cartItems poistuu(?)
                   localStorage.removeItem('cartItems');
                 })
@@ -94,13 +96,13 @@ export default function LoginFunction() {
               setError("Kirjautuminen epäonnistui. Yritä uudelleen.");
             }
           });
-
+        
       };
       // Updates cart items on submit
-      useEffect(() => {
-        const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-        setLocalCartItems(cartItems); 
-      }, [handleSubmit])
+      const handleCartUpdate = () => {
+        const cartItems2 = JSON.parse(localStorage.getItem('cartItems'));
+        setLocalCartItems(cartItems2); 
+      }
     
       return (
         <form onSubmit={handleSubmit}>
@@ -114,7 +116,7 @@ export default function LoginFunction() {
             <input type="password" value={password} onChange={handlePasswordChange} />
           </label>
           <br />
-          <button type="submit" className='loginButton'>Kirjaudu sisään</button>
+          <button type="submit" className='loginButton' onClick={handleCartUpdate}>Kirjaudu sisään</button>
           {error && <p>{error}</p>}
         </form>
       ); 
