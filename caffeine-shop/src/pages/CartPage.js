@@ -87,7 +87,7 @@ export default function CartPage() {
   const handleDeleteCart = () => {
     
   const orderData = {
-    user_id: UserId.userId // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    user_id: UserId.userId
   }
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
       orderData
@@ -106,7 +106,7 @@ export default function CartPage() {
   if (UserId) {
   confirmButton = <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
   } else {
-    confirmButton = <Link to="/login" className='cartButton'>Kirjaudu</Link>;
+    confirmButton = <Link to="/login" ><button className='cartButton'>Kirjaudu</button></Link>;
   }
   
   return (
