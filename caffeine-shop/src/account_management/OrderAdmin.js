@@ -39,7 +39,7 @@ export default function OrderAdmin() {
               {/* <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} */} />
             </td>
             <td>
-              <button onClick={}>Update</button>
+              <button>Update</button>
             </td>
           </tr>
 
