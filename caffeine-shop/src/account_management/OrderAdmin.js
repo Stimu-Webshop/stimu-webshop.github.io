@@ -12,9 +12,9 @@ export default function OrderAdmin() {
   }, []);
 
   const handleOrderDelivered = (orderId) => {
-    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php', {
-      id: orderId,
-    })
+    const id = orderId
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_updateorders.php', 
+      id)
       .then(response => console.log(response))
       .catch(error => console.log(error));
   }
