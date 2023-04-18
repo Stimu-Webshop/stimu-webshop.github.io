@@ -4,6 +4,7 @@ import CartContent from '../components/CartContent'
 import '../styles/CartPage.scss'
 import { useState, useEffect } from "react";
 import Thankyou from './Thankyou';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
 
@@ -101,12 +102,19 @@ export default function CartPage() {
         alert('Ostoskorin tyhjennys epäonnistui');
       });
   };
+  let confirmButton = null;
+  if (UserId) {
+  confirmButton = <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
+  } else {
+    confirmButton = <Link to="/login" className='cartButton'>Kirjaudu</Link>;
+  }
+  
   return (
-    <div className='cartpage'>
-      <h2>Ostoskori</h2>
-      <CartContent />
-      <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
-      <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
-    </div>
+  <div className='cartpage'>
+  <h2>Ostoskori</h2>
+  <CartContent />
+  {confirmButton}
+  <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
+  </div>
   )
-}
+  }
