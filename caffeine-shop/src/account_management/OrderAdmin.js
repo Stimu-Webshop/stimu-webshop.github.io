@@ -7,7 +7,7 @@ export default function OrderAdmin() {
         const [orders, setOrders] = useState([]);
       
         useEffect(() => {
-          axios.get('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php')
+          axios.get('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php')
             .then(response => setOrders(response.data))
             .catch(error => console.log(error));
         }, []);
@@ -27,22 +27,22 @@ export default function OrderAdmin() {
       </thead>
       <tbody>
         {orders.map(order => (
-          <tr key={order.id} className='order-table-column'>
-            <td>{order.id}</td>
+          <tr key={order.row_id} className='order-table-column'>
+            <td>{order.row_id}</td>
             <td>
-              <p>{order.name}</p> 
+              <p>{order.order_date}</p> 
             </td>
             <td>
-              <p>{order.description}</p>
+              <p>{order.user_id}</p>
             </td>
             <td>
-              <p>{order.price}</p>
+              <p>{order.ordered_product_id}</p>
             </td>
             <td>
-              <p>ID</p>
+              <p>{order.product_quantity}</p>
             </td>
             <td>
-              <p>{order.category_id}</p>
+              <p>{order.delivered}</p>
             </td>
             <td>
               <button className="btn btn-success">Toimitettu</button>
