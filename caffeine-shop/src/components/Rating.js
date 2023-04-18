@@ -53,7 +53,6 @@ export default function Rating(id) {
     axios.get(PHP)
       .then(response => {
         setData(response.data)
-        console.log(response.data)
       })
       .catch(error => {
         console.log(error)
@@ -85,10 +84,6 @@ export default function Rating(id) {
       </div>
     )
   }
-
-  useEffect(() => {
-    console.log(rating)
-  }, [rating])
 
   // Tähtien väri vaihtuu klikatessa ja arvosteluun tallentuu tähtien määrä
 

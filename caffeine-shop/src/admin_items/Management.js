@@ -1,6 +1,6 @@
 import React from 'react';
-import ProductManagement from './account_components/ProductManagement';
-import InsertProduct from './account_components/InsertProduct';
+import ProductManagement from './ProductManagement';
+import InsertProduct from './InsertProduct';
 import { useNavigate } from 'react-router-dom';
 
 export default function Management() {

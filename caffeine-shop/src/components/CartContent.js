@@ -78,7 +78,6 @@ export default function CartContent({ update }) {
     axios
       .post(url, deleteData)
       .then((response) => {
-        console.log(response)
         // Refresh the cart items after deletion
         setCartItems([]);
       })
