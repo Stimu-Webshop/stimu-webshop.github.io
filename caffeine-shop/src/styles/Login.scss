@@ -91,3 +91,47 @@
             }
     }
 }
+
+.loginDiv2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $offwhite;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border: 2px solid $dark;
+    padding: 20px;
+    h1 {
+        @include header-text;
+        font-size: 2.5em;
+        color: $light;
+        font-weight: bolder;
+    }
+
+    a {
+        text-decoration: underline;
+        color: $dark;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input {
+            margin-left: 5px;
+            border: 1px solid $dark;
+            border-radius: 3px;
+        }
+
+    }
+}
