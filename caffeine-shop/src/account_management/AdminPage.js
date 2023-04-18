@@ -29,6 +29,9 @@ export default function AdminPage() {
       <Link to='/management'>
         <button>Product Management</button>
       </Link>
+      <Link to='/orders'>
+        <button>Order Management</button>
+      </Link>
       <button onClick={handleLogout}>Logout</button>
     </div>
    

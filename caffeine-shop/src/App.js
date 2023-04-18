@@ -20,6 +20,7 @@ import Thankyou from './pages/Thankyou';
 import AccountPage from './account_management/AccountPage';
 import AdminPage from './account_management/AdminPage';
 import Management from './account_management/Management';
+import OrderAdmin from './account_management/OrderAdmin';
 function App() {
   return (
     <>
@@ -40,6 +41,7 @@ function App() {
           <Route path="account" element = {<AccountPage/>} />
           <Route path="admin" element = {<AdminPage/>}  />
           <Route path="management" element = {<Management/>} />
+          <Route path="orders" element = {<OrderAdmin/>} />
         </Routes>
       <Footer />
     </>
