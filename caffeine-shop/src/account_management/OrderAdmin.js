@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
-
-
+import '../styles/Admin.scss'
 
 export default function OrderAdmin() {
 
@@ -15,7 +13,7 @@ export default function OrderAdmin() {
         }, []);
 
     return (
-        <table>
+        <table className='order-table'>
       <thead>
         <tr>
           <th>Order ID</th>
@@ -29,7 +27,7 @@ export default function OrderAdmin() {
       </thead>
       <tbody>
         {products.map(product => (
-          <tr key={product.id} className='order-table'>
+          <tr key={product.id} className='order-table-column'>
             <td>{product.id}</td>
             <td>
               <p>{product.name}</p> 
@@ -41,16 +39,13 @@ export default function OrderAdmin() {
               <p>{product.price}</p>
             </td>
             <td>
-              <p>{product.img}</p>
+              <p>ID</p>
             </td>
             <td>
               <p>{product.category_id}</p>
             </td>
             <td>
-              {/* <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} */} />
-            </td>
-            <td>
-              <button>Update</button>
+              <button className="btn btn-success">Toimitettu</button>
             </td>
           </tr>
 
