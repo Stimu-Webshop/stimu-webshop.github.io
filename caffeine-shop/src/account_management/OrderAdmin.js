@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
-
-
+import '../styles/Admin.scss'
 
 export default function OrderAdmin() {
+  const [orders, setOrders] = useState([]);
 
-        const [products, setProducts] = useState([]);
-      
-        useEffect(() => {
-          axios.get('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/getproduct.php')
-            .then(response => setProducts(response.data))
-            .catch(error => console.log(error));
-        }, []);
+  useEffect(() => {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php')
+      .then(response => setOrders(response.data))
+      .catch(error => console.log(error));
+  }, []);
 
-    return (
-        <table>
+  const handleOrderDelivered = (orderId) => {
+    axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php', {
+      id: orderId,
+    })
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+  }
+
+  return (
+    <table className='order-table'>
       <thead>
         <tr>
           <th>Order ID</th>
@@ -28,34 +33,25 @@ export default function OrderAdmin() {
         </tr>
       </thead>
       <tbody>
-        {products.map(product => (
-          <tr key={product.id} className='order-table'>
-            <td>{product.id}</td>
+        {orders.map(order => (
+          <tr key={order.row_id} className='order-table-column'>
+            <td>{order.row_id}</td>
+            <td><p>{order.order_date}</p></td>
+            <td><p>{order.user_id}</p></td>
+            <td><p>{order.ordered_product_id}</p></td>
+            <td><p>{order.product_quantity}</p></td>
+            <td><p>{order.delivered}</p></td>
             <td>
-              <p>{product.name}</p> 
-            </td>
-            <td>
-              <p>{product.description}</p>
-            </td>
-            <td>
-              <p>{product.price}</p>
-            </td>
-            <td>
-              <p>{product.img}</p>
-            </td>
-            <td>
-              <p>{product.category_id}</p>
-            </td>
-            <td>
-              {/* <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} */} />
-            </td>
-            <td>
-              <button>Update</button>
+              <button
+                className="btn btn-success"
+                onClick={() => handleOrderDelivered(order.row_id)}
+              >
+                Toimitettu
+              </button>
             </td>
           </tr>
-
         ))}
       </tbody>
     </table>
   );
-        }
+}
