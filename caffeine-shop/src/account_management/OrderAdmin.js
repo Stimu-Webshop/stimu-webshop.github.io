@@ -21,25 +21,25 @@ export default function OrderAdmin() {
           <tr key={product.id} className='order-table'>
             <td>{product.id}</td>
             <td>
-              <p type="text" value={product.name} onChange={(e) => handleInputChange(e, product.id, 'name')} />
+              <p>{product.name}</p> 
             </td>
             <td>
-              <p type="text" value={product.description} onChange={(e) => handleInputChange(e, product.id, 'description')} />
+              <p>{product.description}</p>
             </td>
             <td>
-              <p type="text" value={product.price} onChange={(e) => handleInputChange(e, product.id, 'price')} />
+              <p>{product.price}</p>
             </td>
             <td>
-              <p type="text" value={product.img} onChange={(e) => handleInputChange(e, product.id, 'img')} />
+              <p>{product.img}</p>
             </td>
             <td>
-              <p type="text" value={product.category_id} onChange={(e) => handleInputChange(e, product.id, 'category_id')} />
+              <p>{product.category_id}</p>
             </td>
             <td>
-              <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} />
+              {/* <input type="text" value={product.inventory} onChange={(e) => handleInputChange(e, product.id, 'inventory')} */} />
             </td>
             <td>
-              <button onClick={() => handleUpdateClick(product.id)}>Update</button>
+              <button onClick={}>Update</button>
             </td>
           </tr>
 
