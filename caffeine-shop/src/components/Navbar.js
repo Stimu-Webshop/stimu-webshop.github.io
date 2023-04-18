@@ -34,9 +34,11 @@ export default function Navbar() {
   // Shopping cart functions
   const [showCart, setShowCart] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [update, setUpdate] = useState(false)
 
   const toggleCart = () => {
     setShowCart(!showCart)
+    setUpdate(!update)
   }
   // Function is used for checking if the user is logged in, if not redirects to the login page, if is redirects to account page isntead
   // Tähän vois tehä ihan oman ikonin tolle admin pagelle sitte jossai vaiheessa
@@ -128,7 +130,7 @@ export default function Navbar() {
         id="offcanvas"
         aria-labelledby="offcanvasLabel"
       >
-        <CartOffcanvas showCart={showCart} />
+        <CartOffcanvas showCart={showCart} update={update} />
       </div>
 
     </>
