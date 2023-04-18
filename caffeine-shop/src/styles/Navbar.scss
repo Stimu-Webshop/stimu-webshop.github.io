@@ -72,15 +72,18 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
     .navbar-collapse {
         display: flex;
         flex-direction: column;
         justify-content: center !important;
+        ul {
+            margin-left: -5%;
+        }
     }
     .icons {
         display: block;
-        margin-left: 0;
+        margin-left: -60% !important;
         margin-top: 10px;
     }
     .container-fluid {
@@ -88,5 +91,8 @@
     }
     .dropdown {
         margin-left: 20px;
+    }
+    .loginDiv {
+        font-size: 0.8em;
     }
 }
