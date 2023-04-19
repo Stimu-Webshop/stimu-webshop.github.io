@@ -2,6 +2,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function ProductForm() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const adminValue = localStorage.getItem('adminValue')
+    if (!adminValue) {
+      window.location.href = '/'
+    } else {
+      setIsLoading(false)
+    }
+    }, []);
+
+
+
   const [id, setId] = useState();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -49,6 +63,9 @@ function ProductForm() {
     }
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
   return (
     <form onSubmit={handleSubmit} className='add-product-form'>
   <table>

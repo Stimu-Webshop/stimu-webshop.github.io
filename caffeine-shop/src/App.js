@@ -22,6 +22,7 @@ import AdminPage from './admin_items/AdminPage';
 import Management from './admin_items/Management';
 import OrderAdmin from './admin_items/OrderAdmin';
 import PasswordRecovery from './account_management/PasswordRecovery';
+import ContactRequests from './admin_items/ContactRequests';
 function App() {
   return (
     <>
@@ -45,6 +46,7 @@ function App() {
           <Route path="management" element = {<Management/>} />
           <Route path="orders" element = {<OrderAdmin/>} />
           <Route path="forgotpassword" element = {<PasswordRecovery/>} />
+          <Route path="contactrequests" element = {<ContactRequests/>} /> 
         </Routes>
       <Footer />
     </>

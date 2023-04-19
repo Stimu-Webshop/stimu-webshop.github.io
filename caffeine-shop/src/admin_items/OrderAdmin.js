@@ -4,8 +4,20 @@ import axios from 'axios'
 import '../styles/Admin.scss'
 
 export default function OrderAdmin() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const adminValue = localStorage.getItem('adminValue')
+    if (!adminValue) {
+      window.location.href = '/'
+    } else {
+      setIsLoading(false)
+    }
+  }, []);
+
   const [orders, setOrders] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php')
@@ -21,6 +33,9 @@ export default function OrderAdmin() {
       .catch(error => console.log(error));
   }
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
   return (
     <>
       <table className='order-table'>
