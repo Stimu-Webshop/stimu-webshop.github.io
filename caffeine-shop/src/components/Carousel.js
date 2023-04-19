@@ -1,17 +1,10 @@
 // SEPI
 // 17.3.2023 Sari lisäili vähän mainostekstiä
-
-import React, { useEffect, useState } from 'react';
-
-
 import coffeeImg from "../img/coffee1.png";
 import edImg from "../img/energy2.png";
 import stimImg from "../img/stimulants.png"
-
 import "../styles/Carousel.scss";
 import { Link } from 'react-router-dom';
-
-
 
 export default function Carousel() {
 

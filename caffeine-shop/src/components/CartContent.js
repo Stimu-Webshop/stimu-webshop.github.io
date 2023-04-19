@@ -16,11 +16,6 @@ export default function CartContent({ update }) {
   const localItems = localStorage.getItem('cartItems');
   const localCartItems = JSON.parse(localItems);
 
-  
- // Älkää tehkö ostoksia loppuun asti ilman että olette sisäänkirjautuneena, voi mennä rikki
-  // 11.4 TODOs:
-  // Ei voi tehdä ostoksia ilman sisäänkirjautumista
-  // Kassalle napin sijasta kirjaudu tms nappi
 
   useEffect(() => {
     // Tarkistaa onko käyttäjä kirjautunut sisälle, jos on hakee käyttäjän henkilökohtaisen ostoskorin.

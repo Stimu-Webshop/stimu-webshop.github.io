@@ -30,7 +30,7 @@ const ProductManagement = () => {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.img, // changed 'img' to 'image'
+      image: product.img, 
       category: product.category_id,
       inventory: product.inventory,
     })
