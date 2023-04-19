@@ -42,7 +42,6 @@ export default function UpdateAccountInfo() {
     event.preventDefault();
     const userId = localStorage.getItem('userId');
     const userDataWithUserId = { ...userData, userId };
-    console.log(userDataWithUserId);
     axios
       .post(
         `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateaccountdata.php`,
@@ -52,7 +51,7 @@ export default function UpdateAccountInfo() {
         setError('Account updated succesfully!');
         setTimeout(() => {
           window.location.href = "/account";
-        }, 500); // delay the redirection for 2 seconds (2000 milliseconds)
+        }, 1000); // delay the redirection for 1 seconds (1000 milliseconds)
       })
       .catch(error => {
         console.log(error);

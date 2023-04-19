@@ -22,9 +22,7 @@ export default function CartPage() {
     const storedUserId = JSON.parse(localStorage.getItem('userId'));
     if (storedUserId) {
       setUserId(storedUserId);
-    } else {
-      console.log('User id is empty');
-    }
+    } 
   }, []);
 
 
