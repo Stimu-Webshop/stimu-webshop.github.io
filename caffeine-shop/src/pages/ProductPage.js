@@ -26,7 +26,6 @@ const ProductPage = () => {
     const storedUserId = JSON.parse(localStorage.getItem('userId'));
     if (storedUserId) {
       setUserId(storedUserId);
-      console.log(UserId);
     } else {
       console.log('User id is empty');
     }
@@ -86,9 +85,6 @@ const ProductPage = () => {
         'https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/shoppingcart.php',
         [cartItem] // Send the cart data as an array
       )
-      .then(response => {
-        console.log(response.data);
-      })
       .catch(error => {
         console.log(error);
       });

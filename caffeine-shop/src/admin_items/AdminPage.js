@@ -12,7 +12,7 @@ export default function AdminPage() {
     } else {
       setIsLoading(false)
     }
-  }, [])
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('userId')
@@ -34,6 +34,11 @@ export default function AdminPage() {
       <div>
         <Link to='/orders'>
           <button>Order Management</button>
+        </Link>
+      </div>
+      <div>
+        <Link to='/contactrequests'>
+          <button>Contact Requests</button>
         </Link>
       </div>
       <div>

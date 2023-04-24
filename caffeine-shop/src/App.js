@@ -18,9 +18,11 @@ import LoginPage from './account_management/LoginPage';
 import CartPage from './pages/CartPage';
 import Thankyou from './pages/Thankyou';
 import AccountPage from './account_management/AccountPage';
-import AdminPage from './account_management/AdminPage';
-import Management from './account_management/Management';
-import OrderAdmin from './account_management/OrderAdmin';
+import AdminPage from './admin_items/AdminPage';
+import Management from './admin_items/Management';
+import OrderAdmin from './admin_items/OrderAdmin';
+import PasswordRecovery from './account_management/PasswordRecovery';
+import ContactRequests from './admin_items/ContactRequests';
 function App() {
   return (
     <>
@@ -43,6 +45,8 @@ function App() {
           <Route path="admin" element = {<AdminPage/>}  />
           <Route path="management" element = {<Management/>} />
           <Route path="orders" element = {<OrderAdmin/>} />
+          <Route path="forgotpassword" element = {<PasswordRecovery/>} />
+          <Route path="contactrequests" element = {<ContactRequests/>} /> 
         </Routes>
       <Footer />
     </>

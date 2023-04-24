@@ -1,37 +1,13 @@
 // SEPI
 // 17.3.2023 Sari lisäili vähän mainostekstiä
-
-import React, { useEffect, useState } from 'react';
-
-
 import coffeeImg from "../img/coffee1.png";
 import edImg from "../img/energy2.png";
 import stimImg from "../img/stimulants.png"
-
 import "../styles/Carousel.scss";
 import { Link } from 'react-router-dom';
 
-
-
 export default function Carousel() {
 
-  // TÄMÄ HAKEE LOCALSTORAGESTA USERID:N KARUSELLIIN
-  // KÄYTETTY LÄHINNÄ TESTAUSTA VARTEN, MAHDOLLISESTI EI TÄSSÄ KOMPONENTISSA
-  // TARPEELLINEN. KYSY ENNEN POISTOA - Samppa 15:44 28.3.23
-  const [UserId, setUserId] = useState(null)
-
-  useEffect(() => {
-    const storedUserId = JSON.parse(localStorage.getItem('userId'));
-    if (storedUserId) {
-      setUserId(storedUserId);
-      console.log(UserId);
-
-    } else {
-      console.log('User id is empty');
-    }
-
-  }, []);
-  // USERID LOPPUU
   return (
     
     <div id="carouselExampleCaptions" class="vertical carousel slide">

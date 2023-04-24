@@ -4,6 +4,7 @@ import CartContent from '../components/CartContent'
 import '../styles/CartPage.scss'
 import { useState, useEffect } from "react";
 import Thankyou from './Thankyou';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
 
@@ -21,11 +22,7 @@ export default function CartPage() {
     const storedUserId = JSON.parse(localStorage.getItem('userId'));
     if (storedUserId) {
       setUserId(storedUserId);
-      console.log(UserId);
-    } else {
-      console.log('User id is empty');
-    }
-    console.log(storedUserId);
+    } 
   }, []);
 
 
@@ -41,11 +38,6 @@ export default function CartPage() {
     }
     // Päivittää inventaarion
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/updateinventory.php", orderData)
-      .then(() => {
-        // Inventory update successful
-        console.log('Varasto päivitetty');
-        // Clear cart or update cart as needed
-      })
       .catch(() => {
         // Inventory update failed
         console.log('Varaston päivitys epäonnistui');
@@ -54,9 +46,6 @@ export default function CartPage() {
 
       // Lähettää datan order tauluun
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/placeorder.php", orderData)
-      .then(() => {
-        console.log('Tilauksen päivitys onnistui');
-      })
       .catch(() => {
         console.log('Tilauksen päivitys epäonnistui');
       });
@@ -71,7 +60,6 @@ export default function CartPage() {
       .then(() => {
         // Order successful
         setShouldRedirect(true);
-
       })
       .catch(() => {
         // Order failed
@@ -86,14 +74,19 @@ export default function CartPage() {
   const handleDeleteCart = () => {
     
   const orderData = {
-    user_id: UserId.userId // tällä hetkellä tilaukset menee aina käyttäjälle 1
+    user_id: UserId.userId
   }
+  const confirmed = window.confirm('Haluatko varmasti tyhjentää ostoskorin?');
+  if (!confirmed) {
+    return;
+  }
+
     axios.post("https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/deletecart.php",
       orderData
     )
       .then(() => {
+       window.location.reload();
         // Delete successful
-        alert('Ostoskori tyhjennetty');
         // Update product list or do other actions as needed
       })
       .catch(() => {
@@ -101,12 +94,31 @@ export default function CartPage() {
         alert('Ostoskorin tyhjennys epäonnistui');
       });
   };
+  let confirmButton = null;
+  let guideText = null;
+  if (UserId) {
+  confirmButton = <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
+  guideText = null;
+  } else {
+    guideText = <p>Sinun tulee olla sisäänkirjautunut tilataksesi.</p>
+    confirmButton = <Link to="/login" ><button className='cartButton'>Kirjaudu</button></Link>;
+  }
+
+  let deleteButton = null;
+  if (UserId) {
+    deleteButton = <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
+  } else {
+    deleteButton = null;
+  }
+
   return (
-    <div className='cartpage'>
-      <h2>Ostoskori</h2>
-      <CartContent />
-      <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
-      <button className='cartButton' onClick={handleDeleteCart}>Tyhjennä kori</button>
-    </div>
+  <div className='cartpage'>
+  <h2>Ostoskori</h2>
+  <CartContent />
+  {guideText}
+  {confirmButton}
+  {deleteButton}
+  
+  </div>
   )
-}
+  }
