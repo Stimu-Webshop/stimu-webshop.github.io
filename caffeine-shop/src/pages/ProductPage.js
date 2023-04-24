@@ -36,6 +36,8 @@ const ProductPage = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
+    setIsLoaded(false)
+    setProduct(null)
     const PHP = `https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/selected.php?id=${id}`;
     axios.get(PHP)
       .then(response => {
