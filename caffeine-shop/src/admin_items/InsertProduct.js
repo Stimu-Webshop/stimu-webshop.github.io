@@ -8,7 +8,7 @@ function ProductForm() {
   useEffect(() => {
     const adminValue = localStorage.getItem('adminValue')
     if (!adminValue) {
-      window.location.href = '/'
+      window.location.href = '/#/'
     } else {
       setIsLoading(false)
     }
