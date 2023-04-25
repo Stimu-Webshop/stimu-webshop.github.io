@@ -46,9 +46,9 @@ export default function Navbar() {
     const userId = localStorage.getItem("userId");
     const adminValue = localStorage.getItem('adminValue');
     if (userId) {
-      window.location.href = '/account';
+      window.location.href = '/#/account';
     } else if (adminValue) {
-      window.location.href = '/admin';
+      window.location.href = '/#/admin';
     } else {
       setShowLogin(!showLogin);
     }
