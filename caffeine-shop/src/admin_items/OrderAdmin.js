@@ -57,7 +57,7 @@ export default function OrderAdmin() {
       <table className='order-table'>
         <thead>
           <tr>
-            <th>Order ID</th>
+            <th>Order row ID</th>
             <th>Date</th>
             <th>User ID</th>
             <th>Product ID</th>
