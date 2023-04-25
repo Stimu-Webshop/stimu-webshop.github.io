@@ -8,7 +8,7 @@ export default function AdminPage() {
   useEffect(() => {
     const adminValue = localStorage.getItem('adminValue')
     if (!adminValue) {
-      window.location.href = '/'
+      window.location.href = '/#/'
     } else {
       setIsLoading(false)
     }
@@ -18,7 +18,7 @@ export default function AdminPage() {
     localStorage.removeItem('userId')
     localStorage.removeItem('adminValue')
     localStorage.removeItem('adminId')
-    window.location.href = '/'
+    window.location.href = '/#/'
   }
   if (isLoading) {
     return <div>Loading...</div>

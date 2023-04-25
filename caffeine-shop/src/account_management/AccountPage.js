@@ -27,7 +27,7 @@ export default function AccountPage() {
     localStorage.removeItem('userId');
     localStorage.removeItem('adminValue');
     localStorage.removeItem('adminId');
-    window.location.href = '/';
+    window.location.href = '/#/';
   };
 
   // Siirtyy käyttäjän tietojen päivitysmoodiin

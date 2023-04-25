@@ -84,7 +84,7 @@ export default function LoginFunction() {
                   console.log(error);
                 });
             }            
-            window.location.href = '/';
+            window.location.href = '/#/';
           }
           })
           .catch((error) => {
