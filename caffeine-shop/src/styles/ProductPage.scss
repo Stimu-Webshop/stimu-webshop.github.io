@@ -346,4 +346,9 @@ body { //jos fonttia ei ole muuten määritelty
     #orderbtn::after {
         left: 25% !important;
     }
+    .review-form {
+        textarea {
+            width: 80%;
+        }
+    }
 }
