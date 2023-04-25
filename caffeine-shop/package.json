@@ -1,7 +1,7 @@
 {
   "name": "caffeine-shop",
   "version": "0.1.0",
-  "homepage": "https://stimu-webshop.github.io/Frontend/",
+  "homepage": "https://stimu-webshop.github.io",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
