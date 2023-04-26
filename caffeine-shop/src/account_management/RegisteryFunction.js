@@ -5,7 +5,7 @@
 // Login page (tulossa)
 // -- 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { faCheck } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -21,6 +21,7 @@ export default function RegisteryFunction() {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [Error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
@@ -46,7 +47,7 @@ export default function RegisteryFunction() {
         setError(response.status);
         console.log(Error);
         if (response.ok) {
-        navigate('/loginsuccess')        
+          setSuccess(true);
         } else if (Error === 409) {
           alert('This username is already in use.');
         } else {
@@ -61,7 +62,17 @@ export default function RegisteryFunction() {
   };
 
   
-   
+    if (success) {
+      return (
+        <>
+        <div>
+        <h1>Rekisteröinti onnistui!</h1>
+        <p> Sinun tulee kirjautua sisälle tehdäksesis ostoksia.</p>
+        <p>Paina <Link to='/'>Tästä</Link> kirjautuaksesi sisälle</p>
+        </div>
+        </>
+      )
+    }
     return (
       <div className='registryContainer'>
         <div className='registryAdvertisement'><h1>Kun rekisteröidyt</h1> 
