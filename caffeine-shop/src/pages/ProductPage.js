@@ -122,7 +122,7 @@ const ProductPage = () => {
           <span class="material-symbols-outlined">
             arrow_back_ios
           </span>
-          Takaisin kauppaan
+          Takaisin
         </button>
         <h1>{product.name}</h1>
         <p></p>
