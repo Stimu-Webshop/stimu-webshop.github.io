@@ -10,9 +10,7 @@ export default function LoginFunction() {
 
       const [LocalCartItems, setLocalCartItems] = useState([]);
       
-     
-      
-    
+
       const handleUsernameChange = (event) => {
         setUsername(event.target.value);
       };
@@ -21,8 +19,6 @@ export default function LoginFunction() {
         setPassword(event.target.value);
       };
 
-      
-      
     
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -83,9 +79,17 @@ export default function LoginFunction() {
                 .catch((error) => {
                   console.log(error);
                 });
-            }            
+            }
+
+            // Tämä redirectaa oikein /login sivulta vain live sivulla
+            // Url tulee muuttaa local testausta varten
+            if (window.location.href.includes('https://stimu-webshop.github.io/#/login')){
+              window.location.href = '/#/'
+            }
+            else {          
             window.location.reload();
-          }
+          }  
+        }
           })
           .catch((error) => {
             console.log(error);

@@ -1,9 +1,3 @@
-// 19:32 21.3.23 - Samppa
-// TODO : Redirecti eri sivulle kun rekisteröityminen onnistunut
-// Mahdollisten virheiden esittäminen käyttäjälle, ex. username exists, typo, ym.
-// Visuaalinen puoli, linkitys Navbaariin --> Account page?
-// Login page (tulossa)
-// -- 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { faCheck } from "@fortawesome/free-solid-svg-icons"

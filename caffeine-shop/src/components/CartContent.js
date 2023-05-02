@@ -9,7 +9,6 @@ export default function CartContent({ update }) {
   const [cartItems, setCartItems] = useState([]);
   const [productId, setProductId] = useState([]);
   const [productQuantity, setProductQuantity] = useState([]);
-  const [LocalCartItems, setLocalCartItems] = useState([]);
   const storedUserId = JSON.parse(localStorage.getItem('userId'));
   const userId = storedUserId ? storedUserId.userId : null;
 
@@ -52,7 +51,7 @@ export default function CartContent({ update }) {
   }, [update, cartItems.length]);
 
 
-  //Delete item from shopping cart 
+  // Delete item from shopping cart 
   const deleteCartItem = (index, quantity, itemProductId) => {
     const confirmed = window.confirm('Haluatko varmasti poistaa tuotteen ostoskorista?');
     if (!confirmed) {

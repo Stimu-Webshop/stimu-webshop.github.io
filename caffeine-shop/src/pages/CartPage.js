@@ -11,11 +11,6 @@ export default function CartPage() {
   const [isOrdering, setIsOrdering] = useState(false)
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [UserId, setUserId] = useState(null)
-
-  // 17:09 28.3.23 CART FUNKTIOT TOIMII VAIN SISÄÄNKIRJAUTUNEENA.
-  // TÄHÄN RATKAISUA LÄHITULEVAISUUDESSA
-  // TOIMIVAT KÄYTTÄJÄTUNNUKSET LÖYTYY DISCORDISTA
-  // - Samppa 
   
   // TÄMÄ HAKEE USERID:N LOCALSTORAGESTA SIVUN LADATESSA JA TALLENTAA SEN MUUTTUJAAN
   useEffect(() => {
@@ -95,13 +90,18 @@ export default function CartPage() {
       });
   };
   let confirmButton = null;
+  let registryButton = null;
   let guideText = null;
   if (UserId) {
   confirmButton = <button className='cartButton' onClick={handlePlaceOrder} disabled={isOrdering}>Vahvista ostokset</button>
   guideText = null;
   } else {
-    guideText = <p>Sinun tulee olla sisäänkirjautunut tilataksesi.</p>
+    guideText = <div>
+      <p>Sinun tulee olla sisäänkirjautunut tilataksesi.</p> 
+      <p>Jos sinulla ei ole vielä tiliä, paina alla olevaa nappia rekisteröityäksesi.</p>
+              </div>
     confirmButton = <Link to="/login" ><button className='cartButton'>Kirjaudu</button></Link>;
+    registryButton = <Link to="/register" ><button className='cartButton'>Rekisteröidy</button></Link>;
   }
 
   let deleteButton = null;
@@ -118,6 +118,7 @@ export default function CartPage() {
   {guideText}
   {confirmButton}
   {deleteButton}
+  {registryButton}
   
   </div>
   )

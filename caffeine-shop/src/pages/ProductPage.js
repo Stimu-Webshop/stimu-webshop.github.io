@@ -13,21 +13,14 @@ const ProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [product, setProduct] = useState(null)
   const [amount, setAmount] = useState(0)
-
-  // Älkää tehkö ostoksia loppuun asti ilman että olette sisäänkirjautuneena, voi mennä rikki
-  // 11.4 TODOs:
-  // Ei voi tehdä ostoksia ilman sisäänkirjautumista
-  // Kassalle napin sijasta kirjaudu tms nappi
-
-  // TÄMÄ HAKEE USERID:N LOCALSTORAGESTA SIVUN LADATESSA JA TALLENTAA SEN MUUTTUJAAN
   const [UserId, setUserId] = useState(null)
 
+
+  
   useEffect(() => {
     const storedUserId = JSON.parse(localStorage.getItem('userId'));
     if (storedUserId) {
       setUserId(storedUserId);
-    } else {
-      console.log('User id is empty');
     }
   }, []);
 
@@ -68,7 +61,6 @@ const ProductPage = () => {
       const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
       const cartItems = storedCartItems ? [...storedCartItems, localCartItem] : [localCartItem];
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      console.log(localStorage.getItem('cartItems'));
       return;
     }
     // Luo tietokannalle lähetettävät cart itemit ja lähettää ne.

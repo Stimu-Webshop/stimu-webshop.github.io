@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import LoginFunction from './LoginFunction';
 
 import '../styles/Login.scss';
-
-// Jos joku tänne eksyy nii nää vois tyylitellä (AccountPage, Loginpage, RegisteryPage, UpdateAccountInfo, LoginFunction) :) 
-
-// TÄÄ ON NYT TURHA, MUTTA EN VIELÄ POISTA t. Sepi
 export default function LoginPage() {
   
 
