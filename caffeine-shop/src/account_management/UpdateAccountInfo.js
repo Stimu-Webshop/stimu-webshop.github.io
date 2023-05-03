@@ -50,7 +50,7 @@ export default function UpdateAccountInfo() {
       .then(response => {
         setError('Account updated succesfully!');
         setTimeout(() => {
-          window.location.href = "/account";
+          window.location.href = "/#/account";
         }, 1000); // delay the redirection for 1 seconds (1000 milliseconds)
       })
       .catch(error => {
