@@ -61,6 +61,7 @@ function ProductForm() {
     } catch (error) {
       console.error(error);
     }
+    window.location.reload();
   };
 
   if (isLoading) {
