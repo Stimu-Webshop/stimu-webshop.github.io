@@ -116,9 +116,11 @@ body { //jos fonttia ei ole muuten määritelty
                     padding: 18px;
                     margin: 0;
                     opacity: 0;
+                    display: none;
                     transition: 2s;
                 }
                 #orderbtn:active::after {
+                    display: block;
                     opacity: 1;
                     transition: 0.1s;
                 }
