@@ -72,18 +72,24 @@
     }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 768px) {
     .navbar-collapse {
         display: flex;
         flex-direction: column;
-        justify-content: center !important;
+        align-items: flex-start;
         ul {
-            margin-left: -5%;
+            margin-left: 0px;
+            padding: 0px;
+        }
+        .dropdown {
+            margin: 0px;
+            button {
+                margin-left:0px;
+            }
         }
     }
     .icons {
         display: block;
-        margin-left: -60% !important;
         margin-top: 10px;
     }
     .container-fluid {
@@ -94,5 +100,9 @@
     }
     .loginDiv {
         font-size: 0.8em;
+    }
+
+    .search-bar-container {
+        margin-left: 0px;
     }
 }
