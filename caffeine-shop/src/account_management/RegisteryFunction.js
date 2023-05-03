@@ -59,10 +59,10 @@ export default function RegisteryFunction() {
     if (success) {
       return (
         <>
-        <div>
+        <div className='registerSuccess'>
         <h1>Rekisteröinti onnistui!</h1>
-        <p> Sinun tulee kirjautua sisälle tehdäksesis ostoksia.</p>
-        <p>Paina <Link to='/'>Tästä</Link> kirjautuaksesi sisälle</p>
+        <p> Ostoksia voi tällä hetkellä suorittaa vain kirjautuneena.</p>
+        <p>Paina <Link to='/login'>tästä</Link> kirjautuaksesi sisälle.</p>
         </div>
         </>
       )

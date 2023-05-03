@@ -70,7 +70,22 @@
         }
     }
 }
+.registerSuccess {
+    h1 {
+        @include header-text;
+        font-size: 2.5em;
+        color: $light;
+        font-weight: bolder;
+        text-align: center;
+    }
+    p {
+        @include text;
+        font-size: 1.5em;
+        color: black;
+        text-align: center;
+    }
 
+}
 .registryButton {
     @include webshop-button;
     margin: 10px;
