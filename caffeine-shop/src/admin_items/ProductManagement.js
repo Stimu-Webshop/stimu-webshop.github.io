@@ -24,6 +24,10 @@ const ProductManagement = () => {
 
 
   const handleUpdateClick = (id) => {
+    const confirmed = window.confirm('Haluatko varmasti päivittää tuotteen?');
+    if (!confirmed) {
+      return
+    }
     const product = products.find(product => product.id === id);
     axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_updateproduct.php', {
       id: id,
@@ -34,8 +38,9 @@ const ProductManagement = () => {
       category: product.category_id,
       inventory: product.inventory,
     })
-      .then(response => console.log(response))
+      .then(response => alert('Tuote päivitetty'))
       .catch(error => console.log(error));
+      
   };
 
  
