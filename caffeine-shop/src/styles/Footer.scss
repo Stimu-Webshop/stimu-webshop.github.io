@@ -23,6 +23,11 @@ footer {
     @include borders;
     padding: 10px;
     margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footerLink:hover {
+    background-color: $light;
 }
 
 @media screen and (max-width: 425px) {
