@@ -336,6 +336,9 @@ body { //jos fonttia ei ole muuten määritelty
         flex-direction: column !important;
     }
     .headerContent {
+        h1{
+            font-size: 45px !important;
+        }
         #backbutton {
             width: 40px;
             height: 50px;
