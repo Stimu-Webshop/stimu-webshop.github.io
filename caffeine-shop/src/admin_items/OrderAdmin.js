@@ -25,6 +25,7 @@ export default function OrderAdmin() {
     axios.post('https://www.students.oamk.fi/~n2rusa00/Stimu/backendi/Web-Shop-Back/products/admin_getorders.php')
       .then(response => setOrders(response.data))
       .catch(error => console.log(error));
+    
   }, [orders]);
 
   const handleOrderDelivered = () => {
@@ -38,6 +39,13 @@ export default function OrderAdmin() {
       ids)
       .then(response => console.log(response) )
       .catch(error => console.log(error));
+      //Tyhjennä checkboxit napin painamisen jälkeen
+      let checkboxes = document.getElementsByTagName('input')
+      for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].type === 'checkbox') {
+          checkboxes[i].checked = false;
+        }
+      }
   }
 
   const handleCheckboxChange = (event, orderId) => {

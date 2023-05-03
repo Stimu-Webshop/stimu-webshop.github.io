@@ -46,7 +46,7 @@ export default function LoginFunction() {
               localStorage.setItem("adminValue", JSON.stringify(data.adminValue));
               localStorage.setItem("adminId", JSON.stringify(data.adminId));
               localStorage.removeItem("cartItems");
-              window.location.href = "/admin";
+              window.location.href = "/#/admin";
               return;
             } else if (data.userId) {
               // If block for if the user is a regular user
@@ -80,7 +80,6 @@ export default function LoginFunction() {
                   console.log(error);
                 });
             }
-
             // Tämä redirectaa oikein /login sivulta vain live sivulla
             // Url tulee muuttaa local testausta varten
             if (window.location.href.includes('https://stimu-webshop.github.io/#/login')){
